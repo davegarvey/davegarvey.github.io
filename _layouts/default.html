@@ -3,23 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f6f2">
+    <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#181a18" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
     {% seo %}
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="site-shell">
+    <div class="shell">
       <header class="site-header">
-        <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }} home">
-          <span class="wordmark-mark" aria-hidden="true"></span>
-          <span>{{ site.title | escape }}</span>
-        </a>
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="{{ '/' | relative_url }}">Writing</a>
-          <a href="{{ '/tags/' | relative_url }}">Tags</a>
-          <a href="{{ '/about/' | relative_url }}">About</a>
+          <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
         </nav>
       </header>
 
@@ -28,8 +24,8 @@
       </main>
 
       <footer class="site-footer">
-        <p>© {{ site.time | date: '%Y' }} {{ site.author | escape }}</p>
-        <a href="{{ '/feed.xml' | relative_url }}">RSS feed <span aria-hidden="true">↗</span></a>
+        <span>© {{ site.time | date: '%Y' }} {{ site.author | escape }}</span>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
       </footer>
     </div>
   </body>

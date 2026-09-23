@@ -1,4 +1,4 @@
-# Dave Garvey — blog source
+# David Garvey’s Weblog — source
 
 A small Jekyll blog for GitHub Pages. Posts are Markdown, the site has no JavaScript or external font dependencies, and GitHub Actions builds and publishes it.
 
@@ -30,14 +30,14 @@ tags:
   - ideas
 ---
 
-Write the opening paragraph here. It appears as the post preview.
+Write the opening paragraph here. It appears as the preview in the RSS feed.
 
 <!--more-->
 
 Continue the post here. Markdown headings, lists, links, and code blocks are supported.
 ```
 
-The date at the start of the filename determines the post's date and URL. Use a consistent, small set of lowercase tags. Posts dated in the future stay unpublished until their date.
+The date at the start of the filename determines the post's date and URL. Tags are optional and appear as plain text under the post title; use a small, consistent set of lowercase tags. Posts dated in the future stay unpublished until their date.
 
 An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). Copy it into `_posts` and replace its sample title and content to publish your first note.
 
@@ -56,4 +56,4 @@ Commit the generated `Gemfile.lock` when you add or update dependencies so local
 
 ## Update the site details
 
-Edit the title, author, description, canonical URL, and timezone in [`_config.yml`](_config.yml). The About page lives in [`about.md`](about.md), and the design is in [`assets/css/main.css`](assets/css/main.css).
+Edit the title, author, description, canonical URL, and timezone in [`_config.yml`](_config.yml). The About page lives in [`about.md`](about.md), and the design is in [`assets/css/main.css`](assets/css/main.css). The site follows the reader's system light or dark setting.

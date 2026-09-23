@@ -8,8 +8,8 @@ tags:
   - ideas
 ---
 
-Start writing here in Markdown. The first paragraph becomes the post preview on the home page and the RSS feed.
+Start writing here in Markdown. The first paragraph becomes the post preview in the RSS feed.
 
 <!--more-->
 
-Add `<!--more-->` where you want the preview to end. Keep tags short and use them consistently so the tag archive stays useful.
+Add `<!--more-->` where you want the preview to end. Keep tags short and use them consistently.
