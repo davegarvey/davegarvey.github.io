@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f2">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }} home">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          <span>{{ site.title | escape }}</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="{{ '/' | relative_url }}">Writing</a>
+          <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          <a href="{{ '/about/' | relative_url }}">About</a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <p>© {{ site.time | date: '%Y' }} {{ site.author | escape }}</p>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS feed <span aria-hidden="true">↗</span></a>
+      </footer>
+    </div>
+  </body>
+</html>

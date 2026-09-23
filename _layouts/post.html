@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="article">
+  <header class="article-header">
+    <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> All writing</a>
+    <p class="eyebrow">{{ page.date | date: "%B %Y" }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    <div class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.tags and page.tags.size > 0 %}
+        <span class="meta-divider" aria-hidden="true">·</span>
+        <ul class="tag-list" aria-label="Tags">
+          {% for tag in page.tags %}
+            <li><a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="article-footer">
+    <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Back to all writing</a>
+  </footer>
+</article>

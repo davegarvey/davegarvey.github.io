@@ -1,0 +1,28 @@
+title: Dave Garvey
+author: Dave Garvey
+description: Notes, essays, and useful things.
+url: https://davegarvey.github.io
+baseurl: ""
+lang: en
+timezone: Europe/Zurich
+
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+show_excerpts: true
+excerpt_separator: "<!--more-->"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+  excerpt_only: true
+
+exclude:
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

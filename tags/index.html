@@ -1,0 +1,45 @@
+---
+layout: default
+title: Tags
+description: Browse writing by topic.
+permalink: /tags/
+---
+<section class="page-intro" aria-labelledby="page-title">
+  <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> Home</a>
+  <p class="eyebrow">The index</p>
+  <h1 id="page-title">Browse by tag.</h1>
+  <p class="intro-copy">Follow a thread through the archive.</p>
+</section>
+
+{% assign sorted_tags = site.tags | sort %}
+{% if sorted_tags.size > 0 %}
+  <nav class="tag-index" aria-label="Jump to a tag">
+    {% for tag in sorted_tags %}
+      <a class="tag-index-link" href="#{{ tag[0] | slugify }}">{{ tag[0] | escape }} <span>{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </nav>
+
+  <div class="tag-groups">
+    {% for tag in sorted_tags %}
+      <section class="tag-group" id="{{ tag[0] | slugify }}" aria-labelledby="heading-{{ tag[0] | slugify }}">
+        <div class="section-heading">
+          <h2 id="heading-{{ tag[0] | slugify }}">{{ tag[0] | escape }}</h2>
+          <span class="count-label">{{ tag[1].size }} {% if tag[1].size == 1 %}post{% else %}posts{% endif %}</span>
+        </div>
+        <div class="post-list">
+          {% for post in tag[1] %}
+            {% include post-card.html post=post %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="empty-state">
+    <span class="empty-mark" aria-hidden="true">#</span>
+    <div>
+      <h2>No tags yet.</h2>
+      <p>Add a <code>tags</code> list to a post's front matter and it will appear here.</p>
+    </div>
+  </div>
+{% endif %}
