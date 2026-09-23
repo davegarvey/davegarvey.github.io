@@ -2,7 +2,7 @@
 layout: default
 ---
 <h1 class="visually-hidden">{{ site.title | escape }}</h1>
-<p class="intro">{{ site.description | escape }}</p>
+<p class="intro">{{ site.subtitle | escape }}</p>
 
 {% if site.posts.size > 0 %}
   {% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}

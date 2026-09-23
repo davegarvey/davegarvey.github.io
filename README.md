@@ -1,4 +1,4 @@
-# David Garvey’s Weblog — source
+# David Garvey’s Occasional Thoughts — source
 
 A small Jekyll blog for GitHub Pages. Posts are Markdown, the site has no JavaScript or external font dependencies, and GitHub Actions builds and publishes it.
 
