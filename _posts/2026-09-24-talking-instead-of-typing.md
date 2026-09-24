@@ -14,7 +14,7 @@ This post, by contrast, was talked into existence. I dictated to an LLM, it aske
 
 <!--more-->
 
-The trigger was how much typing modern LLMs demand. Ask about anything in depth and you get an answer with several points, so you write a long reply, and get another long answer back. I type quickly, but after a while it's a slog. There's a reason we jump on a Zoom call rather than trade long messages in Slack.
+What triggered this was how much of modern work now revolves around LLMs. Ask about anything in depth and you get an answer with several points, so you write a long reply, and get another long answer back. I type quickly, but after a while it's a slog. There's a reason we jump on a Zoom call rather than trade long messages in Slack.
 
 What I didn't expect was the effect on how I talk. Dictation is a stream. Mid-sentence, I can't say "go back six words" or "forget that". I can tidy up afterwards, but not while I'm speaking. So I've slowed down. I'm more intentional. Rather than ramble to an LLM, I like to pause and think, which sometimes means 30 seconds of silence. Thankfully the LLM doesn't seem to find it awkward.
 
