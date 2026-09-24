@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Becoming a dictator
-date: 2026-09-24 09:00:00 +0200
+date: 2026-09-24 23:00:00 +0200
 description: I have recently started dictating to LLMs rather than typing. Some early impressions.
 tags:
   - tools
