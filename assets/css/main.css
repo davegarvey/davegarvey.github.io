@@ -41,13 +41,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body::before {
-  content: "";
-  display: block;
-  height: 3px;
-  background: var(--accent);
-}
-
 ::selection {
   background: var(--accent-soft);
 }
