@@ -14,7 +14,14 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="shell">
       <header class="site-header">
-        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          <svg class="site-mark" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false">
+            <rect class="site-mark-tile" width="16" height="16" rx="3.5"/>
+            <path class="site-mark-chevron" d="M3 4h2v1h-2zM4 5h2v1h-2zM5 6h2v1h-2zM6 7h2v1h-2zM6 8h2v1h-2zM5 9h2v1h-2zM4 10h2v1h-2zM3 11h2v1h-2z"/>
+            <rect class="site-mark-cursor" x="9" y="10" width="4" height="2"/>
+          </svg>
+          <span>{{ site.title | escape }}</span>
+        </a>
         <nav class="site-nav" aria-label="Main navigation">
           <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
         </nav>
