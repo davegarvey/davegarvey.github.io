@@ -7,6 +7,7 @@
   --code: #efeee9;
   --accent: #66694a;
   --accent-soft: color-mix(in srgb, var(--accent) 35%, transparent);
+  --mark-accent: #adb08a;
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -21,6 +22,7 @@
     --line: #2e312d;
     --code: #222522;
     --accent: #adb08a;
+    --mark-accent: #66694a;
   }
 }
 
@@ -107,13 +109,16 @@ a:focus-visible {
 
 .site-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   padding: 2.5rem 0 3.5rem;
 }
 
 .site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -124,9 +129,27 @@ a:focus-visible {
   color: var(--ink);
 }
 
-.site-title::after {
+.site-title span::after {
   content: ".";
   color: var(--accent);
+}
+
+.site-mark {
+  flex: none;
+  shape-rendering: crispEdges;
+}
+
+.site-mark-tile {
+  fill: var(--ink);
+  shape-rendering: geometricPrecision;
+}
+
+.site-mark-chevron {
+  fill: var(--paper);
+}
+
+.site-mark-cursor {
+  fill: var(--mark-accent);
 }
 
 .site-nav {
