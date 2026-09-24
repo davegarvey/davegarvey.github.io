@@ -5,7 +5,7 @@
   --muted: #62655e;
   --line: #e2e1db;
   --code: #efeee9;
-  --accent: #8f4f35;
+  --accent: #66694a;
   --accent-soft: color-mix(in srgb, var(--accent) 35%, transparent);
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -20,7 +20,7 @@
     --muted: #9da199;
     --line: #2e312d;
     --code: #222522;
-    --accent: #d9957a;
+    --accent: #adb08a;
   }
 }
 
