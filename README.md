@@ -43,14 +43,17 @@ An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). C
 
 ## Run locally
 
-Install Ruby 3.3 and Bundler, then run:
+The Ruby version is pinned in [`.ruby-version`](.ruby-version) to match the Actions workflow. With [rbenv](https://github.com/rbenv/rbenv) on macOS:
 
 ```sh
+brew install rbenv ruby-build
+rbenv install
+bundle config set --local path vendor/bundle
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --drafts
 ```
 
-Open `http://localhost:4000`. The Gemfile uses the GitHub Pages gem so the local Jekyll version and plugins match the Pages environment.
+Open `http://localhost:4000`. `--drafts` includes posts from `_drafts`. If the build fails with `Invalid US-ASCII character`, your shell has no UTF-8 locale; set `LANG=en_GB.UTF-8`. The Gemfile uses the GitHub Pages gem so the local Jekyll version and plugins match the Pages environment.
 
 Commit the generated `Gemfile.lock` when you add or update dependencies so local and Actions builds stay in sync.
 
