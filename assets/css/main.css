@@ -6,6 +6,7 @@
   --line: #e2e1db;
   --code: #efeee9;
   --accent: #8f4f35;
+  --accent-soft: color-mix(in srgb, var(--accent) 35%, transparent);
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -34,13 +35,39 @@ body {
   font-family: var(--serif);
   font-size: 1.125rem;
   line-height: 1.65;
+  font-kerning: normal;
+  font-variant-numeric: oldstyle-nums proportional-nums;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: var(--accent);
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 a {
   color: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
@@ -94,14 +121,29 @@ a:focus-visible {
 }
 
 .site-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
+}
+
+.site-title:hover {
+  color: var(--ink);
+}
+
+.site-title::after {
+  content: ".";
+  color: var(--accent);
 }
 
 .site-nav {
   display: flex;
   gap: 1.25rem;
   font-family: var(--sans);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .site-nav a,
@@ -133,6 +175,9 @@ a:focus-visible {
 .intro {
   margin: 0 0 3.5rem;
   color: var(--muted);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.45;
 }
 
 .empty {
@@ -141,11 +186,22 @@ a:focus-visible {
 }
 
 .year {
-  margin: 2.5rem 0 0.5rem;
-  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.75rem 0 0.75rem;
+  color: var(--accent);
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
+  font-variant-numeric: lining-nums;
+}
+
+.year::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--line);
 }
 
 .posts {
@@ -170,28 +226,31 @@ a:focus-visible {
 }
 
 .posts a {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
 }
 
 .posts a:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--accent-soft);
 }
 
 /* Posts and pages */
 
 h1 {
   margin: 0 0 0.5rem;
-  font-size: 2.1rem;
+  font-size: 2.4rem;
   font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .meta {
-  margin: 0 0 2.5rem;
+  margin: 0.75rem 0 2.5rem;
   color: var(--muted);
   font-family: var(--sans);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 h1 + .prose {
@@ -233,19 +292,31 @@ h1 + .prose {
 
 .prose a {
   color: var(--accent);
+  text-decoration-color: var(--accent-soft);
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
 }
 
 .prose blockquote {
   margin-inline: 0;
   padding-left: 1.1rem;
-  border-left: 2px solid var(--line);
+  border-left: 2px solid var(--accent);
   color: var(--muted);
+  font-style: italic;
 }
 
 .prose hr {
-  margin: 2.5rem 0;
+  margin: 2.25rem 0;
   border: 0;
-  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.prose hr::after {
+  content: "· · ·";
+  color: var(--muted);
+  letter-spacing: 0.5em;
 }
 
 .prose img {
@@ -259,6 +330,7 @@ code {
   background: var(--code);
   font-family: var(--mono);
   font-size: 0.85em;
+  font-variant-numeric: normal;
 }
 
 .prose pre {
@@ -305,6 +377,10 @@ code {
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
+  }
+
+  .intro {
+    font-size: 1.2rem;
   }
 }
