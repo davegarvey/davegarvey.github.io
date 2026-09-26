@@ -8,7 +8,7 @@ tags:
   - economics
 ---
 
-In August, DeepSeek doubled its prices, a move that cost me half my monthly quota. I knew they were too good to last, but the sudden change still caught me by surprise. I've been coding with agents for a while now, and I've learnt that what these tools cost can change a lot, and fast, whenever something shifts upstream.
+In August, DeepSeek doubled its prices, a move that cost me half my monthly quota. I knew they were too good to last, but the sudden change still caught me by surprise. It was a reminder that what these tools cost can change a lot, and fast, whenever something shifts upstream.
 
 <!--more-->
 
