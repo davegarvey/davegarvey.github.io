@@ -24,7 +24,13 @@ It's kind of crazy when you think about it. DeepSeek is a frontier lab with the 
 
 DeepSeek is reportedly raising about $7bn, its first outside funding, and plans a stock market listing, so it will need a path to profit. It also has form when it comes to raising prices. It launched V3 in late 2024 at a promotional price, then roughly doubled the input price and quadrupled the output price once the offer ended. The August rise that caught me out looked like the same pattern, and plenty of people on Reddit were soon asking for [Cheapseek](https://www.reddit.com/r/opencode/comments/1wdo58o/what_happened_to_opencode_go_cheapseek/) back.
 
-So OpenAI and DeepSeek are now moving in opposite directions: OpenAI's prices are coming down just as DeepSeek's go up. In April, Flash was the obvious choice for me. Now it isn't.
+So OpenAI and DeepSeek have moved in opposite directions: OpenAI's prices came down just as DeepSeek's went up. In April, Flash was the obvious choice for me. Now it isn't.
+
+<figure>
+  <p class="figure-title">Luna comes down, Flash goes up</p>
+  <img src="{{ '/assets/images/luna-flash-input-prices.svg' | relative_url }}" alt="Step chart of input prices per million tokens, April to September 2026. DeepSeek Flash cost $0.14 from April, rose to $0.22 on 16 August and fell to $0.15 on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.">
+  <figcaption>Input price per million tokens, log scale. Flash is shown at off-peak rates; from 16 August, peak hours cost double. Sources: OpenAI; DeepSeek.</figcaption>
+</figure>
 
 ## Cheap to leave
 
@@ -36,7 +42,13 @@ OpenAI says the GPT-6 prices are permanent. I think it has little choice, becaus
 
 Anthropic has taken a different route. It got to the enterprise first, with Claude Code leading the way for agentic coding, and by the end of 2025, according to Menlo Ventures, it had about 40% of enterprise spending on model APIs against OpenAI's 27%. Enterprise customers pay well, and I suspect that has spared Anthropic from fighting at the bottom of the market.
 
-You can see it in OpenRouter's usage data. Its users are exactly the kind who switch models when prices move. There, Anthropic's models make up less than 3% of requests, against a quarter for DeepSeek. Anthropic's budget model, Haiku, hasn't had a price cut since it launched last October, and it doesn't make the top 20 by usage. The price of staying out of that fight is staying at the frontier, which means spending heavily on training, release after release.
+You can see it in OpenRouter's usage data. Its users are exactly the kind who switch models when prices move. There, Anthropic's models now make up under 4% of tokens, against about a quarter for DeepSeek. Anthropic's budget model, Haiku, hasn't had a price cut since it launched last October, and it doesn't make the top 20 by usage. The price of staying out of that fight is staying at the frontier, which means spending heavily on training, release after release.
+
+<figure>
+  <p class="figure-title">The budget boom passed Anthropic by</p>
+  <img src="{{ '/assets/images/anthropic-openrouter-share.svg' | relative_url }}" alt="Line chart of Anthropic's weekly share of tokens on OpenRouter, October 2025 to September 2026. The share held between about 10% and 19% until June 2026, then fell from mid-July to 3.7% in late September.">
+  <figcaption>Anthropic's weekly share of tokens on OpenRouter. Its own weekly volume is still almost seven times what it was a year ago, though down by about a third since July. Source: OpenRouter.</figcaption>
+</figure>
 
 ## Going to the source
 
