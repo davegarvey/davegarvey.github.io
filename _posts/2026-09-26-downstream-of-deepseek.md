@@ -29,7 +29,7 @@ So OpenAI and DeepSeek have moved in opposite directions: OpenAI's prices came d
 <figure>
   <p class="figure-title">Luna comes down, Flash goes up</p>
   <img src="{{ '/assets/images/luna-flash-input-prices.svg' | relative_url }}" alt="Step chart of input prices per million tokens, April to September 2026. DeepSeek Flash cost $0.14 from April, rose to $0.22 off-peak and $0.44 at peak times on 16 August, then fell to $0.15 off-peak and $0.30 at peak times on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.">
-  <figcaption>Input price per million tokens, log scale. Flash's paler line shows peak-hour prices from 16 August. Sources: OpenAI; DeepSeek.</figcaption>
+  <figcaption>Input price per million tokens, log scale. Flash's fainter line shows peak-hour prices from 16 August. Sources: OpenAI; DeepSeek.</figcaption>
 </figure>
 
 ## Cheap to leave
