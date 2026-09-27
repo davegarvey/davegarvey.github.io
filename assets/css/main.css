@@ -345,6 +345,14 @@ h1 + .prose {
   width: 100%;
 }
 
+.prose .figure-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .prose figcaption {
   margin-top: 0.5rem;
   color: var(--muted);
