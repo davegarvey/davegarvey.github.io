@@ -340,6 +340,19 @@ h1 + .prose {
   height: auto;
 }
 
+.prose figure img {
+  display: block;
+  width: 100%;
+}
+
+.prose figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 code {
   padding: 0.1em 0.3em;
   border-radius: 3px;
