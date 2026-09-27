@@ -62,7 +62,7 @@
     <text x="402.7" y="259">Sep</text>
   </g>
 
-  <path class="flash" fill="none" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round" d="M337.6,153.3 V112.7 H390.1 V135.1 H423.7"/>
+  <path class="flash" fill="none" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round" d="M337.6,153.3 V112.7 H390.1 V135.1 H423.7"/>
 
   <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path class="flash" d="M98.3,179.7 H337.6 V153.3 H390.1 V175.7 H423.7"/>
@@ -70,8 +70,8 @@
   </g>
 
   <g stroke-width="2">
-    <circle class="flash-fill ring" cx="337.6" cy="112.7" r="3.5" fill-opacity="0.55"/>
-    <circle class="flash-fill ring" cx="390.1" cy="135.1" r="3.5" fill-opacity="0.55"/>
+    <circle class="flash-fill ring" cx="337.6" cy="112.7" r="4" fill-opacity="0.55"/>
+    <circle class="flash-fill ring" cx="390.1" cy="135.1" r="4" fill-opacity="0.55"/>
     <circle class="flash-fill ring" cx="98.3" cy="179.7" r="4"/>
     <circle class="flash-fill ring" cx="337.6" cy="153.3" r="4"/>
     <circle class="flash-fill ring" cx="390.1" cy="175.7" r="4"/>
