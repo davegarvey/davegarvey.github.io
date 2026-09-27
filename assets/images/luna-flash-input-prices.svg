@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 488 244" role="img" aria-labelledby="t d">
   <title id="t">Input prices for OpenAI Luna and DeepSeek Flash, April to September 2026</title>
-  <desc id="d">Price per million input tokens, log scale. DeepSeek Flash cost $0.14 from 24 April, rose to $0.22 on 16 August and fell to $0.15 on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.</desc>
+  <desc id="d">Price per million input tokens, log scale. DeepSeek Flash cost $0.14 from 24 April, rose to $0.22 off-peak and $0.44 at peak times on 16 August, then fell to $0.15 off-peak and $0.30 at peak times on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.</desc>
   <style>
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
     .ink { fill: #1f211e; }
@@ -62,12 +62,16 @@
     <text x="402.7" y="259">Sep</text>
   </g>
 
+  <path class="flash" fill="none" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round" d="M337.6,153.3 V112.7 H390.1 V135.1 H423.7"/>
+
   <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path class="flash" d="M98.3,179.7 H337.6 V153.3 H390.1 V175.7 H423.7"/>
     <path class="luna" d="M257.8,64.6 H301.9 V158.8 H415.3 V199.4 H423.7"/>
   </g>
 
   <g stroke-width="2">
+    <circle class="flash-fill ring" cx="337.6" cy="112.7" r="3.5" fill-opacity="0.55"/>
+    <circle class="flash-fill ring" cx="390.1" cy="135.1" r="3.5" fill-opacity="0.55"/>
     <circle class="flash-fill ring" cx="98.3" cy="179.7" r="4"/>
     <circle class="flash-fill ring" cx="337.6" cy="153.3" r="4"/>
     <circle class="flash-fill ring" cx="390.1" cy="175.7" r="4"/>
@@ -79,6 +83,8 @@
   <g class="ink">
     <text x="253.8" y="53.6">OpenAI Luna $1.00</text>
     <text x="94.3" y="168.7">DeepSeek Flash $0.14</text>
+    <text x="333.6" y="101.7">Peak hours $0.44</text>
+    <text x="430" y="139.1">$0.30</text>
     <text x="430" y="203.4">$0.10</text>
     <text x="430" y="179.7">$0.15</text>
   </g>
