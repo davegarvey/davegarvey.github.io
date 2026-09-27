@@ -50,15 +50,16 @@
     <line x1="241" x2="241" y1="240" y2="245"/>
     <line x1="306.1" x2="306.1" y1="240" y2="245"/>
     <line x1="371.2" x2="371.2" y1="240" y2="245"/>
+    <line x1="434.2" x2="434.2" y1="240" y2="245"/>
   </g>
 
-  <g class="muted">
-    <text x="52" y="259">Apr</text>
-    <text x="115" y="259">May</text>
-    <text x="180.1" y="259">Jun</text>
-    <text x="243" y="259">Jul</text>
-    <text x="308.1" y="259">Aug</text>
-    <text x="373.2" y="259">Sep</text>
+  <g class="muted" text-anchor="middle">
+    <text x="81.5" y="259">Apr</text>
+    <text x="145.6" y="259">May</text>
+    <text x="209.6" y="259">Jun</text>
+    <text x="273.6" y="259">Jul</text>
+    <text x="338.7" y="259">Aug</text>
+    <text x="402.7" y="259">Sep</text>
   </g>
 
   <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
