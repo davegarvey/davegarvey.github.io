@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
     {% seo %}
+    {%- if jekyll.environment == "production" %}
+    <script defer src="https://aro.davegarvey.workers.dev/aro.js" data-site="qpnguzsvbiru"></script>
+    {%- endif %}
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -33,7 +36,10 @@
 
       <footer class="site-footer">
         <span>© {{ site.time | date: '%Y' }} {{ site.author | escape }}</span>
-        <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
+        <span>
+          <a href="{{ '/privacy/' | relative_url }}"{% if page.url == '/privacy/' %} aria-current="page"{% endif %}>Privacy</a> ·
+          <a href="{{ '/feed.xml' | relative_url }}">Feed</a>
+        </span>
       </footer>
     </div>
   </body>
