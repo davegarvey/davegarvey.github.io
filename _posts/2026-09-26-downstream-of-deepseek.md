@@ -42,7 +42,13 @@ OpenAI says the GPT-6 prices are permanent. I think it has little choice, becaus
 
 Anthropic has taken a different route. It got to the enterprise first, with Claude Code leading the way for agentic coding, and by the end of 2025, according to Menlo Ventures, it had about 40% of enterprise spending on model APIs against OpenAI's 27%. Enterprise customers pay well, and I suspect that has spared Anthropic from fighting at the bottom of the market.
 
-You can see it in OpenRouter's usage data. Its users are exactly the kind who switch models when prices move. There, Anthropic's models make up less than 3% of requests, against a quarter for DeepSeek. Anthropic's budget model, Haiku, hasn't had a price cut since it launched last October, and it doesn't make the top 20 by usage. The price of staying out of that fight is staying at the frontier, which means spending heavily on training, release after release.
+You can see it in OpenRouter's usage data. Its users are exactly the kind who switch models when prices move. There, Anthropic's models now make up under 4% of tokens, against about a quarter for DeepSeek. Anthropic's budget model, Haiku, hasn't had a price cut since it launched last October, and it doesn't make the top 20 by usage. The price of staying out of that fight is staying at the frontier, which means spending heavily on training, release after release.
+
+<figure>
+  <p class="figure-title">The budget boom passed Anthropic by</p>
+  <img src="{{ '/assets/images/anthropic-openrouter-share.svg' | relative_url }}" alt="Line chart of Anthropic's weekly share of tokens on OpenRouter, October 2025 to September 2026. The share held between about 10% and 19% until June 2026, then fell from mid-July to 3.7% in late September.">
+  <figcaption>Anthropic's weekly share of tokens on OpenRouter. Its own weekly volume is still almost seven times what it was a year ago, though down by about a third since July. Source: OpenRouter.</figcaption>
+</figure>
 
 ## Going to the source
 
