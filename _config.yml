@@ -40,5 +40,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - AGENTS.md
   - ideas.md
+  - scripts
   - vendor

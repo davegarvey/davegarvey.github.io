@@ -3,6 +3,11 @@ layout: post
 title: Becoming a dictator
 date: 2026-09-24 23:00:00 +0200
 description: I have recently started dictating to LLMs rather than typing. Some early impressions.
+image:
+  path: /assets/images/cards/becoming-a-dictator.png
+  width: 1200
+  height: 630
+  alt: Two sound waveforms drawn as a pair of eyes, under the title Becoming a dictator.
 tags:
   - tools
   - llms
