@@ -1,10 +1,57 @@
 #!/bin/sh
-# Render the share cards (SVG sources) to the 1200x630 PNGs that LinkedIn and
-# other services need. Requires rsvg-convert (brew install librsvg).
+# Render the share cards (SVG sources) to 1200x630 PNGs and fingerprint them.
+#
+# Link-preview services (LinkedIn, Facebook, Slack, X) cache og:image by URL,
+# so an image that changes under the same URL can keep showing a stale or
+# low-resolution copy. Each PNG is therefore named after a hash of its bytes,
+# e.g. becoming-a-dictator-1a2b3c4d.png. A changed card gets a new URL and
+# an unchanged card keeps its old one.
+#
+# The script also points the references at the new files:
+#   assets/images/cards/<slug>.svg  ->  image.path in _posts/*-<slug>.md
+#   assets/images/social-card.svg   ->  the social-card path in _config.yml
+#
+# Requires rsvg-convert (brew install librsvg).
 set -eu
 cd "$(dirname "$0")/.."
 
-for svg in assets/images/social-card.svg assets/images/cards/*.svg; do
-  rsvg-convert -w 1200 -h 630 "$svg" -o "${svg%.svg}.png"
-  echo "Rendered ${svg%.svg}.png"
+# render <svg> <output prefix>: writes <prefix>-<hash>.png, removes older
+# fingerprinted copies and prints the new file name.
+render() {
+  svg=$1
+  prefix=$2
+  tmp=$(mktemp)
+  rsvg-convert -w 1200 -h 630 "$svg" -o "$tmp"
+  hash=$(shasum -a 256 "$tmp" | cut -c1-8)
+  new="$prefix-$hash.png"
+  for old in "$prefix".png "$prefix"-????????.png; do
+    [ -e "$old" ] && [ "$old" != "$new" ] && rm "$old"
+  done
+  mv "$tmp" "$new"
+  chmod 644 "$new"
+  echo "$new"
+}
+
+for svg in assets/images/cards/*.svg; do
+  slug=$(basename "$svg" .svg)
+  png=$(render "$svg" "assets/images/cards/$slug")
+  echo "Rendered $png"
+
+  post=$(ls _posts/????-??-??-"$slug".md 2>/dev/null | head -n 1 || true)
+  if [ -z "$post" ]; then
+    echo "  No post named $slug in _posts; card not referenced." >&2
+    continue
+  fi
+  if grep -q "path: /assets/images/cards/$slug" "$post"; then
+    perl -pi -e "s{path: /assets/images/cards/$slug(-[0-9a-f]{8})?\\.png}{path: /$png}" "$post"
+    echo "  Updated image.path in $post"
+  else
+    echo "  $post has no image block; add:" >&2
+    printf '  image:\n    path: /%s\n    width: 1200\n    height: 630\n    alt: Describe the graphic and the title.\n' "$png" >&2
+  fi
 done
+
+png=$(render assets/images/social-card.svg assets/images/social-card)
+echo "Rendered $png"
+perl -pi -e "s{path: /assets/images/social-card(-[0-9a-f]{8})?\\.png}{path: /$png}" _config.yml
+echo "  Updated the fallback path in _config.yml"

@@ -1,0 +1,107 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Check that every built page carries share metadata that link-preview services
+# (LinkedIn, Facebook, Slack, X, Bluesky) render well.
+#
+#   bundle exec jekyll build
+#   bundle exec ruby scripts/check-share-metadata [_site]
+#
+# Exits non-zero if any page fails, so it can run in CI after the build.
+
+require "nokogiri"
+require "uri"
+
+SITE = File.expand_path(ARGV.fetch(0, "_site"))
+MAX_BYTES = 5 * 1024 * 1024 # LinkedIn's limit; Facebook and others allow more
+MIN_WIDTH = 1200
+MIN_HEIGHT = 630
+RATIO = 1200.0 / 630
+FINGERPRINT = /-[0-9a-f]{8}\.(png|jpe?g)\z/
+
+# Returns [width, height] for a PNG or JPEG, or nil for anything else.
+def dimensions(bytes)
+  if bytes.start_with?("\x89PNG\r\n\x1a\n".b)
+    bytes[16, 8].unpack("NN")
+  elsif bytes.start_with?("\xFF\xD8".b)
+    pos = 2
+    while pos < bytes.bytesize
+      pos += 1 while bytes.getbyte(pos) == 0xFF
+      marker = bytes.getbyte(pos)
+      length = bytes[pos + 1, 2].unpack1("n")
+      return bytes[pos + 4, 4].unpack("nn").reverse if [0xC0, 0xC1, 0xC2].include?(marker)
+
+      pos += 1 + length
+    end
+  end
+end
+
+def meta(doc, key)
+  node = doc.at_xpath("//meta[@property='#{key}' or @name='#{key}']")
+  node && node["content"].to_s.strip
+end
+
+failures = 0
+pages = Dir.glob(File.join(SITE, "**", "*.html")).sort
+
+pages.each do |path|
+  doc = Nokogiri::HTML(File.read(path, encoding: "UTF-8"), nil, "UTF-8")
+  name = path.delete_prefix("#{SITE}/")
+  problems = []
+  problems << "no Open Graph metadata at all (is {% seo %} in the layout?)" unless doc.at_xpath("//meta[@property='og:title']")
+
+  %w[og:title og:description og:url og:site_name og:type].each do |key|
+    next if problems.any? # already reported as having no metadata
+    problems << "missing #{key}" if meta(doc, key).to_s.empty?
+  end
+
+  canonical = doc.at_xpath("//link[@rel='canonical']")&.[]("href")
+  problems << "og:url does not match the canonical link" if canonical && canonical != meta(doc, "og:url")
+
+  if meta(doc, "og:type") == "article" && meta(doc, "article:published_time").to_s.empty?
+    problems << "article is missing article:published_time"
+  end
+
+  problems << "twitter:card is #{meta(doc, 'twitter:card').inspect}, not summary_large_image" unless meta(doc, "twitter:card") == "summary_large_image"
+
+  image = meta(doc, "og:image")
+  if image.to_s.empty?
+    problems << "missing og:image"
+  else
+    uri = URI.parse(image)
+    problems << "og:image is not an absolute https URL" unless uri.is_a?(URI::HTTPS)
+    problems << "og:image URL is not fingerprinted (#{File.basename(uri.path)}); run scripts/render-cards" unless uri.path.match?(FINGERPRINT)
+    problems << "twitter:image differs from og:image" unless meta(doc, "twitter:image") == image
+    problems << "missing og:image:alt" if meta(doc, "og:image:alt").to_s.empty?
+
+    file = File.join(SITE, uri.path)
+    if File.file?(file)
+      bytes = File.binread(file)
+      width, height = dimensions(bytes)
+      if width.nil?
+        problems << "og:image is not a PNG or JPEG (LinkedIn does not accept SVG or WebP)"
+      else
+        problems << "og:image is #{width}x#{height}, smaller than #{MIN_WIDTH}x#{MIN_HEIGHT}" if width < MIN_WIDTH || height < MIN_HEIGHT
+        problems << "og:image ratio is #{(width.to_f / height).round(2)}, not about #{RATIO.round(2)}:1" if ((width.to_f / height) - RATIO).abs > 0.05
+        problems << "og:image:width/height say #{meta(doc, 'og:image:width')}x#{meta(doc, 'og:image:height')} but the file is #{width}x#{height}" unless meta(doc, "og:image:width") == width.to_s && meta(doc, "og:image:height") == height.to_s
+      end
+      problems << "og:image is #{bytes.bytesize / 1024} KB, over the 5 MB limit" if bytes.bytesize > MAX_BYTES
+    else
+      problems << "og:image points to #{uri.path}, which is not in the built site"
+    end
+  end
+
+  if problems.empty?
+    puts "ok    #{name}"
+  else
+    failures += 1
+    puts "FAIL  #{name}"
+    problems.each { |problem| puts "        - #{problem}" }
+  end
+end
+
+abort "No pages with share metadata found in #{SITE}. Did you build the site?" if pages.empty?
+
+puts
+puts failures.zero? ? "All pages pass." : "#{failures} page(s) failed."
+exit(failures.zero? ? 0 : 1)

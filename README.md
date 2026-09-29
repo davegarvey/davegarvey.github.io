@@ -43,28 +43,32 @@ An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). C
 
 ## Share previews
 
-Links to the site show as a card on LinkedIn, Slack and similar services. Titles, descriptions and canonical URLs come from `jekyll-seo-tag`, which reads each post's `title` and `description`, so write a real description.
+Links to the site show as a card on LinkedIn, Slack, Facebook, X and similar services. Titles, descriptions and canonical URLs come from `jekyll-seo-tag`, which reads each post's `title` and `description`, so write a real description.
 
-Every post has its own card in [`assets/images/cards/`](assets/images/cards), named after the post's slug. Each is an SVG source plus a 1200×630 PNG rendered from it, because LinkedIn does not accept SVG. Render both the cards and the generic fallback with:
+Every post has its own card in [`assets/images/cards/`](assets/images/cards): an SVG source named after the post's slug, and a 1200×630 PNG rendered from it. The PNG is what the page metadata points to, because LinkedIn and others do not accept SVG.
+
+Preview services cache `og:image` by URL, so an image that changes under the same URL can keep showing a stale or low-resolution copy. The PNGs therefore carry a hash of their contents in the file name, such as `becoming-a-dictator-6629ddef.png`. Render the cards with:
 
 ```sh
 brew install librsvg
 scripts/render-cards
 ```
 
-Then point the post at its PNG in the front matter:
+The script renders every card, renames each PNG after its hash, removes the old copies and updates `image.path` in the matching post and the fallback path in `_config.yml`. A card that has not changed keeps its name. A post needs an `image` block in its front matter once:
 
 ```yaml
 image:
-  path: /assets/images/cards/short-title.png
+  path: /assets/images/cards/short-title-0a1b2c3d.png
   width: 1200
   height: 630
   alt: A plain description of the graphic and the title.
 ```
 
-Pages without their own `image` use [`assets/images/social-card.png`](assets/images/social-card.png), set as a default in `_config.yml`.
+Pages without their own `image` use the generic card, [`assets/images/social-card.svg`](assets/images/social-card.svg), set as a default in `_config.yml`.
 
-LinkedIn caches previews. After publishing, or after changing a post's metadata, refresh it with the [Post Inspector](https://www.linkedin.com/post-inspector/).
+After building, `bundle exec ruby scripts/check-share-metadata` checks every page for the metadata these services need: the Open Graph basics, an absolute HTTPS `og:image` that exists in the built site, is a PNG or JPEG of at least 1200×630 under 5 MB with matching width and height, alt text, a fingerprinted file name and `twitter:card` set to `summary_large_image`. The Actions build runs it, so a stale or missing card fails the build.
+
+Refresh a page's preview with LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/) after publishing.
 
 ## Run locally
 
