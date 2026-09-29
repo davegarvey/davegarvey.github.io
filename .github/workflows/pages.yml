@@ -39,6 +39,9 @@ jobs:
           JEKYLL_ENV: production
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
+      - name: Check share metadata
+        run: bundle exec ruby scripts/check-share-metadata
+
       - name: Upload the site
         uses: actions/upload-pages-artifact@v5
 

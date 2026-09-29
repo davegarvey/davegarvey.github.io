@@ -13,7 +13,7 @@ defaults:
       path: ""
     values:
       image:
-        path: /assets/images/social-card.png
+        path: /assets/images/social-card-9128ce7b.png
         width: 1200
         height: 630
         alt: "David Garvey’s Weblog: occasional thoughts."

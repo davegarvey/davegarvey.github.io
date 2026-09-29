@@ -4,7 +4,7 @@ title: Downstream of DeepSeek
 date: 2026-09-26 22:28:53 +0200
 description: OpenAI cut its prices as DeepSeek's low-cost models took off, then DeepSeek raised its own. Some notes from the receiving end.
 image:
-  path: /assets/images/cards/downstream-of-deepseek.png
+  path: /assets/images/cards/downstream-of-deepseek-e3cb2ad3.png
   width: 1200
   height: 630
   alt: Two stepped price lines, one falling steeply and one rising then dipping, under the title Downstream of DeepSeek.
