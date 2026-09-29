@@ -41,6 +41,31 @@ The date at the start of the filename determines the post's date and URL. Tags a
 
 An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). Copy it into `_posts` and replace its sample title and content to publish your first note.
 
+## Share previews
+
+Links to the site show as a card on LinkedIn, Slack and similar services. Titles, descriptions and canonical URLs come from `jekyll-seo-tag`, which reads each post's `title` and `description`, so write a real description.
+
+Every post has its own card in [`assets/images/cards/`](assets/images/cards), named after the post's slug. Each is an SVG source plus a 1200×630 PNG rendered from it, because LinkedIn does not accept SVG. Render both the cards and the generic fallback with:
+
+```sh
+brew install librsvg
+scripts/render-cards
+```
+
+Then point the post at its PNG in the front matter:
+
+```yaml
+image:
+  path: /assets/images/cards/short-title.png
+  width: 1200
+  height: 630
+  alt: A plain description of the graphic and the title.
+```
+
+Pages without their own `image` use [`assets/images/social-card.png`](assets/images/social-card.png), set as a default in `_config.yml`.
+
+LinkedIn caches previews. After publishing, or after changing a post's metadata, refresh it with the [Post Inspector](https://www.linkedin.com/post-inspector/).
+
 ## Run locally
 
 The Ruby version is pinned in [`.ruby-version`](.ruby-version) to match the Actions workflow. With [rbenv](https://github.com/rbenv/rbenv) on macOS:

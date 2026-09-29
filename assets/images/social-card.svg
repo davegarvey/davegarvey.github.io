@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#181a18"/>
+  <g transform="translate(120 165) scale(15)">
+    <rect width="16" height="16" rx="3.5" fill="#1f211e" stroke="#2e312d" stroke-width="0.12" shape-rendering="geometricPrecision"/>
+    <path fill="#f8f7f4" shape-rendering="crispEdges" d="M3 4h2v1h-2zM4 5h2v1h-2zM5 6h2v1h-2zM6 7h2v1h-2zM6 8h2v1h-2zM5 9h2v1h-2zM4 10h2v1h-2zM3 11h2v1h-2z"/>
+    <rect x="9" y="10" width="4" height="2" fill="#adb08a" shape-rendering="crispEdges"/>
+  </g>
+  <g font-family="'Iowan Old Style', 'Palatino Linotype', Georgia, serif" fill="#e9e8e2">
+    <text x="420" y="270" font-size="76" font-weight="600">David Garvey’s</text>
+    <text x="420" y="360" font-size="76" font-weight="600">Weblog</text>
+  </g>
+  <text x="420" y="422" font-family="'Iowan Old Style', 'Palatino Linotype', Georgia, serif" font-size="34" fill="#9da199">Occasional thoughts.</text>
+  <rect x="420" y="460" width="72" height="4" fill="#adb08a"/>
+</svg>

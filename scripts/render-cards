@@ -1,0 +1,10 @@
+#!/bin/sh
+# Render the share cards (SVG sources) to the 1200x630 PNGs that LinkedIn and
+# other services need. Requires rsvg-convert (brew install librsvg).
+set -eu
+cd "$(dirname "$0")/.."
+
+for svg in assets/images/social-card.svg assets/images/cards/*.svg; do
+  rsvg-convert -w 1200 -h 630 "$svg" -o "${svg%.svg}.png"
+  echo "Rendered ${svg%.svg}.png"
+done
