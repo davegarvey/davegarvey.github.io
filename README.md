@@ -62,7 +62,7 @@ image:
   alt: A plain description of the graphic and the title.
 ```
 
-Pages without their own `image` use [`assets/images/social-card.png`](assets/images/social-card.png), set as a default in `_config.yml`. See [`AGENTS.md`](AGENTS.md) for how the cards are designed.
+Pages without their own `image` use [`assets/images/social-card.png`](assets/images/social-card.png), set as a default in `_config.yml`.
 
 LinkedIn caches previews. After publishing, or after changing a post's metadata, refresh it with the [Post Inspector](https://www.linkedin.com/post-inspector/).
 
