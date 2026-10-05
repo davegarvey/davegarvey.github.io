@@ -38,7 +38,7 @@ Here's how each post gets made, written as steps you could follow yourself.
 2. **Get the LLM to ask questions.** Before it drafts anything, have it ask about the substance: gaps, missed points, places where an example would help. You won't always reach the most interesting points on your own.
 3. **Give it style rules.** Keep them in a file the agent reads every time, such as `AGENTS.md`. Mine are adapted from The Economist's approach to writing and charts: plain words, active voice, no sensationalism, and charts that make one point simply. Take only the rules you like. I use more headings than The Economist would, for example.
 4. **Have it draft from the whole conversation**, monologue and answers together.
-5. **Read every word.** Change anything that doesn't sound like you or isn't what you'd say. Add what's missing and cut what has little value. Repeat until you're happy to put your name to it.
+5. **Read every word.** Change anything that doesn't sound like you or isn't what you'd say. Add what's missing and cut what has little value. Repeat until you're happy to put your name to it, then read it once more from start to finish. Edits that each look right can still jar when you read them together.
 6. **If the draft drifts, start again from an outline.** Sometimes a draft wanders from your point or stops sounding like you, often when research piles up and takes over. When that happens, ask for an outline and dictate against it.
 7. **Keep your style rules up to date.** Add what's missing and remove what you no longer want. Every draft starts from these rules, so a wrong one means making the same correction every time.
 
