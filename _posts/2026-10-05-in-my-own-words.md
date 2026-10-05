@@ -28,7 +28,7 @@ I like to learn by exploring ideas before committing to them. I use OpenSpec, wh
 
 Writing documentation, delivering training, giving a presentation: each time, I've had to prepare, dig in and understand everything about what I'm going to say before I commit to it. A blog is the same. I want what I write to be reasonable, defensible and of value to the reader.
 
-What I don't want is AI slop. I could ask an LLM to write me a post as me. It might even produce something useful, but it wouldn't be me, and I want to stand behind everything on this blog.
+What I don't want is AI slop. I could ask an LLM to write a post and put my name on it. It might even produce something useful, but it wouldn't be me, and I want to stand behind everything on this blog.
 
 ## The process
 
