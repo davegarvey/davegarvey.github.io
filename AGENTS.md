@@ -106,8 +106,12 @@ chart.
   Keep both as HTML in the post (`<figure>`,
   `<p class="figure-title">`, `<figcaption>`) rather than text in the image, and give
   the image descriptive alt text.
-- **Static SVG in `assets/images`**, using the site's palette and its own dark-mode
-  colours. Check colour pairs are distinguishable for colour-blind readers.
+- **Static SVG in the post's own image folder**, using the site's palette and its own
+  dark-mode colours. Check colour pairs are distinguishable for colour-blind readers.
+- **One image folder per post.** Put a post's images in `assets/images/<slug>/`, where
+  the slug is the post's file name without the date and extension (for example
+  `assets/images/downstream-of-deepseek/`). Share cards are the exception: they stay in
+  `assets/images/cards/`, where `scripts/render-cards` expects them.
 - **Quiet chrome.** Light gridlines, few colours, nothing decorative.
 - **Honest scales and data.** Choose the scale that shows the data fairly, and make it
   easy to read. Prefer evenly spaced axis increments. Draw data as it behaves (prices that change on set dates are steps,

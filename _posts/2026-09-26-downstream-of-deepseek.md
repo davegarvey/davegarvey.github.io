@@ -33,7 +33,7 @@ So OpenAI and DeepSeek have moved in opposite directions: OpenAI's prices came d
 
 <figure>
   <p class="figure-title">Luna comes down, Flash goes up</p>
-  <img src="{{ '/assets/images/luna-flash-input-prices.svg' | relative_url }}" alt="Step chart of input prices per million tokens, April to September 2026. DeepSeek Flash cost $0.14 from April, rose to $0.22 off-peak and $0.44 at peak times on 16 August, then fell to $0.15 off-peak and $0.30 at peak times on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.">
+  <img src="{{ '/assets/images/downstream-of-deepseek/luna-flash-input-prices.svg' | relative_url }}" alt="Step chart of input prices per million tokens, April to September 2026. DeepSeek Flash cost $0.14 from April, rose to $0.22 off-peak and $0.44 at peak times on 16 August, then fell to $0.15 off-peak and $0.30 at peak times on 10 September. OpenAI Luna launched at $1.00 on 9 July, was cut to $0.20 on 30 July and to $0.10 on 22 September.">
   <figcaption>Input price per million tokens, log scale. Flash's fainter line shows peak-hour prices from 16 August. Sources: OpenAI; DeepSeek.</figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ You can see it in OpenRouter's usage data. Its users are exactly the kind who sw
 
 <figure>
   <p class="figure-title">The budget boom passed Anthropic by</p>
-  <img src="{{ '/assets/images/anthropic-openrouter-share.svg' | relative_url }}" alt="Line chart of Anthropic's weekly share of tokens on OpenRouter, October 2025 to September 2026. The share held between about 10% and 19% until June 2026, then fell from mid-July to 3.7% in late September.">
+  <img src="{{ '/assets/images/downstream-of-deepseek/anthropic-openrouter-share.svg' | relative_url }}" alt="Line chart of Anthropic's weekly share of tokens on OpenRouter, October 2025 to September 2026. The share held between about 10% and 19% until June 2026, then fell from mid-July to 3.7% in late September.">
   <figcaption>Anthropic's weekly share of tokens on OpenRouter. Its own weekly volume is still almost seven times what it was a year ago, though down by about a third since July. Source: OpenRouter.</figcaption>
 </figure>
 
