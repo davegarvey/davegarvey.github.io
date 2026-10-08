@@ -39,6 +39,10 @@ anything lands in `_posts`:
    front matter conventions in [README.md](README.md). Set the filename date and the
    `date` in front matter to the actual moment of publishing — not when drafting
    started — so check the current date and time rather than reusing an earlier one.
+   Make the share card, and consider whether other assets, such as a chart, would make
+   the post more compelling where Dave shares it (see "Assets for sharing" below). Do
+   this before he shares it: some platforms, LinkedIn among them, can't add an image to
+   a post once it's published.
 
 Don't skip straight to a polished draft from the first monologue — the questioning
 step is part of the value of this process, not an optional extra.
@@ -145,3 +149,31 @@ PNG, fingerprinting, the metadata check). Cards are usually seen small, in a fee
   on the site, so each card has its own solid background and must read well on both light
   and dark feeds.
 - **Write alt text** that describes the graphic and gives the title.
+
+## Assets for sharing
+
+Dave shares posts on other platforms, at the moment mainly LinkedIn. The link shows the
+share card, but an asset made for the platform, such as a chart that makes the post's
+point, can be more compelling. Consider one for each post, and suggest it only where it
+earns its place.
+
+- **Use a chart only if it carries the main point on its own**, with its title. A chart
+  that supports a secondary point is better left in the post.
+- **Make a separate version of the chart.** On the site, the title, caption
+  and source are HTML around the chart, so the bare image has none of them. Draw the title
+  (in the site's serif), a one-line explanation, axis titles, the source and the site's
+  address into the image.
+- **Design for the platform's default experience**, the one most of its readers see
+  without changing any settings. That sets the palette and the size. LinkedIn, for
+  example, is light unless a reader turns dark mode on, so use the light palette there;
+  it shows portrait images large in the feed, so use 1080×1350. Whatever the platform,
+  use thicker lines and larger labels than the blog version.
+- **Keep the SVG source** next to the post's other images (for a chart,
+  `social-chart.svg`), and render the PNG with `rsvg-convert` for Dave to upload. The PNG
+  doesn't need to be kept.
+- **Write alt text** for the platform's image editor, reusing the post's alt text and
+  adding the title.
+- **An attached image usually replaces the link preview**, so the share card won't show
+  and the link appears as plain text.
+
+`assets/images/haiku-joins-the-price-war/social-chart.svg` is an example.
