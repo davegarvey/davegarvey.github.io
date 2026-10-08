@@ -35,7 +35,7 @@ The other two numbers go the opposite way. At maximum effort Haiku takes over fi
 
 <figure>
   <p class="figure-title">OpenAI matches or beats Haiku at every price</p>
-  <img src="{{ '/assets/images/haiku-luna-sol-cost.svg' | relative_url }}" alt="Line chart of Intelligence Index against cost per task, log scale, at five effort levels for each model. GPT-6 Luna runs from 22 points at $0.0045 to 38 at $0.07. Claude Haiku 5.5 runs from 29 at $0.02 to 43 at $0.21, level with or just below OpenAI's models throughout. GPT-6.1 Sol runs from 42 at $0.13 to 52 at $0.72. At $0.21 a task, Haiku on max effort scores 43 and takes 323 seconds to its first token; Sol on medium scores 48 and takes 6 seconds.">
+  <img src="{{ '/assets/images/haiku-joins-the-price-war/haiku-luna-sol-cost.svg' | relative_url }}" alt="Line chart of Intelligence Index against cost per task, log scale, at five effort levels for each model. GPT-6 Luna runs from 22 points at $0.0045 to 38 at $0.07. Claude Haiku 5.5 runs from 29 at $0.02 to 43 at $0.21, level with or just below OpenAI's models throughout. GPT-6.1 Sol runs from 42 at $0.13 to 52 at $0.72. At $0.21 a task, Haiku on max effort scores 43 and takes 323 seconds to its first token; Sol on medium scores 48 and takes 6 seconds.">
   <figcaption>Artificial Analysis Intelligence Index against average cost per task in US dollars, log scale. Each point is an effort level, from low to max. Source: Artificial Analysis, 8 October 2026.</figcaption>
 </figure>
 
