@@ -21,9 +21,9 @@ A couple of weeks ago I wrote that Anthropic had [stayed out of the fight]({% po
 
 Haiku 4.5's price hadn't moved since it launched a year ago, while OpenAI cut Luna's by 90% over the summer. Anthropic took more than two months to respond.
 
-My guess is that its customers pushed it. In the early days of agents everyone was token-maxxing; now organisations want budgets, and you hear of teams burning through a quarter's allowance in a couple of weeks.
+My guess is that its customers pushed it. In the early days of agents everyone was token-maxxing; now organisations want budgets, and some are blowing through them. Uber [used up its entire 2026 AI budget by April](https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/), after Claude Code spread across its engineers.
 
-I've seen how quickly it adds up. At work I use Claude through a company account, and I'm not a heavy user, but on some days my spend has been well over $100. Add that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
+I've seen how quickly it adds up. At work I use Claude through a company account, and even as a light user, my daily spend can be surprisingly high. Add that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
 
 A lot of that spend goes on work that a cheap model would handle fine, such as implementing a well-written specification. Enterprises that have standardised on Anthropic can't just send that work to DeepSeek or OpenAI, because governance won't allow it. So their only cheap option was Haiku 4.5, and it wasn't good value. I suspect that's what changed Anthropic's mind.
 
@@ -58,4 +58,5 @@ If you can choose your provider, Haiku 5.5 won't make much difference. The ones 
 - Anthropic, [Introducing Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5), October 2026. The launch post, with prices, the long-prompt surcharge and Anthropic's own benchmarks against Luna.
 - Artificial Analysis, [Claude Haiku 5.5 vs GPT-6 Luna](https://artificialanalysis.ai/models/releases/comparisons/claude-haiku-5-5-vs-gpt-6-luna), accessed 8 October 2026. The independent figures in this post, broken down by effort level.
 - VentureBeat, [Anthropic launches Claude Haiku 5.5 with 90% API price reduction, matching GPT-6 Luna](https://venturebeat.com/technology/anthropic-launches-claude-haiku-5-5-with-90-api-price-reduction-matching-gpt-6-luna), October 2026. A useful summary of the launch.
+- Janakiram MSV, [Uber burns its 2026 AI budget in four months on Claude Code](https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/), Forbes, May 2026. What happens when a coding agent spreads faster than the finance model behind it.
 - Anthropic, [Pricing](https://platform.claude.com/docs/en/docs/about-claude/pricing), accessed 8 October 2026. Current prices for every Claude model, including Haiku 4.5 for comparison.
