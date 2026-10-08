@@ -45,13 +45,13 @@ At matched scores, Haiku comes out ahead. On high effort it scores 38, the same 
 
 ## Squeezed from the middle
 
-So why wouldn't you just use a mid-tier model? Look at what OpenAI's GPT-6.1 Sol does for the same $0.21 a task that Haiku costs on max effort: on medium effort, it scores 48 and starts answering in six seconds. Sol's list price is 20 times Haiku's, but it is much more frugal with tokens.
+So why wouldn't you just use a mid-tier model? Look at what OpenAI's GPT-6.1 Sol does for the same $0.21 a task that Haiku costs on max effort: on medium effort, it scores 48 and starts answering in six seconds. Sol's list price is 20 times Haiku's, but it is much more frugal with tokens. In the open market, Haiku sits in the gap between the bottom end and the mid-tier, and Sol already fills most of it.
 
 Within Anthropic's own range the picture is different, because Sonnet 5.5 is the opposite of frugal. On medium effort Sonnet matches Haiku's score on extra-high, 41, and starts answering in two seconds instead of 71, but costs four times as much per task. So for a customer who's locked in, Haiku is still the cheap option and Sonnet the quick one.
 
-With Haiku, perhaps Anthropic is aiming for the gap between the bottom of the market and the mid-tier. On these figures, Sol already fills most of it.
+## Who it's for
 
-I haven't tried it myself yet, and these figures come from launch week. The output speed in particular may not survive once the model is under full load, and Anthropic may well tune how much it thinks. For now, though, the price matches Luna's, but the bill doesn't.
+If you can choose your provider, Haiku 5.5 won't make much difference. The ones who gain are enterprises locked into Anthropic, which finally have a viable low-cost model for simpler work. Maybe that's all Anthropic wanted.
 
 ## Further reading
 
