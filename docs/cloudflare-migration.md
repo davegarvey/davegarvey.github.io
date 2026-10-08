@@ -1,5 +1,11 @@
 # Cloudflare Workers migration
 
+## Verified parallel deployment
+
+The full blog is deployed at `https://davidgarvey.blog` and `https://davidgarvey-blog.davegarvey.workers.dev`. GitHub Pages still serves the complete original blog. All four article paths, homepage, About, Privacy and Atom feeds were checked on both domains; feed identifiers match. The new card image matches the local file, and unknown routes return 404. Apex HTTPS was verified against its public DNS address while the local resolver retained an earlier negative DNS response.
+
+This was a local deployment of the migration branch. The PR remains open; Cloudflare automatic deployment is not enabled and repository deployment secrets are not installed. GitHub redirects are not enabled. No Search Console submission or legacy cutover has occurred.
+
 ## Architecture and staged rollout
 
 One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare Workers Static Assets serves the complete `_site` output without application code. GitHub Actions validates both deployments on pull requests; a separate Cloudflare workflow publishes `main` when `CLOUDFLARE_DEPLOY_ENABLED=true` and credentials are configured.
