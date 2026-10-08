@@ -48,3 +48,7 @@ exclude:
   - docs
   - _legacy
   - _original
+  - node_modules
+  - package.json
+  - package-lock.json
+  - wrangler.jsonc

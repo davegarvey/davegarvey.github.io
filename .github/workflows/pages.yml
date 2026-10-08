@@ -38,6 +38,17 @@ jobs:
           JEKYLL_ENV: production
         run: sh scripts/build-cloudflare
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Validate Workers deployment
+        run: |
+          npm ci
+          npm run deploy:check
+
       - name: Validate legacy deployment
         run: |
           bundle exec ruby scripts/build-legacy
