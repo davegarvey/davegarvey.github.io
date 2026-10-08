@@ -23,7 +23,7 @@ Haiku 4.5's price hadn't moved since it launched a year ago, while OpenAI cut Lu
 
 My guess is that its customers pushed it. In the early days of agents everyone was token-maxxing; now organisations want budgets, and some are blowing through them. Uber [used up its entire 2026 AI budget by April](https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/), after Claude Code spread across its engineers.
 
-I've seen how quickly it adds up. At work I use Claude through a company account, and even as a light user, my daily spend can be surprisingly high. Add that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
+I've seen how quickly it adds up. At work I use Claude through a company account, and although I'm not a heavy user, my daily spend can sometimes be surprisingly high. Add that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
 
 A lot of that spend goes on work that a cheap model would handle fine, such as implementing a well-written specification. Enterprises that have standardised on Anthropic can't just send that work to DeepSeek or OpenAI, because governance won't allow it. So their only cheap option was Haiku 4.5, and it wasn't good value. I suspect that's what changed Anthropic's mind.
 
