@@ -1,13 +1,12 @@
 # David Garvey’s Weblog — source
 
-A small Jekyll blog for GitHub Pages. Posts are Markdown, the site has no JavaScript or external font dependencies, and GitHub Actions builds and publishes it.
+A small Jekyll blog hosted on Cloudflare Pages, with GitHub Pages retaining old links and RSS subscribers. The design, Jekyll dependencies and article paths are shared by both deployments.
 
-## Publish
+## Publish and migrate
 
-1. In the repository settings, open **Pages** and set **Build and deployment → Source** to **GitHub Actions**.
-2. Push this repository to `main`. The workflow builds pull requests for review and deploys changes from `main`.
+Cloudflare Pages builds `main` using `sh scripts/build-cloudflare`, with `_site` as the output. GitHub Actions validates the canonical site and legacy redirects on pull requests. On `main`, it keeps publishing the full original blog until the repository variable `LEGACY_REDIRECTS_ENABLED` is set to `true`. After that it publishes redirects, the synchronised Atom feed and assets. Before deploying redirects it checks the new domain is serving the expected pages.
 
-This repository is named `davegarvey.github.io`, so it is configured as a user site at `https://davegarvey.github.io/`. If you use a custom domain, update `url` in `_config.yml` and add the domain's `CNAME` file at the repository root.
+See [the migration runbook](docs/cloudflare-migration.md) for Cloudflare setup, staged cutover, acceptance checks, Search Console and rollback. Do not add a `CNAME`: GitHub Pages must retain its `github.io` hostname.
 
 ## Write a post
 
@@ -56,7 +55,7 @@ brew install librsvg
 scripts/render-cards
 ```
 
-The script renders every card, renames each PNG after its hash, removes the old copies and updates `image.path` in the matching post and the fallback path in `_config.yml`. A card that has not changed keeps its name. A post needs an `image` block in its front matter once:
+The script renders every card, renames each PNG after its hash, retains old copies for previously shared links and updates `image.path` in the matching post and the fallback path in `_config.yml`. A card that has not changed keeps its name. A post needs an `image` block in its front matter once:
 
 ```yaml
 image:

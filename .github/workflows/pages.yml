@@ -27,7 +27,6 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3"
           bundler-cache: true
 
       - name: Configure GitHub Pages
@@ -37,10 +36,28 @@ jobs:
       - name: Build the site
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: sh scripts/build-cloudflare
 
-      - name: Check share metadata
-        run: bundle exec ruby scripts/check-share-metadata
+      - name: Validate legacy deployment
+        run: |
+          bundle exec ruby scripts/build-legacy
+          bundle exec ruby scripts/check-migration
+
+      - name: Select GitHub deployment
+        env:
+          LEGACY_REDIRECTS_ENABLED: ${{ vars.LEGACY_REDIRECTS_ENABLED }}
+          CHECK_LIVE: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+        run: |
+          if [ "$LEGACY_REDIRECTS_ENABLED" = "true" ]; then
+            if [ "$CHECK_LIVE" = "true" ]; then
+              bundle exec ruby scripts/check-live-migration
+            fi
+            rm -rf _site
+            mv _legacy _site
+          else
+            JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.github.yml
+            bundle exec ruby scripts/check-share-metadata
+          fi
 
       - name: Upload the site
         uses: actions/upload-pages-artifact@v5

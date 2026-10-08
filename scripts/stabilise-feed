@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+require 'nokogiri'
+path = ARGV.fetch(0, '_site/feed.xml')
+doc = Nokogiri::XML(File.read(path)) { |config| config.strict }
+# Keep the identifiers used before migration, including the feed itself.
+doc.xpath('//atom:id', 'atom' => 'http://www.w3.org/2005/Atom').each do |node|
+  node.content = node.content.sub('https://davidgarvey.blog', 'https://davegarvey.github.io')
+end
+File.write(path, doc.to_xml)
