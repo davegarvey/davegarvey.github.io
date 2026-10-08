@@ -39,6 +39,8 @@ Continue the post here. Markdown headings, lists, links, and code blocks are sup
 
 The date at the start of the filename determines the post's date and URL. Tags are optional and appear as plain text under the post title; use a small, consistent set of lowercase tags. Posts dated in the future stay unpublished until their date.
 
+Put a post's images in a folder named after its slug, such as `assets/images/short-title/`, and reference them with `{{ '/assets/images/short-title/chart.svg' | relative_url }}`. Share cards are the exception; see below.
+
 An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). Copy it into `_posts` and replace its sample title and content to publish your first note.
 
 ## Share previews
