@@ -8,7 +8,7 @@ This was a local deployment of the migration branch. The PR remains open; Cloudf
 
 ## Architecture and staged rollout
 
-One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare Workers Static Assets serves the complete `_site` output without application code. GitHub Actions validates both deployments on pull requests; a separate Cloudflare workflow publishes `main` when `CLOUDFLARE_DEPLOY_ENABLED=true` and credentials are configured.
+One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare Workers Static Assets serves the complete `_site` output without application code. GitHub Actions validates both deployments on pull requests; a separate Cloudflare workflow publishes `main` after validation, using repository deployment credentials.
 
 For the parallel phase, GitHub Pages continues serving the full blog with old-domain canonicals using `_config.github.yml`. The Cloudflare site uses `https://davidgarvey.blog`. Leave `LEGACY_REDIRECTS_ENABLED` unset or false. Publishing the new domain does not enable GitHub redirects. Do not merge until review and CI pass.
 
@@ -24,7 +24,7 @@ For the parallel phase, GitHub Pages continues serving the full blog with old-do
 
 ## Automatic deployments
 
-For GitHub Actions, add repository secrets named `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. The token needs Workers Scripts Write for the deployment account and access required to maintain the custom-domain route (including zone read and Workers Routes Write for this zone). Use an existing appropriately scoped token where available. Never send the values in chat. Set repository variable `CLOUDFLARE_DEPLOY_ENABLED=true` after the secrets are installed; merge the reviewed PR and run the Cloudflare workflow on `main`.
+For GitHub Actions, add repository secrets named `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. The token needs Workers Scripts Write for the deployment account and access required to maintain the custom-domain route (including zone read and Workers Routes Write for this zone). Use an existing appropriately scoped token where available. Never send the values in chat. After the secrets are installed, merge the reviewed PR: pushes to `main` deploy automatically. The workflow can also be run manually on `main`. Missing secrets fail with a clear message; successful uploads are followed by live-domain verification.
 
 Cloudflare Workers Builds Git integration is an alternative if preferred: connect this repository to the existing Worker, production branch `main`, build command `sh scripts/build-cloudflare`, deploy command `npx wrangler deploy`, Ruby override `RUBY_VERSION=3.3.12`. Use only one automatic deployment system to avoid competing releases. The initial local deployment does not itself establish automatic updates.
 
@@ -69,4 +69,4 @@ Google's Change of Address checks expect server redirects and may reject the HTM
 
 ## Rollback
 
-Keep or set `LEGACY_REDIRECTS_ENABLED=false` and rerun the GitHub workflow to serve the full original blog. This is independent of Cloudflare availability. Disable the Cloudflare automatic-deploy variable if needed; roll back its previous deployment through Cloudflare. Avoid deleting the Worker, zone, DNS or original GitHub deployment while investigating.
+Keep or set `LEGACY_REDIRECTS_ENABLED=false` and rerun the GitHub workflow to serve the full original blog. This is independent of Cloudflare availability. Disable the Cloudflare workflow in GitHub Actions if needed; roll back its previous deployment through Cloudflare. Avoid deleting the Worker, zone, DNS or original GitHub deployment while investigating.
