@@ -1,0 +1,51 @@
+# frozen_string_literal: true
+require 'nokogiri'
+require 'fileutils'
+require 'json'
+require 'cgi'
+require 'uri'
+source = File.expand_path(ARGV.fetch(0, '_site'))
+target = File.expand_path(ARGV.fetch(1, '_legacy'))
+abort 'Output must be separate from the source' if target == source || target.start_with?(source + '/') || source.start_with?(target + '/')
+FileUtils.rm_rf(target)
+FileUtils.mkdir_p(target)
+# Copy all non-HTML assets, including historical card URLs still in the repository.
+Dir.glob(source + '/**/*', File::FNM_DOTMATCH).each do |file|
+  next unless File.file?(file)
+  next if File.extname(file) == '.html'
+  relative = file.delete_prefix(source + '/')
+  next if %w[CNAME _redirects _headers].include?(relative)
+  destination = File.join(target, relative)
+  FileUtils.mkdir_p(File.dirname(destination))
+  FileUtils.cp(file, destination)
+end
+Dir.glob(source + '/**/*.html').each do |file|
+  original = Nokogiri::HTML(File.read(file))
+  relative = file.delete_prefix(source + '/')
+  path = '/' + relative.sub(/index\.html\z/, '')
+  destination_url = 'https://davidgarvey.blog' + path
+  doc = Nokogiri::HTML('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title></title></head><body></body></html>')
+  doc.at_css('title').content = original.at_css('title')&.text || 'Page moved'
+  head = doc.at_css('head')
+  original.css('meta[property], meta[name^="twitter:"]').each { |node| head.add_child(node.dup) }
+  doc.css('meta[property="og:url"]').each { |node| node['content'] = destination_url }
+  # Use retained legacy images so cached previews remain independent of cutover.
+  doc.css('meta[property="og:image"], meta[name="twitter:image"]').each do |node|
+    node['content'] = node['content'].sub('https://davidgarvey.blog', 'https://davegarvey.github.io')
+  end
+  head.add_child("<link rel=\"canonical\" href=\"#{CGI.escapeHTML(destination_url)}\">")
+  head.add_child("<meta http-equiv=\"refresh\" content=\"0;url=#{CGI.escapeHTML(destination_url)}\">")
+  script = Nokogiri::XML::Node.new('script', doc)
+  script.content = "location.replace(#{JSON.generate(destination_url)} + location.search + location.hash);"
+  head.add_child(script)
+  doc.at_css('body').add_child("<p>This page has moved to <a href=\"#{CGI.escapeHTML(destination_url)}\">#{CGI.escapeHTML(destination_url)}</a>.</p>")
+  destination = File.join(target, relative)
+  FileUtils.mkdir_p(File.dirname(destination))
+  File.write(destination, doc.to_html)
+end
+# The old endpoint remains an Atom feed; only its self link differs.
+feed_path = File.join(target, 'feed.xml')
+feed = Nokogiri::XML(File.read(feed_path)) { |config| config.strict }
+feed.at_xpath('/atom:feed/atom:link[@rel="self"]', 'atom' => 'http://www.w3.org/2005/Atom')['href'] = 'https://davegarvey.github.io/feed.xml'
+File.write(feed_path, feed.to_xml)
+puts "Generated legacy deployment in #{target}"

@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+require 'net/http'
+require 'nokogiri'
+require 'uri'
+Dir.glob('_site/**/*.html').each do |file|
+  path = '/' + file.delete_prefix('_site/').sub(/index\.html\z/, '')
+  next if path == '/404.html'
+  uri = URI('https://davidgarvey.blog' + path)
+  response = Net::HTTP.start(uri.host, uri.port, use_ssl: true, open_timeout: 15, read_timeout: 30) { |http| http.get(uri.request_uri) }
+  abort "New site unavailable: #{uri} (#{response.code})" unless response.code == '200'
+  doc = Nokogiri::HTML(response.body)
+  expected = Nokogiri::HTML(File.read(file))
+  abort "Wrong site at #{uri}" unless doc.at_css('link[rel="canonical"]')&.[]('href') == uri.to_s && doc.at_css('title')&.text == expected.at_css('title')&.text
+  abort "Redirect loop at #{uri}" if doc.at_css('meta[http-equiv="refresh"]')
+  if expected.at_css('article')
+    abort "Article missing at #{uri}" unless doc.at_css('article')&.text == expected.at_css('article').text
+  end
+end
+uri = URI('https://davidgarvey.blog/feed.xml')
+response = Net::HTTP.start(uri.host, uri.port, use_ssl: true, open_timeout: 15, read_timeout: 30) { |http| http.get(uri.request_uri) }
+abort 'New feed unavailable' unless response.code == '200'
+doc = Nokogiri::XML(response.body) { |c| c.strict }
+abort 'New feed is not Atom' unless doc.root.name == 'feed' && doc.root.namespace.href == 'http://www.w3.org/2005/Atom'
+puts 'New domain serves full pages and an Atom feed; legacy deployment may proceed.'

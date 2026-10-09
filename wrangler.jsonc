@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "davidgarvey-blog",
+  "compatibility_date": "2026-10-09",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./_site",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "davidgarvey.blog",
+      "custom_domain": true
+    }
+  ]
+}
