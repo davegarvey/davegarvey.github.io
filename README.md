@@ -2,11 +2,11 @@
 
 A small Jekyll blog hosted on Cloudflare Workers at `davidgarvey.blog`, with GitHub Pages redirecting old links and keeping RSS subscribers. The design, Jekyll dependencies and article paths are shared by both deployments.
 
-## Publish and migrate
+## Hosting
 
 Cloudflare Workers serves Jekyll’s `_site` output using `wrangler.jsonc`. The Cloudflare workflow builds `main` using `sh scripts/build-cloudflare` and deploys after validation. It requires the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository Actions secrets. GitHub Actions validates the canonical site and legacy redirects on pull requests. On `main`, it publishes redirects, the synchronised Atom feed and assets to GitHub Pages. Before deploying redirects it checks the new domain is serving the expected pages.
 
-See [the migration runbook](docs/cloudflare-migration.md) for Cloudflare setup, redirects, acceptance checks, Search Console and rollback. Do not add a `CNAME`: GitHub Pages must retain its `github.io` hostname.
+See [docs/hosting.md](docs/hosting.md) for how the two sites are built, deployed and validated, the constraints on changing them, and rollback.
 
 ## Write a post
 
