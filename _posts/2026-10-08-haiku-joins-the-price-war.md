@@ -57,7 +57,7 @@ They're the customers I think this launch is really for. Anthropic doesn't need 
 
 Individuals like me can switch at any time. I pay for both OpenAI and Anthropic, and I use both on every project. I've switched between them many times, and I like to spend my tokens efficiently, so small, capable models matter to me. If Anthropic doesn't have one that's good value, I'll use an alternative.
 
-Organisations are just as price-sensitive, only slower to act on it. Governance holds them in place, but not for ever.
+Organisations care about price too; they're just slower to act on it. Governance holds them in place, but not for ever.
 
 Haiku 4.5 was competitive when it launched, but it had gone stale. Haiku 5.5 puts Anthropic back in the running, and for now that's probably enough.
 
