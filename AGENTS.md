@@ -8,8 +8,7 @@ the mechanics of publishing, post front matter, and running the site locally.
 Each post should be worth the time of a reader arriving with no context. Judge what goes
 in by that test.
 
-If `AGENTS.local.md` exists, read it as well. It holds instructions that are kept out of
-the repository.
+Read `AGENTS.local.md` as well. If it's missing, tell Dave before going any further.
 
 ## Writing blog posts
 
