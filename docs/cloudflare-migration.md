@@ -2,7 +2,7 @@
 
 ## Current state
 
-The blog is served at `https://davidgarvey.blog` from Cloudflare Workers. GitHub Pages serves only redirects from `davegarvey.github.io` to the matching paths on the new domain, together with the synchronised Atom feed and the old assets. The parallel phase, in which GitHub Pages served the full blog, has ended, and the `LEGACY_REDIRECTS_ENABLED` switch that controlled it has been removed.
+The blog is served at `https://davidgarvey.blog` from Cloudflare Workers. GitHub Pages serves only redirects from `davegarvey.github.io` to the matching paths on the new domain, together with the synchronised Atom feed and the old assets. The parallel phase, in which GitHub Pages served the full blog, has ended, and the `LEGACY_REDIRECTS_ENABLED` switch that controlled it has been removed. Search Console was set up for the new domain on 10 October 2026.
 
 ## Architecture
 
@@ -12,9 +12,8 @@ One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare 
 
 1. Run `npm ci` and `sh scripts/build-cloudflare` using Ruby 3.3.12.
 2. Authenticate locally with `npx wrangler login`; never put credentials in source.
-3. Run `npm run deploy`. `wrangler.jsonc` defines `davidgarvey-blog`, static assets, trailing-slash routing and the custom 404 page. Verify the returned workers.dev URL before attaching the domain.
-4. Add `routes: [{ "pattern": "davidgarvey.blog", "custom_domain": true }]` to the Wrangler configuration and deploy again, once the existing Cloudflare zone and target account have been confirmed. Wrangler's Custom Domain setup creates DNS and a certificate. Do not replace an existing conflicting DNS record without inspecting it.
-5. Verify HTTPS at the apex, all article URLs, images, feed, sitemap, robots, About, Privacy and custom 404.
+3. Run `npm run deploy`. `wrangler.jsonc` defines `davidgarvey-blog`, static assets, trailing-slash routing and the custom 404 page. It also attaches `davidgarvey.blog` as a Custom Domain, which creates its DNS record and certificate. The `workers.dev` address is turned off (`"workers_dev": false`), so the blog is served only at `davidgarvey.blog`.
+4. Verify HTTPS at the apex, all article URLs, images, feed, sitemap, robots, About, Privacy and custom 404.
 
 [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) and [Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
 
@@ -43,19 +42,19 @@ Current article paths:
 - `/2026/10/05/in-my-own-words/`
 - `/2026/10/08/haiku-joins-the-price-war/`
 
-Both full sites retain the Aro script. If its existing registration restricts allowed origins, update that registration and verify actual collection separately. No server-side analytics is added.
+The blog loads the Aro script, which is registered for `davidgarvey.blog`. No server-side analytics is added.
 
 ## Redirects
 
 On `main`, the GitHub Build and deploy workflow checks that the apex serves the expected pages before publishing redirects. If Cloudflare has not finished deploying a new post, GitHub fails safely and retains its previous deployment; rerun after Cloudflare finishes.
 
-The workers.dev host can be disabled rather than exposing a second canonical copy indefinitely.
-
 Verify old homepage, About, Privacy and all article URLs redirect to the matching new paths. JavaScript preserves query and fragment; the immediate HTML refresh and visible fallback work without JavaScript but omit those suffixes. The old feed remains XML with new article links and old IDs; old asset URLs remain accessible. GitHub redirects have HTTP status 200, because github.io cannot serve arbitrary HTTP 301 responses. The 404 redirects to `/404.html` and cannot recover unknown paths. Previously deleted card files cannot be recovered by the generator. LinkedIn caches remain outside our control.
 
 ## Search Console
 
-Add Domain property `davidgarvey.blog` and its verification TXT record in Cloudflare DNS. Keep the old property and verification. Submit `https://davidgarvey.blog/sitemap.xml`, inspect homepage and several articles, and monitor selected canonicals and indexing. An agent must obtain Dave's explicit approval before submitting the sitemap.
+Done on 10 October 2026: the `davidgarvey.blog` Domain property is verified through a TXT record in Cloudflare DNS, and `https://davidgarvey.blog/sitemap.xml` has been submitted. Keep the old `davegarvey.github.io` property and its verification.
+
+Over the following weeks, check that Google indexes the new URLs and drops the old ones, and inspect the homepage and several articles to confirm Google picks the `davidgarvey.blog` canonicals. If it still treats the `github.io` URLs as canonical after a month or so, investigate.
 
 Google's Change of Address checks expect server redirects and may reject the HTML redirects. Use it only if the checks accept this setup; don't claim registration if they fail. Canonicals, redirects and the new sitemap still provide migration signals. Retain the old deployment and feed indefinitely.
 
