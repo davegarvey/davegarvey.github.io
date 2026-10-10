@@ -1,16 +1,12 @@
 # Cloudflare Workers migration
 
-## Verified parallel deployment
+## Current state
 
-The full blog is deployed at `https://davidgarvey.blog` and `https://davidgarvey-blog.davegarvey.workers.dev`. GitHub Pages still serves the complete original blog. All four article paths, homepage, About, Privacy and Atom feeds were checked on both domains; feed identifiers match. The new card image matches the local file, and unknown routes return 404. Apex HTTPS was verified against its public DNS address while the local resolver retained an earlier negative DNS response.
+The blog is served at `https://davidgarvey.blog` from Cloudflare Workers. GitHub Pages serves only redirects from `davegarvey.github.io` to the matching paths on the new domain, together with the synchronised Atom feed and the old assets. The parallel phase, in which GitHub Pages served the full blog, has ended, and the `LEGACY_REDIRECTS_ENABLED` switch that controlled it has been removed.
 
-This was a local deployment of the migration branch. The PR remains open; Cloudflare automatic deployment is not enabled and repository deployment secrets are not installed. GitHub redirects are not enabled. No Search Console submission or legacy cutover has occurred.
+## Architecture
 
-## Architecture and staged rollout
-
-One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare Workers Static Assets serves the complete `_site` output without application code. GitHub Actions validates both deployments on pull requests; a separate Cloudflare workflow publishes `main` after validation, using repository deployment credentials.
-
-For the parallel phase, GitHub Pages continues serving the full blog with old-domain canonicals using `_config.github.yml`. The Cloudflare site uses `https://davidgarvey.blog`. Leave `LEGACY_REDIRECTS_ENABLED` unset or false. Publishing the new domain does not enable GitHub redirects. Do not merge until review and CI pass.
+One repository builds two outputs. Jekyll and Ruby remain unchanged. Cloudflare Workers Static Assets serves the complete `_site` output without application code. `scripts/build-legacy` turns the same build into the GitHub Pages redirect site in `_legacy`. GitHub Actions validates both outputs on pull requests; on `main`, the Cloudflare workflow deploys the blog and the GitHub workflow deploys the redirects.
 
 ## Publish the Cloudflare copy
 
@@ -18,7 +14,7 @@ For the parallel phase, GitHub Pages continues serving the full blog with old-do
 2. Authenticate locally with `npx wrangler login`; never put credentials in source.
 3. Run `npm run deploy`. `wrangler.jsonc` defines `davidgarvey-blog`, static assets, trailing-slash routing and the custom 404 page. Verify the returned workers.dev URL before attaching the domain.
 4. Add `routes: [{ "pattern": "davidgarvey.blog", "custom_domain": true }]` to the Wrangler configuration and deploy again, once the existing Cloudflare zone and target account have been confirmed. Wrangler's Custom Domain setup creates DNS and a certificate. Do not replace an existing conflicting DNS record without inspecting it.
-5. Verify HTTPS at the apex, all article URLs, images, feed, sitemap, robots, About, Privacy and custom 404. Keep workers.dev available during this parallel phase.
+5. Verify HTTPS at the apex, all article URLs, images, feed, sitemap, robots, About, Privacy and custom 404.
 
 [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) and [Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
 
@@ -49,19 +45,19 @@ Current article paths:
 
 Both full sites retain the Aro script. If its existing registration restricts allowed origins, update that registration and verify actual collection separately. No server-side analytics is added.
 
-## Later cutover — not part of the parallel deployment
+## Redirects
 
-After both sites have been reviewed, configure a permanent `www.davidgarvey.blog` redirect to the apex in Cloudflare. A Bulk Redirect can preserve query strings, match subpaths and preserve path suffixes; the documented www DNS setup uses a proxied A record to `192.0.2.1`. Verify its HTTPS certificate and a 301 Location header at an article path. The workers.dev host can be disabled after acceptance rather than exposing a second canonical copy indefinitely.
+On `main`, the GitHub Build and deploy workflow checks that the apex serves the expected pages before publishing redirects. If Cloudflare has not finished deploying a new post, GitHub fails safely and retains its previous deployment; rerun after Cloudflare finishes.
 
-Only with cutover authorisation, set `LEGACY_REDIRECTS_ENABLED=true` and rerun the GitHub Build and deploy workflow on `main`. It checks that the apex serves the expected pages before publishing redirects. If Cloudflare has not finished deploying a new post, GitHub fails safely and retains its previous deployment; rerun after Cloudflare finishes.
+Configure a permanent `www.davidgarvey.blog` redirect to the apex in Cloudflare. A Bulk Redirect can preserve query strings, match subpaths and preserve path suffixes; the documented www DNS setup uses a proxied A record to `192.0.2.1`. Verify its HTTPS certificate and a 301 Location header at an article path. The workers.dev host can be disabled rather than exposing a second canonical copy indefinitely.
 
 Verify old homepage, About, Privacy and all article URLs redirect to the matching new paths. JavaScript preserves query and fragment; the immediate HTML refresh and visible fallback work without JavaScript but omit those suffixes. The old feed remains XML with new article links and old IDs; old asset URLs remain accessible. GitHub redirects have HTTP status 200, because github.io cannot serve arbitrary HTTP 301 responses. The 404 redirects to `/404.html` and cannot recover unknown paths. Previously deleted card files cannot be recovered by the generator. LinkedIn caches remain outside our control.
 
 [Cloudflare www redirect setup](https://developers.cloudflare.com/pages/how-to/www-redirect/).
 
-## Search Console — after cutover
+## Search Console
 
-Add Domain property `davidgarvey.blog` and its verification TXT record in Cloudflare DNS. Keep the old property and verification. After cutover submit `https://davidgarvey.blog/sitemap.xml`, inspect homepage and several articles, and monitor selected canonicals and indexing. An agent must obtain Dave's explicit approval before submitting the sitemap.
+Add Domain property `davidgarvey.blog` and its verification TXT record in Cloudflare DNS. Keep the old property and verification. Submit `https://davidgarvey.blog/sitemap.xml`, inspect homepage and several articles, and monitor selected canonicals and indexing. An agent must obtain Dave's explicit approval before submitting the sitemap.
 
 Google's Change of Address checks expect server redirects and may reject the HTML redirects. Use it only if the checks accept this setup; don't claim registration if they fail. Canonicals, redirects and the new sitemap still provide migration signals. Retain the old deployment and feed indefinitely.
 
@@ -69,4 +65,4 @@ Google's Change of Address checks expect server redirects and may reject the HTM
 
 ## Rollback
 
-Keep or set `LEGACY_REDIRECTS_ENABLED=false` and rerun the GitHub workflow to serve the full original blog. This is independent of Cloudflare availability. Disable the Cloudflare workflow in GitHub Actions if needed; roll back its previous deployment through Cloudflare. Avoid deleting the Worker, zone, DNS or original GitHub deployment while investigating.
+To serve the full blog from GitHub Pages again, restore the parallel build from the commit that removed it: `_config.github.yml` and the `jekyll build --config _config.yml,_config.github.yml` step in `.github/workflows/pages.yml`. This is independent of Cloudflare availability. Disable the Cloudflare workflow in GitHub Actions if needed; roll back its previous deployment through Cloudflare. Avoid deleting the Worker, zone, DNS or original GitHub deployment while investigating.
