@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 6 500 262" role="img" aria-labelledby="t d">
+  <title id="t">GPT-6 Luna on Hex DataBench by reasoning level: time per task and score</title>
+  <desc id="d">Line chart across Luna's reasoning levels, Low, Medium, High, Xhigh and Max, with median seconds per task on the left axis and DataBench score on the right. Time per task is 64 seconds at Low, 117 at Medium, 175 at High and 189 at Xhigh, then jumps to 353 at Max. The score is 30.3% at Low, 42.7% at Medium, 46.0% at both High and Xhigh, and 52.3% at Max.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
+    .muted { fill: #62655e; }
+    .grid { stroke: #e2e1db; }
+    .base { stroke: #c9c8c0; }
+    .time { stroke: #d0692e; }
+    .time-fill { fill: #d0692e; }
+    .score { stroke: #2f6aa8; }
+    .score-fill { fill: #2f6aa8; }
+    .ring { stroke: #f8f7f4; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #9da199; }
+      .grid { stroke: #2e312d; }
+      .base { stroke: #3e413c; }
+      .time { stroke: #dc6e35; }
+      .time-fill { fill: #dc6e35; }
+      .score { stroke: #4a8ad6; }
+      .score-fill { fill: #4a8ad6; }
+      .ring { stroke: #181a18; }
+    }
+  </style>
+
+  <g fill="none" stroke-width="1">
+    <line class="grid" x1="50" x2="440" y1="40" y2="40"/>
+    <line class="grid" x1="50" x2="440" y1="90" y2="90"/>
+    <line class="grid" x1="50" x2="440" y1="140" y2="140"/>
+    <line class="grid" x1="50" x2="440" y1="190" y2="190"/>
+    <line class="base" x1="50" x2="440" y1="240" y2="240"/>
+  </g>
+
+  <text class="time-fill" x="44" y="20" text-anchor="end">Seconds</text>
+  <text class="score-fill" x="446" y="20">Score</text>
+
+  <g class="muted" text-anchor="end">
+    <text x="44" y="244">0</text>
+    <text x="44" y="194">100</text>
+    <text x="44" y="144">200</text>
+    <text x="44" y="94">300</text>
+    <text x="44" y="44">400</text>
+  </g>
+
+  <g class="muted">
+    <text x="446" y="244">0%</text>
+    <text x="446" y="194">20%</text>
+    <text x="446" y="144">40%</text>
+    <text x="446" y="94">60%</text>
+    <text x="446" y="44">80%</text>
+  </g>
+
+  <g class="base" stroke-width="1">
+    <line x1="75" x2="75" y1="240" y2="245"/>
+    <line x1="160" x2="160" y1="240" y2="245"/>
+    <line x1="245" x2="245" y1="240" y2="245"/>
+    <line x1="330" x2="330" y1="240" y2="245"/>
+    <line x1="415" x2="415" y1="240" y2="245"/>
+  </g>
+
+  <g class="muted" text-anchor="middle">
+    <text x="75" y="259">Low</text>
+    <text x="160" y="259">Medium</text>
+    <text x="245" y="259">High</text>
+    <text x="330" y="259">Xhigh</text>
+    <text x="415" y="259">Max</text>
+  </g>
+
+  <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path class="score" d="M75.0,164.2 L160.0,133.2 L245.0,125.0 L330.0,125.0 L415.0,109.2"/>
+    <path class="time" d="M75.0,208.2 L160.0,181.7 L245.0,152.3 L330.0,145.7 L415.0,63.4"/>
+  </g>
+
+  <g stroke-width="2">
+    <circle class="score-fill ring" cx="75.0" cy="164.2" r="3.5"/>
+    <circle class="score-fill ring" cx="160.0" cy="133.2" r="3.5"/>
+    <circle class="score-fill ring" cx="245.0" cy="125.0" r="3.5"/>
+    <circle class="score-fill ring" cx="330.0" cy="125.0" r="3.5"/>
+    <circle class="score-fill ring" cx="415.0" cy="109.2" r="3.5"/>
+    <circle class="time-fill ring" cx="75.0" cy="208.2" r="3.5"/>
+    <circle class="time-fill ring" cx="160.0" cy="181.7" r="3.5"/>
+    <circle class="time-fill ring" cx="245.0" cy="152.3" r="3.5"/>
+    <circle class="time-fill ring" cx="330.0" cy="145.7" r="3.5"/>
+    <circle class="time-fill ring" cx="415.0" cy="63.4" r="3.5"/>
+  </g>
+
+  <text class="score-fill" x="287.5" y="99" text-anchor="middle">DataBench score</text>
+  <text class="time-fill" x="287.5" y="188" text-anchor="middle">Median time per task</text>
+
+  <g class="muted" text-anchor="middle">
+    <text x="75.0" y="154.2">30%</text>
+    <text x="160.0" y="123.2">43%</text>
+    <text x="245.0" y="115.0">46%</text>
+    <text x="330.0" y="115.0">46%</text>
+    <text x="415.0" y="99.2">52%</text>
+    <text x="75.0" y="226.2">64s</text>
+    <text x="160.0" y="199.7">117s</text>
+    <text x="245.0" y="170.3">175s</text>
+    <text x="330.0" y="163.7">189s</text>
+  </g>
+  <text class="muted" x="415" y="53.4" text-anchor="middle">353s</text>
+</svg>
