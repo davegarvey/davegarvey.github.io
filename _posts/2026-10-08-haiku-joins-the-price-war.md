@@ -13,7 +13,7 @@ tags:
   - economics
 ---
 
-A couple of weeks ago I wrote that Anthropic had [stayed out of the fight]({% post_url 2026-09-26-downstream-of-deepseek %}) at the cheap end of the market. Yesterday it joined in. Haiku 5.5 costs $0.10 per million input tokens and $0.50 per million output, a tenth of what Haiku 4.5 cost and exactly what OpenAI charges for Luna. On paper it's the better model. But it uses so many tokens to get there that, per task, it often costs a lot more than Luna, and at the top of its range OpenAI's mid-tier model does more for the same money.
+A couple of weeks ago I wrote that Anthropic had [stayed out of the fight]({% post_url 2026-09-26-downstream-of-deepseek %}) at the cheap end of the market. Yesterday it joined in. The new Haiku 5.5 is 90% cheaper than the previous version, which brings it down to what OpenAI charges for Luna, its equivalent model. On paper it's the better model. But it uses so many tokens to get there that, per task, it often costs a lot more than Luna, and at the top of its range OpenAI's mid-tier model does more for the same money.
 
 <!--more-->
 
@@ -21,17 +21,17 @@ A couple of weeks ago I wrote that Anthropic had [stayed out of the fight]({% po
 
 Haiku 4.5's price hadn't moved since it launched a year ago, while OpenAI cut Luna's by 90% over the summer. Anthropic took more than two months to respond.
 
-My guess is that its customers pushed it. In the early days of agents everyone was token-maxxing; now organisations want budgets, and some are blowing through them. Uber [used up its entire 2026 AI budget by April](https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/), after Claude Code spread across its engineers.
+My guess is that its customers pushed it, driven by a desire to control AI spending. In the early days of agents everyone was token-maxxing; now organisations set budgets, and some are hitting them a lot earlier than expected. Uber [used up its entire 2026 AI budget by April](https://www.forbes.com/sites/janakirammsv/2026/05/17/uber-burns-its-2026-ai-budget-in-four-months-on-claude-code/), after Claude Code spread across its engineers.
 
-I've seen how quickly it adds up. At work I use Claude through a company account, and although I'm not a heavy user, my daily spend can sometimes be surprisingly high. Add that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
+I've seen how quickly the cost mounts. At work I use Claude through a company account, and although I'm not a heavy user, my daily spend can sometimes be surprisingly high. Scale that up over a month, then across a whole organisation, and it's easy to see why budgets are squeezed.
 
-A lot of that spend goes on work that a cheap model would handle fine, such as implementing a well-written specification. Enterprises that have standardised on Anthropic can't just send that work to DeepSeek or OpenAI, because governance won't allow it. So their only cheap option was Haiku 4.5, and it wasn't good value. I suspect that's what changed Anthropic's mind.
+A lot of that spend goes on work that a cheap model would handle fine, such as implementing a well-written specification. Enterprises that have standardised on Anthropic can't just send that work to DeepSeek or OpenAI, because governance won't allow it. So their only cheap option was Haiku 4.5, and it wasn't good value. That left a gap at the bottom of Anthropic's range, and a growing risk that its own customers would look elsewhere to fill it.
 
 ## Two good numbers and two bad ones
 
 Artificial Analysis has already benchmarked Haiku 5.5, and the headline figures look great. At maximum effort it scores 43 on their Intelligence Index against Luna's 38, and it generates output at about 240 tokens a second, nearly twice Luna's rate.
 
-The other two numbers go the opposite way. At maximum effort Haiku takes over five minutes to produce its first token, three times as long as Luna, and each task costs about three times as much: $0.21 against $0.07. The two are connected. Haiku spends that time thinking, and it writes two to three times as many tokens as Luna to get to an answer, so the fast output speed is spent mostly on reasoning. A five-point lead in intelligence doesn't justify three times the cost in a market that is all about value.
+But it's not all good news. At maximum effort Haiku takes over five minutes to start answering, three times as long as Luna, and each task costs about three times as much. Both have the same cause. Haiku seems to get its higher score by thinking for longer, writing two to three times as many tokens as Luna before it answers, and the cost of those tokens adds up. What doesn't add up is paying three times as much for a five-point lead in intelligence.
 
 <figure>
   <p class="figure-title">OpenAI matches or beats Haiku at every price</p>
@@ -41,17 +41,25 @@ The other two numbers go the opposite way. At maximum effort Haiku takes over fi
 
 ## Haiku's sweet spot
 
-At matched scores, Haiku comes out ahead. On high effort it scores 38, the same as Luna on max, for about the same cost per task ($0.08 against $0.07), and it reaches its first token in 26 seconds instead of 109. Luna's quality, four times sooner, for the same money: this is one of the few places where Haiku makes sense. Below it, Luna gives you much the same for a little less. Above it, Sol gives you more for the same money.
+Another way to compare the two is on an equal footing: adjust each model's reasoning effort until they score the same, then see which is quicker and cheaper. Do that, and Haiku comes out ahead. On high effort it matches Luna on max for about the same cost per task, but it starts answering in under half a minute, where Luna takes nearly two. If you want Luna's quality and don't want to wait for it, this is one of the few places where Haiku makes sense. Below it, Luna gives you much the same for a little less.
 
 ## Squeezed from the middle
 
-So why wouldn't you just use a mid-tier model? Look at what OpenAI's GPT-6.1 Sol does for the same $0.21 a task that Haiku costs on max effort: on medium effort, it scores 48 and starts answering in six seconds. Sol's list price is 20 times Haiku's, but it is much more frugal with tokens. In the open market, Haiku sits in the gap between the bottom end and the mid-tier, and Sol already fills most of it.
+So far the comparison has been at the bottom and middle of Haiku's range. But what about the top? There, OpenAI's mid-tier model is the better buy. For what Haiku costs per task on max effort, GPT-6.1 Sol on medium effort scores higher and starts answering in seconds instead of minutes. Sol's list price is 20 times Haiku's, but it uses far fewer tokens. In the open market, Haiku sits in the gap between the cheap models and the mid-tier, and Sol already fills most of it.
 
-Within Anthropic's own range the picture is different, because Sonnet 5.5 is the opposite of frugal. On medium effort Sonnet matches Haiku's score on extra-high, 41, and starts answering in two seconds instead of 71, but costs four times as much per task. So for a customer who's locked in, Haiku is still the cheap option and Sonnet the quick one.
+Within Anthropic's own range the picture is different, because Sonnet 5.5 is the opposite of frugal. On medium effort it matches Haiku's score on extra-high and starts answering in seconds where Haiku takes over a minute, but it costs four times as much per task. So for a customer who's locked in, Haiku is still the cheap option and Sonnet the quick one.
 
-## Who it's for
+## Why it matters
 
-If you can choose your provider, Haiku 5.5 won't make much difference. The ones who gain are enterprises locked into Anthropic, which finally have a viable low-cost model for simpler work. Maybe that's all Anthropic wanted.
+If you can choose your provider, Haiku 5.5 won't make much difference, because there are already plenty of good cheap models to choose from. The ones who gain are enterprises locked into Anthropic, which now have a viable low-cost model for simpler work again.
+
+They're the customers I think this launch is really for. Anthropic doesn't need to win the cheap end of the market, but it does need to stop its customers churning, and some can leave more easily than others.
+
+Individuals like me can switch at any time. I pay for both OpenAI and Anthropic, and I use both on every project. I've switched between them many times, and I like to spend my tokens efficiently, so small, capable models matter to me. If Anthropic doesn't have one that's good value, I'll use an alternative.
+
+Organisations are just as price-sensitive, only slower to act on it. Governance holds them in place, but not for ever.
+
+Haiku 4.5 was competitive when it launched, but it had gone stale. Haiku 5.5 puts Anthropic back in the running, and for now that's probably enough.
 
 ## Further reading
 
