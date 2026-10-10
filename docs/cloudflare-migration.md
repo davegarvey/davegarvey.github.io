@@ -49,7 +49,7 @@ Both full sites retain the Aro script. If its existing registration restricts al
 
 On `main`, the GitHub Build and deploy workflow checks that the apex serves the expected pages before publishing redirects. If Cloudflare has not finished deploying a new post, GitHub fails safely and retains its previous deployment; rerun after Cloudflare finishes.
 
-The blog uses the bare domain only; `www.davidgarvey.blog` is deliberately not configured. The workers.dev host can be disabled rather than exposing a second canonical copy indefinitely.
+The workers.dev host can be disabled rather than exposing a second canonical copy indefinitely.
 
 Verify old homepage, About, Privacy and all article URLs redirect to the matching new paths. JavaScript preserves query and fragment; the immediate HTML refresh and visible fallback work without JavaScript but omit those suffixes. The old feed remains XML with new article links and old IDs; old asset URLs remain accessible. GitHub redirects have HTTP status 200, because github.io cannot serve arbitrary HTTP 301 responses. The 404 redirects to `/404.html` and cannot recover unknown paths. Previously deleted card files cannot be recovered by the generator. LinkedIn caches remain outside our control.
 
