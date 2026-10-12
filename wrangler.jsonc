@@ -22,6 +22,12 @@
     "ARO_ORIGIN": "https://aro.davegarvey.workers.dev",
     "ARO_SITE_ID": "qpnguzsvbiru"
   },
+  "services": [
+    {
+      "binding": "ARO_SERVICE",
+      "service": "aro"
+    }
+  ],
   "routes": [
     {
       "pattern": "davidgarvey.blog",
