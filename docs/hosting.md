@@ -6,7 +6,7 @@ The blog is served at `https://davidgarvey.blog` from Cloudflare Workers. The ol
 
 One Jekyll build produces both sites.
 
-- `sh scripts/build-cloudflare` builds `_site`, stabilises the feed and checks the share metadata. Cloudflare Workers Static Assets serves `_site` as it is, with no application code. `wrangler.jsonc` sets trailing-slash routing, the custom 404 page and the `davidgarvey.blog` Custom Domain. The `workers.dev` address is turned off.
+- `sh scripts/build-cloudflare` builds `_site`, stabilises the feed and checks the share metadata. The Worker serves `_site` through its `ASSETS` binding; only `/feed.xml` runs through Worker code first. The Worker returns the static feed response unchanged, then reports its status and the original reader user agent to Aro in the background. Reporting failures never affect feed delivery. `wrangler.jsonc` sets trailing-slash routing, the custom 404 page and the `davidgarvey.blog` Custom Domain. The `workers.dev` address is turned off.
 - `bundle exec ruby scripts/build-legacy` turns `_site` into the GitHub Pages site in `_legacy`. It discovers pages from the build, so new posts need no redirect mapping.
 
 ## How it is deployed
@@ -15,6 +15,8 @@ Pushes to `main` run two workflows:
 
 - `.github/workflows/cloudflare.yml` builds, validates and deploys to Cloudflare, then checks the live domain. It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
 - `.github/workflows/pages.yml` builds the redirect site and deploys it to GitHub Pages. It first runs `check-live-migration`, so if Cloudflare hasn't yet deployed a new post, the GitHub deployment fails and the previous one stays live. Rerun it once Cloudflare has finished.
+
+Feed reporting uses the existing Aro site ID (`qpnguzsvbiru`). Create or rotate its feed-ingestion credential in Aro's site settings, then add it as the `ARO_INGESTION_KEY` secret on the `davidgarvey-blog` Worker in the Cloudflare dashboard (or with `npx wrangler secret put ARO_INGESTION_KEY`). The credential is shown only once by Aro; never put it in this repository or a GitHub Actions secret. The static feed continues to work if the credential is absent or reporting is unavailable, but Aro will not record feed activity until the Worker secret is set.
 
 On pull requests, `pages.yml` builds and validates both sites without deploying.
 
@@ -37,7 +39,7 @@ The first four run offline. `check-live-migration` checks that `davidgarvey.blog
 ## Constraints
 
 - **Don't add a `CNAME`.** GitHub Pages must keep its `github.io` hostname to serve the redirects.
-- **Keep the feed's entry IDs on `github.io`.** `scripts/stabilise-feed` rewrites them to the original values, without a trailing slash, so existing subscribers don't see every post again. Article links in the feed use the new domain.
+- **Keep the feed's entry IDs on `github.io`.** `scripts/stabilise-feed` rewrites them to the original values, without a trailing slash, so existing subscribers don't see every post again. Article links in the feed use the new domain. The Aro intercept applies only to `davidgarvey.blog/feed.xml`; the old GitHub Pages feed remains outside its measurement.
 - **Keep old share-card PNGs.** Cached link previews on LinkedIn and elsewhere still point to them, and the redirect pages point `og:image` at their `github.io` copies.
 - **Don't delete the GitHub Pages deployment**, the Cloudflare Worker, the zone or its DNS records.
 - **Keep the old Search Console property** and its verification alongside the `davidgarvey.blog` one.
