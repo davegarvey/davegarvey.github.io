@@ -46,7 +46,7 @@ jobs:
           bundle exec ruby scripts/build-legacy
           bundle exec ruby scripts/check-migration
           npm run deploy:check
-      - name: Deploy static assets
+      - name: Deploy Worker and static assets
         run: npm run deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
