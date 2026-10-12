@@ -54,7 +54,7 @@ async function reportFeedRequest(
 			},
 			body: payload,
 			signal: AbortSignal.timeout(2000),
-			redirect: "error",
+			redirect: "manual",
 		}));
 		console.info(JSON.stringify({ event: "aro_feed_report", status: report.status }));
 		await report.body?.cancel();
@@ -63,9 +63,6 @@ async function reportFeedRequest(
 		console.warn(JSON.stringify({
 			event: "aro_feed_report_failed",
 			errorType: error instanceof Error ? error.name : "unknown",
-			errorDetail: error instanceof Error
-				? error.message.replace(/https?:\/\/\S+/g, "[url]").slice(0, 160)
-				: "unknown",
 		}));
 	}
 }
