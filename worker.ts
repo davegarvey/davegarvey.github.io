@@ -55,8 +55,13 @@ async function reportFeedRequest(
 			signal: AbortSignal.timeout(2000),
 			redirect: "error",
 		});
+		console.info(JSON.stringify({ event: "aro_feed_report", status: report.status }));
 		await report.body?.cancel();
-	} catch {
-		// Feed delivery must succeed even when reporting fails. Do not log event data or credentials.
+	} catch (error) {
+		// Feed delivery must succeed even when reporting fails. Never log event data or credentials.
+		console.warn(JSON.stringify({
+			event: "aro_feed_report_failed",
+			errorType: error instanceof Error ? error.name : "unknown",
+		}));
 	}
 }
