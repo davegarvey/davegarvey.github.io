@@ -63,6 +63,9 @@ async function reportFeedRequest(
 		console.warn(JSON.stringify({
 			event: "aro_feed_report_failed",
 			errorType: error instanceof Error ? error.name : "unknown",
+			errorDetail: error instanceof Error
+				? error.message.replace(/https?:\/\/\S+/g, "[url]").slice(0, 160)
+				: "unknown",
 		}));
 	}
 }
