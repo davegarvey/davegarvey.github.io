@@ -1,5 +1,6 @@
 interface Env {
 	ASSETS: Fetcher;
+	ARO_SERVICE: Fetcher;
 	ARO_ORIGIN: string;
 	ARO_SITE_ID: string;
 	ARO_INGESTION_KEY?: string;
@@ -45,7 +46,7 @@ async function reportFeedRequest(
 		// Escaping can expand a user agent; skip an oversized report, never the feed.
 		if (new TextEncoder().encode(payload).byteLength > 4096) return;
 
-		const report = await fetch(new URL("/v1/request", env.ARO_ORIGIN), {
+		const report = await env.ARO_SERVICE.fetch(new Request(new URL("/v1/request", env.ARO_ORIGIN), {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -54,7 +55,7 @@ async function reportFeedRequest(
 			body: payload,
 			signal: AbortSignal.timeout(2000),
 			redirect: "error",
-		});
+		}));
 		console.info(JSON.stringify({ event: "aro_feed_report", status: report.status }));
 		await report.body?.cancel();
 	} catch (error) {
