@@ -5,7 +5,6 @@ _site/
 vendor/
 .DS_Store
 
-_legacy/
 _original/
 node_modules/
 .wrangler/

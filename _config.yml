@@ -46,7 +46,6 @@ exclude:
   - scripts
   - vendor
   - docs
-  - _legacy
   - _original
   - node_modules
   - package.json

@@ -1,7 +1,7 @@
 # Working in this repository
 
-A Jekyll blog served at `davidgarvey.blog` from Cloudflare Workers, with GitHub Pages
-(`davegarvey.github.io`) redirecting old links and serving the feed. See [README.md](README.md)
+A Jekyll blog served at `davidgarvey.blog` from Cloudflare Workers. The old GitHub Pages
+site (`davegarvey.github.io`) is frozen and only redirects old links. See [README.md](README.md)
 for the mechanics of publishing, post front matter, and running the site locally.
 
 ## Purpose
