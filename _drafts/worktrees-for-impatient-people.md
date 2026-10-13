@@ -11,7 +11,7 @@ tags:
 
 Have you ever found yourself waiting for an agent?
 
-I have, many times, and it's happening more often. Not long ago, agents couldn't do much on their own, so they handed back control quickly. Now they can work through a whole task by themselves, and that can take a long time. To fill the wait, I started running several at once. But keep that up and sooner or later you'll find the agents interfering with each other's work. Fortunately, there's an answer: Git worktrees.
+I have, many times, and it's happening more often. Not long ago, agents couldn't do much on their own, so they handed back control quickly. Now they can work through a whole task by themselves, and that can take a long time. To fill the wait, I started running several at once, and they soon got in each other's way. Fortunately, there's an answer: Git worktrees.
 
 <!--more-->
 
