@@ -11,10 +11,10 @@ One Jekyll build produces both sites.
 
 ## How it is deployed
 
-Pushes to `main` run two workflows:
+Pushes to `main` run two workflows in turn:
 
 - `.github/workflows/cloudflare.yml` builds, validates and deploys to Cloudflare, then checks the live domain. It needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets.
-- `.github/workflows/pages.yml` builds the redirect site and deploys it to GitHub Pages. It first runs `check-live-migration`, so if Cloudflare hasn't yet deployed a new post, the GitHub deployment fails and the previous one stays live. Rerun it once Cloudflare has finished.
+- `.github/workflows/pages.yml` starts when the Cloudflare workflow completes on `main` (a `workflow_run` trigger), and builds the commit Cloudflare deployed. It runs `check-live-migration` before deploying the redirect site to GitHub Pages, so redirects never point at pages the new domain isn't serving yet. If the Cloudflare workflow fails, the GitHub Pages build is skipped and the previous deployment stays live; once Cloudflare succeeds on a rerun, GitHub Pages follows. Running it by hand (`workflow_dispatch`) builds the current `main`.
 
 Feed reporting uses the existing Aro site ID (`qpnguzsvbiru`). Create or rotate its feed-ingestion credential in Aro's site settings, then add it as the `ARO_INGESTION_KEY` secret on the `davidgarvey-blog` Worker in the Cloudflare dashboard (or with `npx wrangler secret put ARO_INGESTION_KEY`). The credential is shown only once by Aro; never put it in this repository or a GitHub Actions secret. The static feed continues to work if the credential is absent or reporting is unavailable, but Aro will not record feed activity until the Worker secret is set.
 
