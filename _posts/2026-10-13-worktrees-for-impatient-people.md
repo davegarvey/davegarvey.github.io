@@ -74,7 +74,7 @@ Having your own army of agents might sound exciting, but someone still has to ma
 
 ## Further reading
 
-- METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/), updated September 2026. The longest-running measure of how much work an agent can do on its own, with METR's method and its limits.
+- METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/), updated September 2026. The best-known measure of how much work an agent can do on its own, with METR's method and its limits.
 - Google Trends, [worktrees](https://trends.google.com/trends/explore?date=today%205-y&q=worktrees), accessed 8 October 2026. A rough measure of when worktrees went from an obscure Git feature to something people search for, and which launches pushed them there.
 - Git, [git-worktree](https://git-scm.com/docs/git-worktree), accessed 13 October 2026. The reference for creating, listing and removing worktrees.
 - Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees), accessed 13 October 2026. How to start each Claude Code session in its own worktree, and have it tidy up when you're done.

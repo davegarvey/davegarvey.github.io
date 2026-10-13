@@ -11,7 +11,7 @@ check(!pages.empty?, 'No built pages')
 pages.each do |path|
   full = Nokogiri::HTML(File.read(path))
   legacy = Nokogiri::HTML(File.read(path.sub('_site/', '_legacy/')))
-  url = 'https://davidgarvey.blog/' + path.delete_prefix('_site/').sub(/index\.html\z/, '')
+  url = 'https://davidgarvey.blog/' + (path == '_site/404.html' ? '' : path.delete_prefix('_site/').sub(/index\.html\z/, ''))
   check(legacy.at_css('link[rel="canonical"]')['href'] == url, "Wrong redirect: #{path}")
   check(legacy.at_css('meta[http-equiv="refresh"]')['content'] == "0;url=#{url}", "Wrong refresh: #{path}")
   check(legacy.at_css('a')['href'] == url, 'Missing fallback')
@@ -31,7 +31,8 @@ feeds.each do |feed|
   feed.xpath('//a:entry/a:id', ns).each { |id| check(id.text.start_with?('https://davegarvey.github.io/'), 'Unstable entry ID') }
   feed.xpath('//a:entry/a:link', ns).each { |link| check(link['href'].start_with?('https://davidgarvey.blog/'), 'Wrong feed article link') }
 end
-check(feeds[0].xpath('//a:entry', ns).map(&:to_xml) == feeds[1].xpath('//a:entry', ns).map(&:to_xml), 'Feeds differ')
+legacy_entries = feeds[1].xpath('//a:entry', ns).reject { |entry| entry.at_xpath('a:id', ns).text == 'https://davegarvey.github.io/moved' }
+check(feeds[0].xpath('//a:entry', ns).map(&:to_xml) == legacy_entries.map(&:to_xml), 'Feeds differ')
 sitemap = Nokogiri::XML(File.read('_site/sitemap.xml')) { |c| c.strict }
 sitemap.remove_namespaces!
 check(sitemap.css('loc').all? { |n| n.text.start_with?('https://davidgarvey.blog/') }, 'Wrong sitemap domain')

@@ -4,6 +4,7 @@ require 'fileutils'
 require 'json'
 require 'cgi'
 require 'uri'
+require 'time'
 source = File.expand_path(ARGV.fetch(0, '_site'))
 target = File.expand_path(ARGV.fetch(1, '_legacy'))
 abort 'Output must be separate from the source' if target == source || target.start_with?(source + '/') || source.start_with?(target + '/')
@@ -23,7 +24,8 @@ Dir.glob(source + '/**/*.html').each do |file|
   original = Nokogiri::HTML(File.read(file))
   relative = file.delete_prefix(source + '/')
   path = '/' + relative.sub(/index\.html\z/, '')
-  destination_url = 'https://davidgarvey.blog' + path
+  # Anything the old site doesn't know about goes to the new home page.
+  destination_url = 'https://davidgarvey.blog' + (relative == '404.html' ? '/' : path)
   doc = Nokogiri::HTML('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title></title></head><body></body></html>')
   doc.at_css('title').content = original.at_css('title')&.text || 'Page moved'
   head = doc.at_css('head')
@@ -46,6 +48,21 @@ end
 # The old endpoint remains an Atom feed; only its self link differs.
 feed_path = File.join(target, 'feed.xml')
 feed = Nokogiri::XML(File.read(feed_path)) { |config| config.strict }
-feed.at_xpath('/atom:feed/atom:link[@rel="self"]', 'atom' => 'http://www.w3.org/2005/Atom')['href'] = 'https://davegarvey.github.io/feed.xml'
+atom = { 'atom' => 'http://www.w3.org/2005/Atom' }
+feed.at_xpath('/atom:feed/atom:link[@rel="self"]', atom)['href'] = 'https://davegarvey.github.io/feed.xml'
+# This feed no longer updates, so its last entry tells subscribers where to go.
+moved = Time.now.utc.iso8601
+feed.at_xpath('/atom:feed/atom:updated', atom).content = moved
+feed.at_xpath('/atom:feed/atom:entry', atom).add_previous_sibling(<<~XML)
+  <entry>
+    <title type="html">This blog has moved</title>
+    <link href="https://davidgarvey.blog/" rel="alternate" type="text/html" title="This blog has moved"/>
+    <published>#{moved}</published>
+    <updated>#{moved}</updated>
+    <id>https://davegarvey.github.io/moved</id>
+    <author><name>David Garvey</name></author>
+    <content type="html"><![CDATA[<p>I've moved this blog to <a href="https://davidgarvey.blog/">davidgarvey.blog</a>. This feed won't get any new posts, so to keep reading, subscribe to <a href="https://davidgarvey.blog/feed.xml">https://davidgarvey.blog/feed.xml</a> instead. Old links will keep working.</p>]]></content>
+  </entry>
+XML
 File.write(feed_path, feed.to_xml)
 puts "Generated legacy deployment in #{target}"
