@@ -43,7 +43,7 @@ I add a `.worktrees` directory to each project, tell Git to ignore it, and add a
 
 ## Worktrees took off with agents
 
-Worktrees have been in Git since 2015, but I'd never come across them until I started running several agents at once, and it turns out hardly anyone was searching for them before agents came along. Searches nearly tripled in the week the Codex app launched with built-in worktrees.
+Worktrees have been in Git since 2015, but I'd never come across them until I started coding with agents. I don't seem to be the only one: interest in them has exploded since agents took off. Searches nearly tripled in the week the Codex app launched with built-in worktrees.
 
 <figure>
   <p class="figure-title">Searches for worktrees took off with coding agents</p>
