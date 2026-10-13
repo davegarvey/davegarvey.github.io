@@ -10,13 +10,12 @@ export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		const url = new URL(request.url);
 		const isFeed = url.pathname === "/feed.xml" && (request.method === "GET" || request.method === "HEAD");
-		const timestamp = Date.now();
 
 		// Let Cloudflare's asset handler preserve its normal body, validators and cache headers.
 		const response = await env.ASSETS.fetch(request);
 
 		if (isFeed && env.ARO_INGESTION_KEY) {
-			ctx.waitUntil(reportFeedRequest(request, url, response.status, timestamp, env));
+			ctx.waitUntil(reportFeedRequest(request, url, response.status, env));
 		}
 
 		return response;
@@ -27,19 +26,16 @@ async function reportFeedRequest(
 	request: Request,
 	url: URL,
 	status: number,
-	timestamp: number,
 	env: Env,
 ): Promise<void> {
 	try {
 		const payload = JSON.stringify({
 			site: env.ARO_SITE_ID,
 			id: crypto.randomUUID(),
-			timestamp,
 			hostname: url.hostname,
 			path: url.pathname,
 			method: request.method,
 			status,
-			category: "feed",
 			userAgent: (request.headers.get("User-Agent") ?? "").slice(0, 2048),
 		});
 
