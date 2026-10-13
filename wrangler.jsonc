@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "davidgarvey-blog",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-09",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/feed.xml"],
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "vars": {
+    "ARO_ORIGIN": "https://aro.davegarvey.workers.dev",
+    "ARO_SITE_ID": "qpnguzsvbiru"
+  },
+  "services": [
+    {
+      "binding": "ARO_SERVICE",
+      "service": "aro"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "davidgarvey.blog",
+      "custom_domain": true
+    }
+  ]
+}

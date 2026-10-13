@@ -15,8 +15,8 @@
 set -eu
 cd "$(dirname "$0")/.."
 
-# render <svg> <output prefix>: writes <prefix>-<hash>.png, removes older
-# fingerprinted copies and prints the new file name.
+# render <svg> <output prefix>: writes <prefix>-<hash>.png and prints its name.
+# Retain earlier copies: externally cached previews still request their URLs.
 render() {
   svg=$1
   prefix=$2
@@ -24,9 +24,6 @@ render() {
   rsvg-convert -w 1200 -h 630 "$svg" -o "$tmp"
   hash=$(shasum -a 256 "$tmp" | cut -c1-8)
   new="$prefix-$hash.png"
-  for old in "$prefix".png "$prefix"-????????.png; do
-    [ -e "$old" ] && [ "$old" != "$new" ] && rm "$old"
-  done
   mv "$tmp" "$new"
   chmod 644 "$new"
   echo "$new"

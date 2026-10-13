@@ -1,0 +1,40 @@
+# frozen_string_literal: true
+require 'nokogiri'
+require 'digest'
+require 'uri'
+def check(value, message)
+  abort message unless value
+end
+ns = { 'a' => 'http://www.w3.org/2005/Atom' }
+pages = Dir.glob('_site/**/*.html')
+check(!pages.empty?, 'No built pages')
+pages.each do |path|
+  full = Nokogiri::HTML(File.read(path))
+  legacy = Nokogiri::HTML(File.read(path.sub('_site/', '_legacy/')))
+  url = 'https://davidgarvey.blog/' + path.delete_prefix('_site/').sub(/index\.html\z/, '')
+  check(legacy.at_css('link[rel="canonical"]')['href'] == url, "Wrong redirect: #{path}")
+  check(legacy.at_css('meta[http-equiv="refresh"]')['content'] == "0;url=#{url}", "Wrong refresh: #{path}")
+  check(legacy.at_css('a')['href'] == url, 'Missing fallback')
+  check(legacy.at_css('script').text.include?('location.search + location.hash'), 'Lost query or fragment')
+  check(!legacy.at_css('article, main') && !legacy.text.include?('aro.js'), 'Duplicate content or analytics')
+  check(full.at_css('link[rel="canonical"]')['href'].start_with?('https://davidgarvey.blog/'), 'Wrong canonical')
+  check(full.at_css('script[src="https://aro.davegarvey.workers.dev/aro.js"]'), 'Analytics missing')
+  image = URI(legacy.at_css('meta[property="og:image"]')['content'])
+  check(image.host == 'davegarvey.github.io' && File.file?('_legacy' + image.path), 'Legacy preview missing')
+end
+Dir.glob('_site/assets/**/*').select { |p| File.file?(p) }.each do |path|
+  check(Digest::SHA256.file(path).hexdigest == Digest::SHA256.file(path.sub('_site/', '_legacy/')).hexdigest, "Asset changed: #{path}")
+end
+feeds = %w[_site _legacy].map { |dir| Nokogiri::XML(File.read("#{dir}/feed.xml")) { |c| c.strict } }
+feeds.each do |feed|
+  check(!feed.xpath('//a:entry', ns).empty?, 'Empty feed')
+  feed.xpath('//a:entry/a:id', ns).each { |id| check(id.text.start_with?('https://davegarvey.github.io/'), 'Unstable entry ID') }
+  feed.xpath('//a:entry/a:link', ns).each { |link| check(link['href'].start_with?('https://davidgarvey.blog/'), 'Wrong feed article link') }
+end
+check(feeds[0].xpath('//a:entry', ns).map(&:to_xml) == feeds[1].xpath('//a:entry', ns).map(&:to_xml), 'Feeds differ')
+sitemap = Nokogiri::XML(File.read('_site/sitemap.xml')) { |c| c.strict }
+sitemap.remove_namespaces!
+check(sitemap.css('loc').all? { |n| n.text.start_with?('https://davidgarvey.blog/') }, 'Wrong sitemap domain')
+check(File.read('_site/robots.txt').include?('Sitemap: https://davidgarvey.blog/sitemap.xml'), 'Wrong robots sitemap')
+check(!File.exist?('_legacy/CNAME'), 'Legacy custom domain would break github.io')
+puts "Migration checks passed: #{pages.length} HTML paths, assets, Atom feeds, sitemap, robots and analytics."

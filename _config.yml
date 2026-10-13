@@ -1,7 +1,7 @@
 title: David Garvey’s Weblog
 author: David Garvey
 description: Occasional thoughts.
-url: https://davegarvey.github.io
+url: https://davidgarvey.blog
 baseurl: ""
 lang: en-GB
 
@@ -45,3 +45,10 @@ exclude:
   - ideas.md
   - scripts
   - vendor
+  - docs
+  - _legacy
+  - _original
+  - node_modules
+  - package.json
+  - package-lock.json
+  - wrangler.jsonc

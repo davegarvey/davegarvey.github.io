@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "jekyll",
-      "runtimeExecutable": "/usr/bin/env",
-      "runtimeArgs": ["LANG=en_GB.UTF-8", "rbenv", "exec", "bundle", "exec", "jekyll", "serve", "--drafts", "--livereload"],
-      "port": 4000
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "p=${PORT:-4000}; lr=$((p == 4000 ? 35729 : p + 1)); echo \"Jekyll on $p, live reload on $lr\"; LANG=en_GB.UTF-8 exec rbenv exec bundle exec jekyll serve --drafts --livereload --port \"$p\" --livereload-port \"$lr\""],
+      "port": 4000,
+      "autoPort": true
     }
   ]
 }
