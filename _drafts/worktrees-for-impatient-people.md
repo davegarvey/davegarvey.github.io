@@ -65,7 +65,7 @@ Worktrees stop agents editing each other's files, but there are still a few thin
 
 As you multiply what your agents get done, you also multiply the demands on yourself. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next. Run too many and their responses start to stack up.
 
-Having your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
+Having your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it anyway. Just don't be surprised when, instead of waiting for your agents, you find them waiting for you.
 
 ## Further reading
 
