@@ -31,7 +31,7 @@ So now that you can delegate complex, long-running tasks to agents, can you sit 
 
 My first attempts at wrangling several agents at once ended in conflict: not between me and the agents, but between the agents themselves. I've been writing software for years, usually alongside many other people, but my own machine was always mine alone. Now that I have coding agents, it can be like a team sharing one keyboard, all changing things at once.
 
-One agent's edits would get tangled up with another's, and when I tried to open a PR for one piece of work, the others' uncommitted changes got in the way. Eventually, I asked the agent how to stop them treading on each other, and it suggested Git worktrees.
+One agent's edits get tangled up with another's, and when you try to open a PR for one piece of work, the others' uncommitted changes get in the way. Eventually, I asked the agent how to stop them treading on each other, and it suggested Git worktrees.
 
 ## One worktree per agent
 
