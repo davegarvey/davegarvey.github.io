@@ -55,10 +55,9 @@ With worktrees now built into Claude Code and Codex, I expect them to become the
 
 ## What worktrees don't solve
 
-Worktrees isolate the files in the repository, and nothing else. Anything outside it is still shared, and that's where agents working at the same time can break each other's work. In one project, all the worktrees use the same local development database, so one agent's schema change affects every other agent using it. The same goes for anything else on the machine they share, such as a dev server on a fixed port.
+Worktrees stop agents editing each other's files, but there are still a few things to watch out for:
 
-Two smaller things to know:
-
+- **Shared resources are the main problem.** Anything outside the repository is still shared, and that's where agents working at the same time can break each other's work. In one project, all the worktrees use the same local development database, so one agent's schema change affects every other agent using it.
 - **Merge conflicts still happen.** Agents that change the same code produce PRs that conflict, as people's do. Agents are usually good at resolving them, and keeping each piece of work small and tightly scoped helps.
 - **Ignored files don't come with a new worktree.** Each one needs its dependencies installed and local config, such as `.env`, copied across.
 
