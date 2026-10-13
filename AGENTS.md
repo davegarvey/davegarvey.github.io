@@ -112,8 +112,9 @@ chart.
   units, any caveats that matter and the source. Keep captions frugal: don't add
   caveats the source line already implies, such as "these are benchmark figures".
   Keep both as HTML in the post (`<figure>`,
-  `<p class="figure-title">`, `<figcaption>`) rather than text in the image, and give
-  the image descriptive alt text.
+  `<p class="figure-title"><strong>…</strong></p>`, `<figcaption>`) rather than text in
+  the image, and give the image descriptive alt text. The `<strong>` matters: feed
+  readers drop the site's CSS, and without it the title looks like body text.
 - **Static SVG in the post's own image folder**, using the site's palette and its own
   dark-mode colours. Check colour pairs are distinguishable for colour-blind readers.
 - **One image folder per post.** Put a post's images in `assets/images/<slug>/`, where
