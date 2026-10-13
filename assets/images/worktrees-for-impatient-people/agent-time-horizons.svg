@@ -8,12 +8,14 @@
     .base { stroke: #c9c8c0; }
     .line { stroke: #2f6aa8; }
     .dot { fill: #2f6aa8; stroke: #f8f7f4; }
+    .ring { fill: #f8f7f4; stroke: #2f6aa8; }
     @media (prefers-color-scheme: dark) {
       .muted { fill: #9da199; }
       .grid { stroke: #2e312d; }
       .base { stroke: #3e413c; }
       .line { stroke: #4a8ad6; }
       .dot { fill: #4a8ad6; stroke: #181a18; }
+      .ring { fill: #181a18; stroke: #4a8ad6; }
     }
   </style>
 
@@ -48,24 +50,28 @@
   <path class="line" fill="none" stroke-width="2" stroke-linejoin="round" d="M50.0,238.9 L105.6,238.9 L105.6,238.1 L121.5,238.1 L121.5,236.8 L156.7,236.8 L156.7,234.4 L173.4,234.4 L173.4,234.3 L191.8,234.3 L191.8,229.2 L225.7,229.2 L225.7,223.2 L247.0,223.2 L247.0,206.8 L294.3,206.8 L294.3,183.6 L337.4,183.6 L337.4,177.7 L339.9,177.7 L339.9,158.6 L347.0,158.6 L347.0,142.2 L370.4,142.2 L370.4,40.3"/>
 
   <g stroke-width="1.5">
-    <circle class="dot" cx="105.6" cy="238.1" r="3.5"/>
+    <circle class="ring" cx="105.6" cy="238.1" r="7.5" stroke-width="2"/>
+    <circle class="dot" cx="105.6" cy="238.1" r="3.5" stroke-width="0"/>
     <circle class="dot" cx="121.5" cy="236.8" r="3.5"/>
     <circle class="dot" cx="156.7" cy="234.4" r="3.5"/>
     <circle class="dot" cx="173.4" cy="234.3" r="3.5"/>
     <circle class="dot" cx="191.8" cy="229.2" r="3.5"/>
-    <circle class="dot" cx="225.7" cy="223.2" r="3.5"/>
+    <circle class="ring" cx="225.7" cy="223.2" r="7.5" stroke-width="2"/>
+    <circle class="dot" cx="225.7" cy="223.2" r="3.5" stroke-width="0"/>
     <circle class="dot" cx="247.0" cy="206.8" r="3.5"/>
-    <circle class="dot" cx="294.3" cy="183.6" r="3.5"/>
+    <circle class="ring" cx="294.3" cy="183.6" r="7.5" stroke-width="2"/>
+    <circle class="dot" cx="294.3" cy="183.6" r="3.5" stroke-width="0"/>
     <circle class="dot" cx="337.4" cy="177.7" r="3.5"/>
     <circle class="dot" cx="339.9" cy="158.6" r="3.5"/>
     <circle class="dot" cx="347.0" cy="142.2" r="3.5"/>
-    <circle class="dot" cx="370.4" cy="40.3" r="3.5"/>
+    <circle class="ring" cx="370.4" cy="40.3" r="7.5" stroke-width="2"/>
+    <circle class="dot" cx="370.4" cy="40.3" r="3.5" stroke-width="0"/>
   </g>
 
   <g class="muted" text-anchor="end">
-    <text x="105.6" y="228.1" text-anchor="middle">GPT-4o, 7 minutes</text>
-    <text x="219.7" y="209.2">Claude 3.7 Sonnet, 1 hour</text>
-    <text x="288.3" y="169.6">GPT-5, 3.4 hours</text>
-    <text x="361.4" y="44.3">Claude Opus 4.6, 12 hours</text>
+    <text x="105.6" y="225.1" text-anchor="middle">GPT-4o, 7 minutes</text>
+    <text x="217.7" y="208.2">Claude 3.7 Sonnet, 1 hour</text>
+    <text x="286.3" y="168.6">GPT-5, 3.4 hours</text>
+    <text x="357.4" y="44.3">Claude Opus 4.6, 12 hours</text>
   </g>
 </svg>
