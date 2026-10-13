@@ -2,7 +2,7 @@
 layout: post
 title: Worktrees for impatient people
 date: 2026-10-13 09:00:00 +0200
-description: Waiting on a slow agent, I started running several at once, each in its own Git worktree. Worktrees have become the way to run agents in parallel on your own machine. Here's how I set them up and what they cost.
+description: Agents can now work by themselves for hours. I fill the wait by running several at once, each in its own Git worktree. Here's how I set that up, and what worktrees don't fix.
 tags:
   - how-i-ai
   - llms
@@ -72,6 +72,6 @@ Having your own army of agents might sound exciting, but someone still has to ma
 - METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/). The data behind the first chart, with every model METR has measured and how it measures them.
 - Google Trends, [worktrees](https://trends.google.com/trends/explore?date=today%205-y&q=worktrees). The search data behind the second chart, which you can extend or compare with other terms.
 - Git, [git-worktree](https://git-scm.com/docs/git-worktree). The reference for creating, listing and removing worktrees.
-- Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees). How Claude Code's built-in option creates worktrees, where it puts them, and how it stops a session editing the main checkout.
-- OpenAI, [Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees). The same for Codex, including how to change where its worktrees go.
+- Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees). How Claude Code's built-in worktree option works, if you'd rather let the tool manage them.
+- OpenAI, [Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees). The same for Codex.
 - [AGENTS.md](https://agents.md/). The open format for a file of instructions that coding agents read, and where I keep my worktree rule.
