@@ -3,6 +3,11 @@ layout: post
 title: Worktrees for impatient people
 date: 2026-10-13 09:00:00 +0200
 description: Agents can now take on jobs that would take a person hours. I fill the wait by running several at once, each in its own Git worktree. Here's how, and what it costs.
+image:
+  path: /assets/images/cards/worktrees-for-impatient-people-17979d71.png
+  width: 1200
+  height: 630
+  alt: "Three coloured branches fork from a grey main line, like Git worktrees, each ending in a speech bubble with three dots to show an agent waiting for a reply. The title reads: Worktrees for impatient people."
 tags:
   - how-i-ai
   - llms
