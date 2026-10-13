@@ -69,9 +69,9 @@ Having your own army of agents might sound exciting, but someone still has to ma
 
 ## Further reading
 
-- METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/), updated September 2026. The data behind the first chart, with a candid account of how wide the error bars are.
-- Google Trends, [worktrees](https://trends.google.com/trends/explore?date=today%205-y&q=worktrees), accessed 8 October 2026. The data behind the second chart, and evidence that hardly anyone cared about worktrees until agents did.
-- Git, [git-worktree](https://git-scm.com/docs/git-worktree), accessed 13 October 2026. The reference for creating, listing and removing worktrees. It has been waiting patiently since 2015.
-- Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees), accessed 13 October 2026. How Claude Code's built-in worktree option works, if you'd rather tick the box.
+- METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/), updated September 2026. The data behind the first chart, with METR's method and caveats.
+- Google Trends, [worktrees](https://trends.google.com/trends/explore?date=today%205-y&q=worktrees), accessed 8 October 2026. The data behind the second chart.
+- Git, [git-worktree](https://git-scm.com/docs/git-worktree), accessed 13 October 2026. The reference for creating, listing and removing worktrees.
+- Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees), accessed 13 October 2026. How Claude Code's built-in worktree option works.
 - OpenAI, [Git worktrees](https://learn.chatgpt.com/docs/environments/git-worktrees), accessed 13 October 2026. The same for Codex.
-- [AGENTS.md](https://agents.md/), accessed 13 October 2026. The open format for instructions to coding agents, and where my worktree rule lives.
+- [AGENTS.md](https://agents.md/), accessed 13 October 2026. The open format for instructions to coding agents, where I keep my worktree rule.
