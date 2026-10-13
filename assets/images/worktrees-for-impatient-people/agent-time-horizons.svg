@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 488 244" role="img" aria-labelledby="t d">
+  <title id="t">Length of task the leading AI agent can complete half the time, January 2024 to February 2026</title>
+  <desc id="d">METR's 50% time horizon for the leading model, measured in how long the tasks take a skilled person. It rises from 7 minutes for GPT-4o in May 2024 to 1 hour for Claude 3.7 Sonnet in February 2025, 3.4 hours for GPT-5 in August 2025 and 12 hours for Claude Opus 4.6 in February 2026.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
+    .muted { fill: #62655e; }
+    .grid { stroke: #e2e1db; }
+    .base { stroke: #c9c8c0; }
+    .line { stroke: #2f6aa8; }
+    .dot { fill: #2f6aa8; stroke: #f8f7f4; }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #9da199; }
+      .grid { stroke: #2e312d; }
+      .base { stroke: #3e413c; }
+      .line { stroke: #4a8ad6; }
+      .dot { fill: #4a8ad6; stroke: #181a18; }
+    }
+  </style>
+
+  <g fill="none" stroke-width="1">
+    <line class="grid" x1="50" x2="470" y1="190" y2="190"/>
+    <line class="grid" x1="50" x2="470" y1="140" y2="140"/>
+    <line class="grid" x1="50" x2="470" y1="90" y2="90"/>
+    <line class="grid" x1="50" x2="470" y1="40" y2="40"/>
+    <line class="base" x1="50" x2="470" y1="240" y2="240"/>
+  </g>
+
+  <g class="muted" text-anchor="end">
+    <text x="44" y="244">0</text>
+    <text x="44" y="194">3</text>
+    <text x="44" y="144">6</text>
+    <text x="44" y="94">9</text>
+    <text x="44" y="44">12</text>
+  </g>
+
+  <g class="base" stroke-width="1">
+    <line x1="50.0" x2="50.0" y1="240" y2="245"/>
+    <line x1="203.1" x2="203.1" y1="240" y2="245"/>
+    <line x1="355.8" x2="355.8" y1="240" y2="245"/>
+  </g>
+
+  <g class="muted">
+    <text x="54.0" y="258">2024</text>
+    <text x="207.1" y="258">2025</text>
+    <text x="359.8" y="258">2026</text>
+  </g>
+
+  <path class="line" fill="none" stroke-width="2" stroke-linejoin="round" d="M50.0,238.9 L105.6,238.9 L105.6,238.1 L121.5,238.1 L121.5,236.8 L156.7,236.8 L156.7,234.4 L173.4,234.4 L173.4,234.3 L191.8,234.3 L191.8,229.2 L225.7,229.2 L225.7,223.2 L247.0,223.2 L247.0,206.8 L294.3,206.8 L294.3,183.6 L337.4,183.6 L337.4,177.7 L339.9,177.7 L339.9,158.6 L347.0,158.6 L347.0,142.2 L370.4,142.2 L370.4,40.3"/>
+
+  <g stroke-width="1.5">
+    <circle class="dot" cx="105.6" cy="238.1" r="3.5"/>
+    <circle class="dot" cx="121.5" cy="236.8" r="3.5"/>
+    <circle class="dot" cx="156.7" cy="234.4" r="3.5"/>
+    <circle class="dot" cx="173.4" cy="234.3" r="3.5"/>
+    <circle class="dot" cx="191.8" cy="229.2" r="3.5"/>
+    <circle class="dot" cx="225.7" cy="223.2" r="3.5"/>
+    <circle class="dot" cx="247.0" cy="206.8" r="3.5"/>
+    <circle class="dot" cx="294.3" cy="183.6" r="3.5"/>
+    <circle class="dot" cx="337.4" cy="177.7" r="3.5"/>
+    <circle class="dot" cx="339.9" cy="158.6" r="3.5"/>
+    <circle class="dot" cx="347.0" cy="142.2" r="3.5"/>
+    <circle class="dot" cx="370.4" cy="40.3" r="3.5"/>
+  </g>
+
+  <g class="muted" text-anchor="end">
+    <text x="105.6" y="228.1" text-anchor="middle">GPT-4o, 7 minutes</text>
+    <text x="219.7" y="209.2">Claude 3.7 Sonnet, 1 hour</text>
+    <text x="288.3" y="169.6">GPT-5, 3.4 hours</text>
+    <text x="361.4" y="44.3">Claude Opus 4.6, 12 hours</text>
+  </g>
+</svg>
