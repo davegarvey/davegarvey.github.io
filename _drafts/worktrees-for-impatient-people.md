@@ -9,7 +9,9 @@ tags:
   - tools
 ---
 
-Have you ever found yourself sat waiting for an agent, with no idea how long it'll be before it hands back control? Especially at the highest reasoning levels, where it can go quiet for minutes. I got bored and restless waiting, so I started opening more sessions and running several agents at once, each in its own Git worktree so they don't trip over each other. Worktrees have become the usual way to run agents in parallel on your own machine, and I'd recommend them, as long as you're happy context switching.
+Have you ever found yourself waiting for an agent?
+
+I have, many times, and it's happening more often. Not long ago, agents couldn't do much on their own, so they handed back control quickly. Now they can work through a whole task by themselves, and that can take a long time. To fill the wait, I started running several at once. But keep that up and sooner or later you'll find the agents interfering with each other's work. Fortunately, there's an answer: Git worktrees.
 
 <!--more-->
 
@@ -67,7 +69,7 @@ Worktrees isolate the files, but agents that change the same code can still prod
 
 ## The cost: switching context
 
-Running several agents means switching between them. One finishes, so you look at what it did and think about what to ask it next. Then another finishes, and it's on a different subject with a whole different set of information in it. It's like managing a small team of developers who report back every few minutes asking what to do next.
+I'd recommend running agents this way, as long as you're happy switching between them. One finishes, so you look at what it did and think about what to ask it next. Then another finishes, and it's on a different subject with a whole different set of information in it. It's like managing a small team of developers who report back every few minutes asking what to do next.
 
 Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them. The reasoning level changes the sums: at Max I needed several sessions to fill the wait, and at High, which hands back control sooner, I need fewer.
 
