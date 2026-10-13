@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Worktrees for impatient people
-date: 2026-10-13 09:00:00 +0200
+date: 2026-10-13 16:03:00 +0200
 description: Agents can now take on jobs that would take a person hours. I fill the wait by running several at once, each in its own Git worktree. Here's how, and what it costs.
 image:
   path: /assets/images/cards/worktrees-for-impatient-people-d77773ae.png
