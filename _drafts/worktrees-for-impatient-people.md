@@ -17,7 +17,7 @@ I have, many times, and it's happening more often. Not long ago, agents couldn't
 
 ## Agents work for longer
 
-Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, measures this as a time horizon: the length of task, judged by how long it takes a skilled person, that an agent completes half the time. In May 2024, the leading model managed tasks of about seven minutes. By February 2026, it was about 12 hours.
+Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, has been tracking this. In May 2024, the best model could complete tasks that take a skilled person about seven minutes, at least half the time. By February 2026, that had grown to about 12 hours.
 
 <figure>
   <p class="figure-title">Agents can now take on tasks that last hours</p>
