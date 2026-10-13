@@ -349,9 +349,13 @@ h1 + .prose {
 .prose .figure-title {
   margin: 0 0 0.5rem;
   font-family: var(--sans);
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 1.15rem;
+  font-weight: 600;
   line-height: 1.4;
+}
+
+.prose .figure-title strong {
+  font-weight: inherit;
 }
 
 .prose figcaption {

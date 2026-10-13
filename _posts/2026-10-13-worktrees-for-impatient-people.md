@@ -25,7 +25,7 @@ I have, and it's happening more often as agents take on bigger tasks. To fill th
 Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, measures how complex a task an agent can handle by how long the same task takes a skilled person. In May 2024, the best model could manage about seven minutes' work. By April 2026, it was up to about 17 hours'.
 
 <figure>
-  <p class="figure-title">Agents can now take on tasks that last hours</p>
+  <p class="figure-title"><strong>Agents can now take on tasks that last hours</strong></p>
   <img src="{{ '/assets/images/worktrees-for-impatient-people/agent-time-horizons.svg' | relative_url }}" alt="Step chart of the length of task the leading AI model can complete half the time, from January 2024 to April 2026, in hours. It rises from 7 minutes for GPT-4o in May 2024 to 1 hour for Claude 3.7 Sonnet in February 2025, 3.4 hours for GPT-5 in August 2025, 12 hours for Claude Opus 4.6 in February 2026 and 17 hours for Claude Mythos Preview in April 2026.">
   <figcaption>Hours a skilled person would take on tasks the leading model completes half the time. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
@@ -51,7 +51,7 @@ I add a `.worktrees` directory to each project, tell Git to ignore it, and add a
 Worktrees have been in Git since 2015, but I'd never come across them until I started coding with agents. I don't seem to be the only one: interest in them has exploded since agents took off. Searches nearly tripled in the week the Codex app launched with built-in worktrees.
 
 <figure>
-  <p class="figure-title">Searches for worktrees took off with coding agents</p>
+  <p class="figure-title"><strong>Searches for worktrees took off with coding agents</strong></p>
   <img src="{{ '/assets/images/worktrees-for-impatient-people/worktrees-search-interest.svg' | relative_url }}" alt="Line chart of weekly Google search interest in worktrees, January 2024 to September 2026. Interest is close to zero until late May 2025, when Claude Code became generally available, then rises slowly. It doubles in the week Cursor 2.0 launched parallel agents at the end of October 2025, and nearly triples in the week the Codex app launched with built-in worktrees in February 2026. It peaks in late May 2026, then falls, with a second rise in September.">
   <figcaption>Weekly worldwide Google search interest in "worktrees"; 100 is the peak week. Source: Google Trends, retrieved 8 October 2026.</figcaption>
 </figure>
