@@ -15,17 +15,17 @@ I have, many times, and it's happening more often. Not long ago, agents couldn't
 
 <!--more-->
 
-## Waiting on Luna
+## Agents work for longer
 
-I've been using OpenAI's GPT-6 Luna, and for a while I ran it at Max, its highest reasoning level. The results were good, but I hadn't realised how much longer Max takes. On Hex's DataBench, a benchmark of agents doing data analysis, it doubles the time a task takes for about six more points.
+Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, measures this as a time horizon: the length of task, judged by how long it takes a skilled person, that an agent completes half the time. In May 2024, the leading model managed tasks of about seven minutes. By February 2026, it was about 12 hours.
 
 <figure>
-  <p class="figure-title">Max doubles the time for six more points</p>
-  <img src="{{ '/assets/images/worktrees-for-impatient-people/luna-reasoning-levels.svg' | relative_url }}" alt="Line chart across GPT-6 Luna's reasoning levels, Low to Max, with median seconds per task on the left axis and DataBench score on the right. Time per task rises from 64 seconds at Low to 117 at Medium, 175 at High and 189 at Xhigh, then jumps to 353 at Max. The score rises from 30% at Low to 43% at Medium and 46% at High, stays at 46% at Xhigh, and reaches 52% at Max.">
-  <figcaption>Median seconds per task and score on Hex's 100 data-analysis tasks. Checked 7 October 2026. Source: Hex DataBench v1.1.</figcaption>
+  <p class="figure-title">Agents can now take on tasks that last hours</p>
+  <img src="{{ '/assets/images/worktrees-for-impatient-people/agent-time-horizons.svg' | relative_url }}" alt="Step chart of the length of task the leading AI model can complete half the time, from January 2024 to February 2026, in hours. It rises from 7 minutes for GPT-4o in May 2024 to 1 hour for Claude 3.7 Sonnet in February 2025, 3.4 hours for GPT-5 in August 2025 and 12 hours for Claude Opus 4.6 in February 2026.">
+  <figcaption>Length of task, in hours a skilled person would take, that the leading model completes 50% of the time. Central estimates. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
-That isn't worth the wait, so I've dropped to High. Even so, on a big task there's still time to fill.
+An agent working on a bigger job runs for longer before it needs you, and a higher reasoning level adds to that. On a big task, there's a lot of time to fill.
 
 ## Early squabbles
 
@@ -71,11 +71,11 @@ Worktrees isolate the files, but agents that change the same code can still prod
 
 I'd recommend running agents this way, as long as you're happy switching between them. One finishes, so you look at what it did and think about what to ask it next. Then another finishes, and it's on a different subject with a whole different set of information in it. It's like managing a small team of developers who report back every few minutes asking what to do next.
 
-Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them. The reasoning level changes the sums: at Max I needed several sessions to fill the wait, and at High, which hands back control sooner, I need fewer.
+Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them. The reasoning level changes the sums: the higher it is, the longer each agent works before handing back control, and the more sessions it takes to fill the wait.
 
 ## Further reading
 
-- Hex, [DataBench](https://hex.tech/databench/). The leaderboard behind the first chart, with score, cost, tokens and time per task for each model and reasoning level.
+- METR, [Task-completion time horizons of frontier AI models](https://metr.org/time-horizons/). The data behind the first chart, with every model METR has measured and how it measures them.
 - Google Trends, [worktrees](https://trends.google.com/trends/explore?date=today%205-y&q=worktrees). The search data behind the second chart, which you can extend or compare with other terms.
 - Git, [git-worktree](https://git-scm.com/docs/git-worktree). The reference for creating, listing and removing worktrees.
 - Anthropic, [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees). How Claude Code's built-in option creates worktrees, where it puts them, and how it stops a session editing the main checkout.
