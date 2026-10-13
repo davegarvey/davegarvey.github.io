@@ -25,7 +25,7 @@ Agents can now take on far bigger jobs than they could a couple of years ago. ME
   <figcaption>Length of task, in hours a skilled person would take, that the leading model completes 50% of the time. Central estimates. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
-An agent working on a bigger job runs for longer before it needs you, and a higher reasoning level adds to that. On a big task, there's a lot of time to fill.
+That means you can now hand an agent a big job, which you couldn't a couple of years ago. It'll finish far sooner than a person would, but you can still be sat waiting a long time. So you turn to something else in the meantime, and that's where the trouble starts.
 
 ## Early squabbles
 
