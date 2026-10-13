@@ -39,7 +39,9 @@ As the ancient proverb goes: give four agents one checkout and they'll squabble 
 
 A Git worktree is a second working directory for the same repository, with its own branch and files but shared history. Give each agent its own, and its changes stay out of the others' way until you merge them.
 
-I was using OpenCode at the time, which didn't create worktrees for you, so I set it up myself. I added a `.worktrees` directory to the project, told Git to ignore it, and added a rule to `AGENTS.md`: every change goes in its own worktree in there. I'd use one even when only one agent is working on a project. A worktree costs almost nothing, and if you change your mind partway through, or want to switch focus, the work is set aside and `main` stays clean.
+I was using OpenCode at the time, which didn't create worktrees for you, so I set it up myself. I added a `.worktrees` directory to the project, told Git to ignore it, and added a rule to `AGENTS.md`: every change goes in its own worktree in there.
+
+I use worktrees even when there's only a single agent at work, because they cost almost nothing. If I change my mind partway through, or want to switch focus, the work is set aside and `main` stays clean.
 
 ## Worktrees took off with agents
 
