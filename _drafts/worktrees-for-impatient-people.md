@@ -2,7 +2,7 @@
 layout: post
 title: Worktrees for impatient people
 date: 2026-10-13 09:00:00 +0200
-description: Agents can now work by themselves for hours. I fill the wait by running several at once, each in its own Git worktree. Here's how I set that up, and what worktrees don't fix.
+description: Agents can now take on jobs that would take a person hours. I fill the wait by running several at once, each in its own Git worktree. Here's how, and what it costs.
 tags:
   - how-i-ai
   - llms
