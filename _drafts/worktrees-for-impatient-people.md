@@ -63,9 +63,9 @@ Worktrees stop agents editing each other's files, but there are still a few thin
 
 ## The cost: switching context
 
-I'd recommend running agents this way, as long as you're happy switching between them. One finishes, so you look at what it did and think about what to ask it next. Then another finishes, and it's on a different subject with a whole different set of information in it. It's like managing a small team of developers who report back every few minutes asking what to do next.
+No tool can fix this one. Each time an agent finishes, you have to look at what it did and decide what it should do next, and each one is on a different subject. Run too many and it gets out of hand: you spend all your time switching, and the odd agent sits forgotten, waiting for an answer.
 
-Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them.
+Running your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
 
 ## Further reading
 
