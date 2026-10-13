@@ -30,11 +30,11 @@ Agents can now take on far bigger jobs than they could a couple of years ago. ME
   <figcaption>Hours a skilled person would take on tasks the leading model completes half the time. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
-So now that you can delegate complex, long-running tasks to agents, can you sit back and relax while they do all the work? You can. Or you can get on with the next task, and that's where the trouble begins.
+So now that you can delegate complex, long-running tasks to agents, can you sit back and relax while they do all the work? You can. Or you can hand the next task to another agent, and that's where the trouble begins.
 
 ## Early squabbles
 
-My first attempts at wrangling several agents at once ended in conflict: not between me and the agents, but between the agents themselves. I've been writing software for years, usually alongside many other people, but my own machine was always mine alone. Now that I have coding agents, it can be like a team sharing one keyboard, all changing things at once.
+My first attempts at wrangling several agents at once ended in conflict: not between me and the agents, but between the agents themselves. I've been writing software for years, usually alongside many other people, but my own machine was always mine alone. Now that I have coding agents, it can be like a team sharing one keyboard, all editing the same copy of the code.
 
 One agent's edits get tangled up with another's, and when you try to open a PR for one piece of work, the others' uncommitted changes get in the way. Eventually, I asked the agent how to avoid this conflict, and it suggested Git worktrees.
 
