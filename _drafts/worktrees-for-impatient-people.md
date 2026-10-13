@@ -41,8 +41,6 @@ A Git worktree is a second working directory for the same repository, with its o
 
 I add a `.worktrees` directory to each project, tell Git to ignore it, and add a rule to `AGENTS.md` telling agents to make each change in a new worktree inside that directory. Doing it this way keeps things consistent across all the coding tools I use.
 
-I use worktrees even when there's only a single agent at work, because they cost almost nothing. If I change my mind partway through, or want to switch focus, the work is set aside and `main` stays clean.
-
 ## Worktrees took off with agents
 
 Worktrees have been in Git since 2015, but I'd never come across them until I started running several agents at once, and it turns out hardly anyone was searching for them before agents came along. Searches nearly tripled in the week the Codex app launched with built-in worktrees.
