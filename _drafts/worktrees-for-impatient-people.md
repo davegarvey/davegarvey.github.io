@@ -63,7 +63,7 @@ Worktrees stop agents editing each other's files, but there are still a few thin
 
 ## The cost: switching context
 
-No tool can fix this one. Each time an agent finishes, you have to look at what it did and decide what it should do next, and each one is on a different subject. Run too many and it gets out of hand: you spend all your time switching, and the odd agent sits forgotten, waiting for an answer.
+There's a cost to all this, and it falls on you. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next one, on a different subject. Run too many and it gets out of hand, and the odd agent sits forgotten, waiting for an answer.
 
 Running your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
 
