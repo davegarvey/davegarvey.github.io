@@ -39,7 +39,7 @@ As the ancient proverb goes: give four agents one checkout and they'll squabble 
 
 A Git worktree is a second working directory for the same repository, with its own branch and files but shared history. Give each agent its own, and its changes stay out of the others' way until you merge them.
 
-I add a `.worktrees` directory to each project, tell Git to ignore it, and add a rule to `AGENTS.md` telling agents to make each change in a new worktree inside that directory. Doing it this way keeps things consistent across all the coding tools I use, so I leave the built-in worktree option in Claude Code and Codex turned off.
+I add a `.worktrees` directory to each project, tell Git to ignore it, and add a rule to `AGENTS.md` telling agents to make each change in a new worktree inside that directory. Doing it this way keeps things consistent across all the coding tools I use.
 
 ## Worktrees took off with agents
 
