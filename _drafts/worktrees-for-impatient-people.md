@@ -53,10 +53,6 @@ Worktrees have been in Git since 2015, but I'd never come across them until I st
 
 With worktrees now built into Claude Code and Codex, I expect them to become the norm. It's hard to see why you wouldn't use them.
 
-## Why I keep it local
-
-Cloud agents offer the same isolation, with each task in its own sandbox, but they tie your environment and workflow to one vendor. Worktrees are plain Git. They work with any agent, on the machine I already have set up, with my tools and local database to hand.
-
 ## Why I turn the built-in option off
 
 The built-in options work, but each tool puts its worktrees in its own place: Claude Code under `.claude/worktrees` in the repository, Codex in its own home directory. They also create the worktree before the agent has read anything, so my rule never comes into play.
