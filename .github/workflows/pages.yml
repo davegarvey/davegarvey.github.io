@@ -1,7 +1,10 @@
 name: Build and deploy
 
 on:
-  push:
+  # On main, wait for the Cloudflare deployment so the live check sees new posts.
+  workflow_run:
+    workflows: [Deploy Cloudflare blog]
+    types: [completed]
     branches: [main]
   pull_request:
     branches: [main]
@@ -16,6 +19,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -23,6 +27,8 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
