@@ -22,11 +22,11 @@ I have, and it's happening more often as agents take on bigger tasks. To fill th
 
 ## Agents work for longer
 
-Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, measures how complex a task an agent can handle by how long the same task takes a skilled person. In May 2024, the best model could manage about seven minutes' work. By February 2026, it was up to about 12 hours'.
+Agents can now take on far bigger jobs than they could a couple of years ago. METR, a research group that evaluates AI models, measures how complex a task an agent can handle by how long the same task takes a skilled person. In May 2024, the best model could manage about seven minutes' work. By April 2026, it was up to about 17 hours'.
 
 <figure>
   <p class="figure-title">Agents can now take on tasks that last hours</p>
-  <img src="{{ '/assets/images/worktrees-for-impatient-people/agent-time-horizons.svg' | relative_url }}" alt="Step chart of the length of task the leading AI model can complete half the time, from January 2024 to February 2026, in hours. It rises from 7 minutes for GPT-4o in May 2024 to 1 hour for Claude 3.7 Sonnet in February 2025, 3.4 hours for GPT-5 in August 2025 and 12 hours for Claude Opus 4.6 in February 2026.">
+  <img src="{{ '/assets/images/worktrees-for-impatient-people/agent-time-horizons.svg' | relative_url }}" alt="Step chart of the length of task the leading AI model can complete half the time, from January 2024 to April 2026, in hours. It rises from 7 minutes for GPT-4o in May 2024 to 1 hour for Claude 3.7 Sonnet in February 2025, 3.4 hours for GPT-5 in August 2025, 12 hours for Claude Opus 4.6 in February 2026 and 17 hours for Claude Mythos Preview in April 2026.">
   <figcaption>Hours a skilled person would take on tasks the leading model completes half the time. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
