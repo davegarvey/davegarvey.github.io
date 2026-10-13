@@ -57,9 +57,9 @@ With worktrees now built into Claude Code and Codex, I expect them to become the
 
 Worktrees stop agents editing each other's files, but there are still a few things to watch out for:
 
-- **Shared resources are the main problem.** Anything outside the repository is still shared, and that's where agents working at the same time can break each other's work. For example, if the worktrees share a local database and one agent changes its schema, it may break the others' work.
-- **Merge conflicts still happen.** Agents that change the same code produce PRs that conflict, as people's do. Agents are usually good at resolving them, and keeping each piece of work small and tightly scoped helps.
-- **Ignored files don't come with a new worktree.** Each one needs its dependencies installed and local config, such as `.env`, copied across.
+- **Shared resources are the main problem.** Anything outside the repository is still shared, and that's where agents working at the same time can break each other's work. For example, if the worktrees share a local database and one agent changes its schema, it may break the others'. If a piece of work will change something shared, give its worktree its own copy. If it only touches code, there's nothing to worry about.
+- **Merge conflicts still happen.** Agents that change the same code produce PRs that conflict, as people's do. Agents are usually good at resolving them, but it helps to keep each piece of work small and tightly scoped. It's tempting to keep a session going as you discover more to do; it's better to close it off and start a new one.
+- **Ignored files don't come with a new worktree.** A fresh worktree has no `.env` and no installed dependencies. Add copying the config and installing dependencies to the `AGENTS.md` rule, and the agent will set up each worktree for you.
 
 ## The cost: switching context
 
