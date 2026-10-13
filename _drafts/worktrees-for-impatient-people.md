@@ -61,11 +61,11 @@ Worktrees stop agents editing each other's files, but there are still a few thin
 - **Merge conflicts still happen.** Agents that change the same code produce PRs that conflict, as people's do. Agents are usually good at resolving them, but it helps to keep each piece of work small and tightly scoped. It's tempting to keep a session going as you discover more to do; it's better to close it off and start a new one.
 - **Ignored files don't come with a new worktree.** A fresh worktree has no `.env` and no installed dependencies. Add copying the config and installing dependencies to the `AGENTS.md` rule, and the agent will set up each worktree for you.
 
-## The cost: switching context
+## No free lunch
 
-There's a cost to all this, and it falls on you. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next. Run too many and their responses start to stack up.
+Running several agents isn't a free lunch: as you multiply what your agents get done, you multiply the demands on yourself. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next. Run too many and their responses start to stack up.
 
-Running your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
+Having your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
 
 ## Further reading
 
