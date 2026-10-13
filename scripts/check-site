@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+require 'nokogiri'
+def check(value, message)
+  abort message unless value
+end
+ns = { 'a' => 'http://www.w3.org/2005/Atom' }
+pages = Dir.glob('_site/**/*.html')
+check(!pages.empty?, 'No built pages')
+pages.each do |path|
+  page = Nokogiri::HTML(File.read(path))
+  check(page.at_css('link[rel="canonical"]')['href'].start_with?('https://davidgarvey.blog/'), "Wrong canonical: #{path}")
+  check(page.at_css('script[src="https://aro.davegarvey.workers.dev/aro.js"]'), "Analytics missing: #{path}")
+end
+# Entry IDs keep their github.io form so subscribers who moved feeds don't see every post again.
+feed = Nokogiri::XML(File.read('_site/feed.xml')) { |c| c.strict }
+check(!feed.xpath('//a:entry', ns).empty?, 'Empty feed')
+feed.xpath('//a:entry/a:id', ns).each { |id| check(id.text.start_with?('https://davegarvey.github.io/'), 'Unstable entry ID') }
+feed.xpath('//a:entry/a:link', ns).each { |link| check(link['href'].start_with?('https://davidgarvey.blog/'), 'Wrong feed article link') }
+sitemap = Nokogiri::XML(File.read('_site/sitemap.xml')) { |c| c.strict }
+sitemap.remove_namespaces!
+check(sitemap.css('loc').all? { |n| n.text.start_with?('https://davidgarvey.blog/') }, 'Wrong sitemap domain')
+check(File.read('_site/robots.txt').include?('Sitemap: https://davidgarvey.blog/sitemap.xml'), 'Wrong robots sitemap')
+puts "Site checks passed: #{pages.length} HTML pages, Atom feed, sitemap, robots and analytics."

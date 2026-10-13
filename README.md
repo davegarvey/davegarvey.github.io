@@ -1,12 +1,12 @@
 # David Garvey’s Weblog — source
 
-A small Jekyll blog hosted on Cloudflare Workers at `davidgarvey.blog`, with GitHub Pages redirecting old links and keeping RSS subscribers. The design, Jekyll dependencies and article paths are shared by both deployments.
+A small Jekyll blog hosted on Cloudflare Workers at `davidgarvey.blog`. The old GitHub Pages address, `davegarvey.github.io`, still redirects old links but is no longer deployed.
 
 ## Hosting
 
-Cloudflare Workers serves Jekyll’s `_site` output using `wrangler.jsonc`. The Cloudflare workflow builds `main` using `sh scripts/build-cloudflare` and deploys after validation. It requires the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository Actions secrets. GitHub Actions validates the canonical site and legacy redirects on pull requests. On `main`, it publishes redirects, the synchronised Atom feed and assets to GitHub Pages. Before deploying redirects it checks the new domain is serving the expected pages.
+Cloudflare Workers serves Jekyll’s `_site` output using `wrangler.jsonc`. The Cloudflare workflow builds `main` using `sh scripts/build-cloudflare` and deploys after validation. It requires the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository Actions secrets. The same workflow builds and validates pull requests without deploying.
 
-See [docs/hosting.md](docs/hosting.md) for how the two sites are built, deployed and validated, the constraints on changing them, and rollback.
+See [docs/hosting.md](docs/hosting.md) for how the site is built, deployed and validated, the constraints on changing them, and rollback.
 
 ## Write a post
 
@@ -83,7 +83,7 @@ bundle install
 bundle exec jekyll serve --drafts
 ```
 
-Open `http://localhost:4000`. `--drafts` includes posts from `_drafts`. If the build fails with `Invalid US-ASCII character`, your shell has no UTF-8 locale; set `LANG=en_GB.UTF-8`. The Gemfile uses the GitHub Pages gem so the local Jekyll version and plugins match the Pages environment.
+Open `http://localhost:4000`. `--drafts` includes posts from `_drafts`. If the build fails with `Invalid US-ASCII character`, your shell has no UTF-8 locale; set `LANG=en_GB.UTF-8`. The Gemfile uses the GitHub Pages gem to pin the Jekyll version and plugins.
 
 Commit the generated `Gemfile.lock` when you add or update dependencies so local and Actions builds stay in sync.
 
