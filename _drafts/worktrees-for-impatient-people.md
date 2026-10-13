@@ -25,7 +25,7 @@ Agents can now take on far bigger jobs than they could a couple of years ago. ME
   <figcaption>Length of task, in hours a skilled person would take, that the leading model completes 50% of the time. Central estimates. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
-That means you can now hand an agent a big job, which you couldn't a couple of years ago. It'll finish far sooner than a person would, but you can still be sat waiting a long time. So you turn to something else in the meantime, and that's where the trouble starts.
+So now that agents can take on long tasks, can you sit back and relax while they work? You can. Or you can get on with the next task, and that's where the trouble begins.
 
 ## Early squabbles
 
@@ -71,7 +71,7 @@ Worktrees isolate the files, but agents that change the same code can still prod
 
 I'd recommend running agents this way, as long as you're happy switching between them. One finishes, so you look at what it did and think about what to ask it next. Then another finishes, and it's on a different subject with a whole different set of information in it. It's like managing a small team of developers who report back every few minutes asking what to do next.
 
-Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them. The reasoning level changes the sums: the higher it is, the longer each agent works before handing back control, and the more sessions it takes to fill the wait.
+Keeping each piece of work tightly scoped helps here as well, because there's less to load into your head each time you switch. I've managed four or five sessions at once, but by around four I'm busy the whole time and the agents are waiting on me more than I'm waiting on them.
 
 ## Further reading
 
