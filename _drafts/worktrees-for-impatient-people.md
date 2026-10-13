@@ -63,7 +63,7 @@ Worktrees stop agents editing each other's files, but there are still a few thin
 
 ## No free lunch
 
-Running several agents isn't a free lunch: as you multiply what your agents get done, you multiply the demands on yourself. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next. Run too many and their responses start to stack up.
+As you multiply what your agents get done, you multiply the demands on yourself. Once worktrees have removed the technical barriers, the limit is your own ability, and appetite, to switch context: reading each agent's response, deciding what it should do next, then moving on to the next. Run too many and their responses start to stack up.
 
 Having your own army of agents might sound exciting, but someone still has to manage it. I'd recommend it, as long as you're happy to be that manager.
 
