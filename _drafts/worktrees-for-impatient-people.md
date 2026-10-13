@@ -25,7 +25,7 @@ Agents can now take on far bigger jobs than they could a couple of years ago. ME
   <figcaption>Length of task, in hours a skilled person would take, that the leading model completes 50% of the time. Central estimates. Source: METR, Time Horizon 1.1.</figcaption>
 </figure>
 
-So now that agents can take on long tasks, can you sit back and relax while they work? You can. Or you can get on with the next task, and that's where the trouble begins.
+So now that you can delegate complex, long-running tasks to agents, can you sit back and relax while they do all the work? You can. Or you can get on with the next task, and that's where the trouble begins.
 
 ## Early squabbles
 
