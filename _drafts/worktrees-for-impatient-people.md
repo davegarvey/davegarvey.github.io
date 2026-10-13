@@ -53,7 +53,7 @@ Worktrees have been in Git since 2015, but I'd never come across them until I st
   <figcaption>Weekly worldwide Google search interest in "worktrees"; 100 is the peak week. Source: Google Trends, retrieved 8 October 2026.</figcaption>
 </figure>
 
-When I later moved to Claude Code and Codex, I found both had worktrees built in. It feels like the way every agent will go, because there's little to lose.
+With worktrees built into Claude Code and Codex, it feels like the way every agent will go, because there's little to lose.
 
 ## Why I keep it local
 
