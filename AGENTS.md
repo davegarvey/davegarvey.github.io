@@ -91,6 +91,10 @@ claims and follow the subject further, and it shows the post rests on more than 
   sources of facts and figures, and pieces that make the same argument well.
 - Format each entry as author, linked title, publisher, date, then a short note on why
   it's worth reading, in Dave's voice. See the published posts for examples.
+- Make the note say what the reader gains from the source, or why it matters. Notes that
+  describe the source's job in the post, such as "The data behind the second chart" or
+  "The same for Codex", tell a reader nothing; "A rough measure of when worktrees went from an obscure
+  Git feature to something people search for" gives them a reason to click.
 - Check every link opens and says what the note claims before adding it.
 
 ## Charts
