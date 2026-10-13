@@ -39,7 +39,7 @@ As the ancient proverb goes: give four agents one checkout and they'll squabble 
 
 A Git worktree is a second working directory for the same repository, with its own branch and files but shared history. Give each agent its own, and its changes stay out of the others' way until you merge them.
 
-I add a `.worktrees` directory to each project, tell Git to ignore it, and add a rule to `AGENTS.md` telling agents to make each change in a new worktree inside that directory. Doing it this way keeps things consistent across all the coding tools I use.
+I add a `.worktrees` directory to each project, tell Git to ignore it, and add a rule to `AGENTS.md` telling agents to make each change in a new worktree inside that directory. Doing it this way keeps things consistent across all the coding tools I use, so I leave the built-in worktree option in Claude Code and Codex turned off.
 
 ## Worktrees took off with agents
 
@@ -52,12 +52,6 @@ Worktrees have been in Git since 2015, but I'd never come across them until I st
 </figure>
 
 With worktrees now built into Claude Code and Codex, I expect them to become the norm. It's hard to see why you wouldn't use them.
-
-## Why I turn the built-in option off
-
-The built-in options work, but each tool puts its worktrees in its own place: Claude Code under `.claude/worktrees` in the repository, Codex in its own home directory. They also create the worktree before the agent has read anything, so my rule never comes into play.
-
-So I turn the built-in option off and leave it to the rule. Codex, Claude Code and OpenCode all read `AGENTS.md`, so the setup works the same whichever agent I run, and all the worktrees end up in one place. The agent also creates the worktree after reading the project's instructions, so it follows conventions such as how to name branches. What I lose is the guarantee: Claude Code's built-in option, for example, blocks edits to the main checkout, whereas a rule relies on the agent following it. In my experience, they do.
 
 ## What worktrees don't solve
 
