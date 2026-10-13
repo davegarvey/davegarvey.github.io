@@ -29,9 +29,9 @@ So now that agents can take on long tasks, can you sit back and relax while they
 
 ## Early squabbles
 
-My first attempts at wrangling several agents at once ended in conflict: not between me and the agents, but between the agents themselves. I've been writing software for years, often as a technical lead with plenty of people on a project, but my own machine was always mine alone. Running agents on it was like having several people working at the same keyboard, all changing things at once.
+My first attempts at wrangling several agents at once ended in conflict: not between me and the agents, but between the agents themselves. I've been writing software for years, usually on projects with plenty of other people, but my own machine was always mine alone. Running agents on it was like having several people working at the same keyboard, all changing things at once.
 
-Three or four agents would be working in the same checkout, and one agent's edits would affect another's. When I tried to open a PR for one piece of work, the others' uncommitted changes got in the way. When I asked the agent how to stop them treading on each other, it suggested Git worktrees.
+After one messy episode, I asked the agent how to stop them treading on each other, and it suggested Git worktrees.
 
 ## One worktree per agent
 
