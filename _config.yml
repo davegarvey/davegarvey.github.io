@@ -33,7 +33,6 @@ plugins:
 
 feed:
   path: feed.xml
-  excerpt_only: true
 
 exclude:
   - .github
