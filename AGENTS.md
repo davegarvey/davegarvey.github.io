@@ -97,6 +97,27 @@ claims and follow the subject further, and it shows the post rests on more than 
   Git feature to something people search for" gives them a reason to click.
 - Check every link opens and says what the note claims before adding it.
 
+## Link posts
+
+Some posts are a short pointer to something Dave found worth reading, watching or
+listening to, with a brief reaction. They suit work that's better experienced first-hand
+than rehashed, and a fuller post that only restates someone else's argument may work
+better as one. See `_posts/2026-10-17-is-there-an-ai-bubble.md`.
+
+- **Title:** a prefix for the medium, such as "Listening:", "Reading:" or "Watching:",
+  then the source's full title in the blog's style (sentence case, "AI").
+- **Opening paragraph:** what it is and when Dave came across it, with the source's
+  title as a bold link; who made it, with roles checked against the source; and why he
+  liked it. Keep it short: it's the excerpt in the feed.
+- **Then a few points that resonated**, as bullets. Each has a bold heading, then what
+  the source argued, attributed and paraphrased faithfully, then Dave's own view in a
+  separate paragraph beginning *My take:*, ideally with something from his experience
+  or a sourced figure. Don't attribute to the source anything it didn't say.
+- **Keep it brief.** No conclusion, and no further reading unless a source behind one
+  of the takes is worth a click on its own.
+- The usual process still applies in lighter form: a question or two before drafting,
+  checked facts and links, and a share card.
+
 ## Charts
 
 Charts should make one clear point, simply and honestly. The approach is informed by
