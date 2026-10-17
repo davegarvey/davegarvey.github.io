@@ -17,7 +17,7 @@ I listened to this episode of The Ezra Klein Show today: **[Is There an A.I. Bub
 
 <!--more-->
 
-I found myself agreeing with both because they're often answering different questions. Kedrosky asks whether the labs can earn enough from their customers to justify what they're worth. Azhar asks whether all the computing being built will get used. You can say no to the first and yes to the second. Where they really clash is over the money: the debt, the valuations, and whether trouble at the labs would turn into a crash.
+I found myself agreeing with both because they're often asking different questions. Kedrosky asks whether the labs can earn enough from their customers to justify what they're worth. Azhar asks whether all the computing being built will get used. You can say no to the first and yes to the second. Where they really clash is over the money: the debt, the valuations, and whether trouble at the labs would turn into a crash.
 
 What resonated with me:
 
@@ -32,5 +32,7 @@ What resonated with me:
 - **The computing will be needed whoever wins.** Azhar argues that if companies switch to cheaper models, the labs lose out, but the demand for computing just moves elsewhere.
 
   *My take:* the data centres get used whichever model wins. The labs mostly rent their computing from the cloud providers. Companies that switch to open-weight models will mostly use the same cloud providers too, whether self-hosted or SaaS.
+
+---
 
 **Update:** Kedrosky wrote [a short post](https://paulkedrosky.com/ezra-klein-appearance-is-there-an-ai-bubble/) about his appearance on the show. In it, he says that getting caught up in whether AI actually works, or is useful, misses the point. He accepts that it does work and can be very useful. What he cares about is the huge amount of money being spent on it, and what that means for the wider economy. Then, that same week, Anthropic told prospective investors that its revenue grew 45% in the third quarter, after more than doubling in the second. The numbers are still huge, but it's a [sharp slowdown](https://www.exponentialview.co/p/anthropic-the-agony-and-the-ecstasy). By Friday, the tech-heavy Nasdaq had [fallen 4.5%](https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-friday-10162026-137331951) over the week.
