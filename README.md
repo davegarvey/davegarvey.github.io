@@ -40,7 +40,7 @@ The date at the start of the filename determines the post's date and URL. Tags a
 
 Put a post's images in a folder named after its slug, such as `assets/images/short-title/`, and reference them with `{{ '/assets/images/short-title/chart.svg' | relative_url }}`. Share cards are the exception; see below.
 
-An unpublished example is in [`_drafts/first-post.md`](_drafts/first-post.md). Copy it into `_posts` and replace its sample title and content to publish your first note.
+Keep work in progress in `_drafts`, without a date in the file name. Drafts are not published, but `jekyll serve --drafts` shows them locally. To publish one, move it into `_posts` with the date and add `date` to its front matter.
 
 ## Share previews
 
