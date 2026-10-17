@@ -32,3 +32,5 @@ What resonated with me:
 - **The computing will be needed whoever wins.** Azhar argues that if companies switch to cheaper models, the labs lose out, but the demand for computing just moves elsewhere.
 
   *My take:* the data centres get used whichever model wins. The labs mostly rent their computing from the cloud providers. Companies that switch to open-weight models will mostly use the same cloud providers too, whether self-hosted or SaaS.
+
+**Update:** In [his own note](https://paulkedrosky.com/ezra-klein-appearance-is-there-an-ai-bubble/) on the appearance, Kedrosky calls arguing over whether AI works a sideshow. It does, he says, and the money is what he's focused on. That same week, Anthropic told prospective investors that its revenue grew 45% in the third quarter, after more than doubling in the second: a [sharp slowdown](https://www.exponentialview.co/p/anthropic-the-agony-and-the-ecstasy), even if the numbers are still huge.
