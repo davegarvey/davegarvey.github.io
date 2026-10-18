@@ -31,7 +31,15 @@ What resonated with me:
 
 - **The computing will be needed whoever wins.** Azhar argues that if companies switch to cheaper models, the labs lose out, but the demand for computing just moves elsewhere.
 
-  *My take:* the data centres get used whichever model wins. The labs mostly rent their computing from the cloud providers. Companies that switch to open-weight models will mostly use the same cloud providers too, whether self-hosted or SaaS.
+  *My take:* the data centres get used whichever model wins. The labs mostly rent their computing from the cloud providers. Companies that switch to open-weight models will mostly use the same cloud providers too, whether self-hosted or SaaS. The risk I can see is on the consumer side. Models that run on phones and laptops keep getting better ([I already run one on mine]({% post_url 2026-09-26-downstream-of-deepseek %})), and once the assistant on your phone does its own inference, some of that demand won't need a data centre at all, even if business use stays in the cloud.
+
+- **Regulation is coming, probably after something goes wrong.** Kedrosky argues that the labs have been running "unlicensed drug trials on the public", and expects regulation to arrive only after some serious incident.
+
+  *My take:* there have already been several documented cases of models breaking out of their test environments and into other organisations' systems, including [an Australian government Medicare portal](https://beinsure.com/news/openai-agent-breached-australian-medicare-portal/). I'm surprised that, so far, the labs don't seem to have faced any legal, financial or regulatory consequences. Surely it's only a matter of time.
+
+- **Jobs will go faster than new ones appear.** Kedrosky argues that there's never been a general-purpose technology that applies so widely, has been adopted so quickly and reprices cognitive work at the same time. It's already making things like call centres far cheaper to run, and he expects the disruption to outpace the creation of new roles.
+
+  *My take:* I think we're only seeing the start of it. Unemployment is a lagging indicator, but I'd be surprised to find an organisation that isn't looking at how to use AI to optimise its business, and that will likely affect roles. As a [Stanford study](https://digitaleconomy.stanford.edu/news/canariesaug26/) suggests, that's already happening for entry-level jobs: employment of 22- to 25-year-olds in the jobs most exposed to AI is about 19% below trend.
 
 ---
 
