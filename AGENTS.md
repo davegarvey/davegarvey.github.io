@@ -39,10 +39,9 @@ anything lands in `_posts`:
    front matter conventions in [README.md](README.md). Set the filename date and the
    `date` in front matter to the actual moment of publishing — not when drafting
    started — so check the current date and time rather than reusing an earlier one.
-   Make the share card, and consider whether other assets, such as a chart, would make
-   the post more compelling where Dave shares it (see "Assets for sharing" below). Do
-   this before he shares it: some platforms, LinkedIn among them, can't add an image to
-   a post once it's published.
+   Make the share card and the LinkedIn image (see "Share cards" and "Assets for
+   sharing" below). Do this before he shares it: some platforms, LinkedIn among them,
+   can't add an image to a post once it's published.
 
 Don't skip straight to a polished draft from the first monologue — the questioning
 step is part of the value of this process, not an optional extra.
@@ -158,48 +157,53 @@ mode (see `.claude/launch.json`).
 
 ## Share cards
 
-Each post has a share card: the image LinkedIn, Slack and similar services show when
-someone shares a link. [README.md](README.md) covers the mechanics (SVG source, rendered
-PNG, fingerprinting, the metadata check). Cards are usually seen small, in a feed, so:
+Each post has a share card: the Open Graph image that Slack, Teams, iMessage, LinkedIn and
+similar services show when someone shares a link. [README.md](README.md) covers the
+mechanics (rendered PNG, fingerprinting, the metadata check). Cards are usually seen
+small, beside or under the post's title, so:
 
-- **Keep the visual style consistent.** Same dark background (`#181a18`), the title in
-  the site's serif at the top left, and one simple graphic in the lower half, drawn in the
-  site's palette from plain shapes. Look at the existing cards in `assets/images/cards/`
-  before making a new one.
-- **Keep text to a minimum.** The title is usually the only text. Make it large enough to
-  read at feed size. If a title is long, reduce the font size slightly and keep it on one
-  line.
-- **Let the graphic carry the interest.** It should make one point about the post, or
-  give a sense of it at a glance. A little wit is welcome but not required.
-- **Make one version.** Open Graph has no light or dark variant, and cards never appear
-  on the site, so each card has its own solid background and must read well on both light
-  and dark feeds.
-- **Write alt text** that describes the graphic and gives the title.
+- **Don't repeat the title.** The platform shows it next to the card. Text in the image is
+  fine when it's part of the picture, such as labels on a gear knob, but not to restate
+  the title. (X shows link cards without a headline, so a card there is only a picture.
+  That's an accepted cost.)
+- **Make one clear idea readable at thumbnail size.** LinkedIn shows the card about 250 px
+  wide. One simple subject, high contrast, nothing small that matters. A little wit is
+  welcome.
+- **Choose the style for the idea.** Flat shapes in the site's palette suit most posts and
+  can be drawn as SVG. A realistic image suits a post with a concrete, physical subject;
+  avoid generic AI imagery (robots, glowing circuits) that looks like every other AI post.
+- **Make one version.** Open Graph has no light or dark variant, so each card has its own
+  solid background and must read well on both light and dark feeds.
+- **Format:** 1200×630, PNG or JPEG, under 5 MB, fingerprinted like the others. Draw flat
+  cards as SVG in `assets/images/cards/` and render them with `scripts/render-cards`. A
+  raster card (for example from an image generator) needs converting and sizing, a
+  fingerprinted name and the post's `image` block setting by hand.
+- **Write alt text** that describes the picture.
 
 ## Assets for sharing
 
-Dave shares posts on other platforms, at the moment mainly LinkedIn. The link shows the
-share card, but an asset made for the platform, such as a chart that makes the post's
-point, can be more compelling. Consider one for each post, and suggest it only where it
-earns its place.
+Dave shares posts on other platforms, at the moment mainly LinkedIn. Make a separate image
+for each post that he'll attach to the LinkedIn post. Its job differs from the share
+card's: it has to stop someone scrolling and carry the post's message on its own.
 
-- **Use a chart only if it carries the main point on its own**, with its title. A chart
-  that supports a secondary point is better left in the post.
-- **Make a separate version of the chart.** On the site, the title, caption
-  and source are HTML around the chart, so the bare image has none of them. Draw the title
-  (in the site's serif), a one-line explanation, axis titles, the source and the site's
-  address into the image.
-- **Design for the platform's default experience**, the one most of its readers see
-  without changing any settings. That sets the palette and the size. LinkedIn, for
-  example, is light unless a reader turns dark mode on, so use the light palette there;
-  it shows portrait images large in the feed, so use 1080×1350. Whatever the platform,
-  use thicker lines and larger labels than the blog version.
-- **Keep the SVG source** next to the post's other images (for a chart,
-  `social-chart.svg`), and render the PNG with `rsvg-convert` for Dave to upload. The PNG
-  doesn't need to be kept.
-- **Write alt text** for the platform's image editor, reusing the post's alt text and
-  adding the title.
-- **An attached image usually replaces the link preview**, so the share card won't show
-  and the link appears as plain text.
-
-`assets/images/haiku-joins-the-price-war/social-chart.svg` is an example.
+- **Make it engaging.** It can be more stylised than the share card, with a headline and
+  a picture that conveys the argument. A chart is one option, but only if it carries the
+  main point on its own; a chart that supports a secondary point stays in the post.
+- **Keep it faithful to the post.** The headline mustn't overstate the argument, and
+  labels must use the post's own terms. Include the site's address (`davidgarvey.blog`),
+  because the image travels without the link.
+- **Size for the platform.** LinkedIn shows portrait images large in the feed, so use
+  1080×1350. Use larger type and thicker lines than anything on the blog.
+- **For a chart**, make a separate version: on the site, the title, caption and source are
+  HTML around the chart, so the bare image has none of them. Draw the title (in the
+  site's serif), a one-line explanation, axis titles, the source and the site's address
+  into the image, and use the light palette, since LinkedIn is light by default.
+  `assets/images/haiku-joins-the-price-war/social-chart.svg` is an example.
+- **Making the image.** Draw flat images as SVG next to the post's other images (for
+  example `social.svg`) and render the PNG with `rsvg-convert`. For realistic images, write
+  a prompt for Dave's image tool, then check the result closely, especially any text,
+  which generators often get wrong. The PNG for upload doesn't need to be kept.
+- **Write alt text** for the platform's image editor, giving the headline and describing
+  the picture.
+- **An attached image replaces the link preview**, so LinkedIn readers won't see the share
+  card, and the link appears as plain text.
