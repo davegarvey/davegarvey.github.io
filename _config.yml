@@ -54,3 +54,5 @@ exclude:
   - package.json
   - package-lock.json
   - wrangler.jsonc
+  # Images for attaching to LinkedIn posts; kept with the post but not served.
+  - assets/images/*/linkedin.*
