@@ -171,9 +171,8 @@ small, beside or under the post's title, so:
 - **Leave the title out and give the whole card to the picture.** Platforms show the
   title, and often the description, beside the card, so a title in the image only repeats
   it and shrinks a space that is already small. Text in the image is fine when it's part
-  of the picture, such as labels on a gear knob, but not to restate the title. (X shows
-  link cards without a headline, so a card there is only a picture. That's an accepted
-  cost.)
+  of the picture, but not to restate the title. (X shows link cards without a headline,
+  so a card there is only a picture. That's an accepted cost.)
 - **Make one clear idea readable at thumbnail size.** LinkedIn shows the card about 250 px
   wide. One simple subject, high contrast, nothing small that matters. A little wit is
   welcome.
