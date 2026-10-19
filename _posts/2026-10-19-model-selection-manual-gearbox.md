@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Model selection is going the way of the manual gearbox
+title: Letting go of the gearstick
 date: 2026-10-19 01:11:30 +0200
 description: Choosing a model for every prompt is like changing gear by hand. I built a plugin to test whether a new kind of model, Jev, could be the automatic gearbox. It did well, but I'm not ready to give up control yet.
 image:
