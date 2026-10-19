@@ -62,7 +62,7 @@ image:
   path: /assets/images/cards/short-title-0a1b2c3d.png
   width: 1200
   height: 630
-  alt: A plain description of the graphic and the title.
+  alt: A plain description of the picture.
 ```
 
 Pages without their own `image` use the generic card, [`assets/images/social-card.svg`](assets/images/social-card.svg), set as a default in `_config.yml`.
