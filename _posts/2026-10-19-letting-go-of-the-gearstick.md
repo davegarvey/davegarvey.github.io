@@ -32,11 +32,11 @@ You can already see this in chatbots. Open ChatGPT as a new user and you get no 
 
 TypeSafe markets Jev as the first "System One" model (also known as a decision model). Unlike the LLMs we've all got used to, it doesn't respond with text. You give it some context and a set of options, and it tells you how likely each one is to be right. That felt like a good match for choosing a model, and I wondered how good it would be.
 
-To find out, I tested it against three alternatives:
+To find out, I tested Jev 1.13 against three alternatives:
 
-- **Embeddings.** A well-established way to classify text. You turn the request into an embedding, a vector that captures its meaning, and match it to the most similar labelled examples.
-- **A small general LLM.** You can make an LLM answer to a fixed JSON schema, so in theory a small one could mimic a System One model's output, choice and confidence included. I used Gemma 4 E2B.
-- **Kev.** An open-source equivalent of Jev, built on Qwen. A router runs on every request, so I like the idea of one I can host myself.
+- **Embeddings.** A well-established way to classify text. You turn the request into an embedding, a vector that captures its meaning, and match it to the most similar labelled examples. I used EmbeddingGemma.
+- **A small general LLM.** You can make an LLM answer to a fixed JSON schema, so in theory a small one could mimic a System One model's output. I used Gemma 4 E2B.
+- **An open-source decision model.** Kev is an open-source equivalent of Jev. A router runs on every request, so I like the idea of one I can host myself. I used Kev-4B, built on Qwen 3.5.
 
 ## The test
 
