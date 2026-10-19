@@ -4,7 +4,7 @@ title: Letting go of the gearstick
 date: 2026-10-19 01:11:30 +0200
 description: Choosing a model for every prompt is like changing gear by hand. I built a plugin to test whether a new kind of model, Jev, could be the automatic gearbox. It did well, but I'm not ready to give up control yet.
 image:
-  path: /assets/images/cards/model-selection-manual-gearbox-bf939ad7.png
+  path: /assets/images/cards/letting-go-of-the-gearstick-bf939ad7.png
   width: 1200
   height: 630
   alt: "A manual gearbox's H-shaped shift pattern with three gates labelled S, M and L, for small, medium and large models. The L gate glows orange and leads down to a fourth position marked AUTO."
@@ -61,7 +61,7 @@ Jev was the most accurate router on both sets of requests, and the only one to g
 
 <figure>
   <p class="figure-title"><strong>Only Jev kept up on the hard cases</strong></p>
-  <img src="{{ '/assets/images/model-selection-manual-gearbox/router-agreement.svg' | relative_url }}" alt="Dot chart of the share of test requests each router sent to the intended tier, for 39 short, clear requests and 15 hard ones. Jev: 95% and 100%. Gemma 4 E2B: 74% and 80%. Kev: 77% and 60%. Embeddings: 77% and 53%.">
+  <img src="{{ '/assets/images/letting-go-of-the-gearstick/router-agreement.svg' | relative_url }}" alt="Dot chart of the share of test requests each router sent to the intended tier, for 39 short, clear requests and 15 hard ones. Jev: 95% and 100%. Gemma 4 E2B: 74% and 80%. Kev: 77% and 60%. Embeddings: 77% and 53%.">
   <figcaption>Share of test requests sent to the intended tier. Hard cases are long prompts and terse follow-ups. Samples are small: on the hard cases, the 95% intervals span about 20 points either side. Source: auto-model, October 2026.</figcaption>
 </figure>
 

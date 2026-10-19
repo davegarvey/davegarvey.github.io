@@ -34,6 +34,10 @@ plugins:
 feed:
   path: feed.xml
 
+# Cloudflare static-assets redirects for renamed posts.
+include:
+  - _redirects
+
 exclude:
   - .github
   - Gemfile
