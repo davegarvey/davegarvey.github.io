@@ -54,6 +54,12 @@ his, and keep it sounding like him talking. Concretely:
 
 - **British English throughout.** Spelling, vocabulary and idiom should all be British
   (e.g. "colour", "organise", "full stop", not their American equivalents).
+- **Titles:** regular post titles are usually short—often three to five words—and needn't
+  summarise the whole article. They can name the subject, suggest an editorial angle, or
+  leave some ambiguity for the article to resolve. A little wordplay or humour can work
+  when it grows naturally from the subject; keep it subtle. Aim for a personal, measured
+  voice, without sensational claims, inflated promises or clickbait. Titles can vary in
+  how much context they give; the article can supply what the title leaves open.
 - **Plain word over the pompous one.** "start" not "commence", "use" not "utilise".
   Prefer the familiar word to the far-fetched one.
 - **Cut needless words and hedges.** Strip filler qualifiers ("very", "quite",
