@@ -215,8 +215,9 @@ to stop someone scrolling and carry the post's message on its own.
   the picture.
 - **Keep the files with the post.** Put them in the post's image folder:
   `linkedin.png`, its `linkedin.svg` source if it has one, and `linkedin.md` with the alt
-  text and, for a generated image, the prompt. Commit all of them: a generated image has
-  no other source, and the files record what the post went out with. They aren't
+  text. Commit all of them: a generated image has no other source, and the files record
+  what the post went out with. Don't keep a prompt or a description of the image: the
+  image is its own record, and text about it goes stale when it changes. They aren't
   fingerprinted, because LinkedIn keeps its own copy of an upload rather than fetching a
   URL, and `_config.yml` keeps them out of the built site.
 - **An attached image replaces the link preview**, so LinkedIn readers won't see the share

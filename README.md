@@ -71,7 +71,7 @@ After building, `bundle exec ruby scripts/check-share-metadata` checks every pag
 
 Refresh a page's preview with LinkedIn's [Post Inspector](https://www.linkedin.com/post-inspector/) after publishing.
 
-A post can also have an optional image to attach when sharing it on LinkedIn, kept in the post's image folder: `linkedin.png` (1080×1350), its `linkedin.svg` source if it is drawn, and `linkedin.md` with the alt text and any image-generator prompt. These files are committed but excluded from the build in `_config.yml`, since nothing on the site uses them. When a post has one, `check-share-metadata` also checks its size and that `linkedin.md` exists.
+A post can also have an optional image to attach when sharing it on LinkedIn, kept in the post's image folder: `linkedin.png` (1080×1350), its `linkedin.svg` source if it is drawn, and `linkedin.md` with the alt text. These files are committed but excluded from the build in `_config.yml`, since nothing on the site uses them. When a post has one, `check-share-metadata` also checks its size and that `linkedin.md` exists.
 
 ## Run locally
 
