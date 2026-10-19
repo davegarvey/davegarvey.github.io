@@ -44,7 +44,7 @@ for svg in assets/images/cards/*.svg; do
     echo "  Updated image.path in $post"
   else
     echo "  $post has no image block; add:" >&2
-    printf '  image:\n    path: /%s\n    width: 1200\n    height: 630\n    alt: Describe the graphic and the title.\n' "$png" >&2
+    printf '  image:\n    path: /%s\n    width: 1200\n    height: 630\n    alt: Describe the picture.\n' "$png" >&2
   fi
 done
 
