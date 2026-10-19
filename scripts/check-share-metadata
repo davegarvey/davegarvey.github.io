@@ -7,6 +7,9 @@
 #   bundle exec jekyll build
 #   bundle exec ruby scripts/check-share-metadata [_site]
 #
+# Also checks any optional LinkedIn images in the source tree
+# (assets/images/<slug>/linkedin.png), which the build leaves out.
+#
 # Exits non-zero if any page fails, so it can run in CI after the build.
 
 require "nokogiri"
@@ -90,6 +93,28 @@ pages.each do |path|
       problems << "og:image points to #{uri.path}, which is not in the built site"
     end
   end
+
+  if problems.empty?
+    puts "ok    #{name}"
+  else
+    failures += 1
+    puts "FAIL  #{name}"
+    problems.each { |problem| puts "        - #{problem}" }
+  end
+end
+
+# Optional images for attaching to LinkedIn posts. They are excluded from the
+# build, so check them in the source tree.
+LINKEDIN_SIZE = [1080, 1350]
+Dir.glob(File.join(__dir__, "..", "assets", "images", "*", "linkedin.png")).sort.each do |path|
+  name = path.sub(%r{\A.*/assets/}, "assets/")
+  bytes = File.binread(path)
+  width, height = dimensions(bytes)
+  problems = []
+  problems << "not a PNG" if width.nil? || !bytes.start_with?("\x89PNG".b)
+  problems << "is #{width}x#{height}, not #{LINKEDIN_SIZE.join('x')}" if width && [width, height] != LINKEDIN_SIZE
+  problems << "is #{bytes.bytesize / 1024} KB, over the 5 MB limit" if bytes.bytesize > MAX_BYTES
+  problems << "has no linkedin.md beside it with the alt text" unless File.file?(File.join(File.dirname(path), "linkedin.md"))
 
   if problems.empty?
     puts "ok    #{name}"

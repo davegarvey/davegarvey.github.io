@@ -39,9 +39,9 @@ anything lands in `_posts`:
    front matter conventions in [README.md](README.md). Set the filename date and the
    `date` in front matter to the actual moment of publishing — not when drafting
    started — so check the current date and time rather than reusing an earlier one.
-   Make the share card and the LinkedIn image (see "Share cards" and "Assets for
-   sharing" below). Do this before he shares it: some platforms, LinkedIn among them,
-   can't add an image to a post once it's published.
+   Make the share card, and offer a LinkedIn image, which is optional (see "Share
+   cards" and "Assets for sharing" below). Do this before he shares it: some platforms,
+   LinkedIn among them, can't add an image to a post once it's published.
 
 Don't skip straight to a polished draft from the first monologue — the questioning
 step is part of the value of this process, not an optional extra.
@@ -189,9 +189,10 @@ small, beside or under the post's title, so:
 
 ## Assets for sharing
 
-Dave shares posts on other platforms, at the moment mainly LinkedIn. Make a separate image
-for each post that he'll attach to the LinkedIn post. Its job differs from the share
-card's: it has to stop someone scrolling and carry the post's message on its own.
+Dave shares posts on other platforms, at the moment mainly LinkedIn. A post can have a
+separate image for him to attach to the LinkedIn post. It's optional: offer one when
+finishing a post, but a post can go without. Its job differs from the share card's: it has
+to stop someone scrolling and carry the post's message on its own.
 
 - **Make it engaging.** It can be more stylised than the share card, with a headline and
   a picture that conveys the argument. A chart is one option, but only if it carries the
@@ -205,12 +206,18 @@ card's: it has to stop someone scrolling and carry the post's message on its own
   HTML around the chart, so the bare image has none of them. Draw the title (in the
   site's serif), a one-line explanation, axis titles, the source and the site's address
   into the image, and use the light palette, since LinkedIn is light by default.
-  `assets/images/haiku-joins-the-price-war/social-chart.svg` is an example.
-- **Making the image.** Draw flat images as SVG next to the post's other images (for
-  example `social.svg`) and render the PNG with `rsvg-convert`. For realistic images, write
-  a prompt for Dave's image tool, then check the result closely, especially any text,
-  which generators often get wrong. The PNG for upload doesn't need to be kept.
+  `assets/images/haiku-joins-the-price-war/linkedin.svg` is an example.
+- **Making the image.** Draw flat images as `linkedin.svg` and render `linkedin.png` from
+  it with `rsvg-convert`. For realistic images, write a prompt for Dave's image tool, then
+  check the result closely, especially any text, which generators often get wrong, and
+  save it as `linkedin.png`, converted to PNG and sized to 1080×1350.
 - **Write alt text** for the platform's image editor, giving the headline and describing
   the picture.
+- **Keep the files with the post.** Put them in the post's image folder:
+  `linkedin.png`, its `linkedin.svg` source if it has one, and `linkedin.md` with the alt
+  text and, for a generated image, the prompt. Commit all of them: a generated image has
+  no other source, and the files record what the post went out with. They aren't
+  fingerprinted, because LinkedIn keeps its own copy of an upload rather than fetching a
+  URL, and `_config.yml` keeps them out of the built site.
 - **An attached image replaces the link preview**, so LinkedIn readers won't see the share
   card, and the link appears as plain text.
