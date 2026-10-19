@@ -2,11 +2,11 @@
 
 ## Alt text
 
-Model selection is going the way of the manual gearbox. A dark car console at night with two gear levers. On the left, a manual knob shows an H-shaped shift pattern labelled S, M and L. On the right, an automatic selector glows with the word AUTO, and three lines labelled Small, Medium and Large run into it. davidgarvey.blog.
+Letting go of the gearstick. Two gear levers side by side on a dark car console, split down the middle. On the left, a black leather manual knob shows an H-shaped shift pattern labelled S, M and L, lit in cool blue. On the right, an automatic selector glows orange with the word AUTO. davidgarvey.blog.
 
 ## Prompt
 
-Generated with Dave's image tool from this prompt, then converted from WebP and sized to 1080×1350.
+Regenerated with Dave's image tool after the post was renamed, then converted from WebP and sized to 1080×1350. The exact prompt wasn't recorded. It started from the one below, with the headline changed to "Letting go of the gearstick" and the Small, Medium and Large tags dropped.
 
 ```text
 A portrait social media image, 1080 × 1350 pixels (4:5), for a LinkedIn post about AI model selection.
