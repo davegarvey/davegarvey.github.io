@@ -42,6 +42,8 @@ anything lands in `_posts`:
    Make the share card, and offer a LinkedIn image, which is optional (see "Share
    cards" and "Assets for sharing" below). Do this before he shares it: some platforms,
    LinkedIn among them, can't add an image to a post once it's published.
+   Once the article content is final, read [the LinkedIn promotion guide](docs/publishing/linkedin.md)
+   when preparing its LinkedIn post.
 
 Don't skip straight to a polished draft from the first monologue — the questioning
 step is part of the value of this process, not an optional extra.
