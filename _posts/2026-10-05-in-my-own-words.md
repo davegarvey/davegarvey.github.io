@@ -2,6 +2,7 @@
 layout: post
 title: In my own words
 date: 2026-10-05 11:32:29 +0200
+feed_id: https://davegarvey.github.io/2026/10/05/in-my-own-words
 description: Working with AI has taught me a lot, and I want to write it down without publishing AI slop under my name. This is the process I use.
 image:
   path: /assets/images/cards/in-my-own-words-e550d9ce.png

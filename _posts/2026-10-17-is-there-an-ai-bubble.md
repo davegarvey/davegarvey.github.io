@@ -2,6 +2,7 @@
 layout: post
 title: "Listening: Is there an AI bubble? A debate"
 date: 2026-10-17 23:14:32 +0200
+feed_id: https://davegarvey.github.io/2026/10/17/is-there-an-ai-bubble
 description: Ezra Klein's debate between Paul Kedrosky and Azeem Azhar on whether AI is a bubble, and the points that stuck with me.
 image:
   path: /assets/images/cards/is-there-an-ai-bubble-3e36f2f6.png

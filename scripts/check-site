@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 require 'nokogiri'
+require 'uri'
+require 'yaml'
+require 'date'
 def check(value, message)
   abort message unless value
 end
@@ -14,8 +17,43 @@ end
 # Entry IDs keep their github.io form so subscribers who moved feeds don't see every post again.
 feed = Nokogiri::XML(File.read('_site/feed.xml')) { |c| c.strict }
 check(!feed.xpath('//a:entry', ns).empty?, 'Empty feed')
-feed.xpath('//a:entry/a:id', ns).each { |id| check(id.text.start_with?('https://davegarvey.github.io/'), 'Unstable entry ID') }
-feed.xpath('//a:entry/a:link', ns).each { |link| check(link['href'].start_with?('https://davidgarvey.blog/'), 'Wrong feed article link') }
+entries = feed.xpath('//a:entry', ns)
+ids = entries.map { |entry| entry.at_xpath('a:id', ns).text }
+check(ids.uniq.length == ids.length, 'Duplicate Atom article ID')
+ids.each do |id|
+  parsed = URI.parse(id)
+  check(parsed.absolute?, "Invalid Atom article ID: #{id}")
+  legacy_url = id.start_with?('https://davegarvey.github.io/')
+  uuid_urn = id.match?(/\Aurn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i)
+  check(legacy_url || uuid_urn, "Atom article ID must be a preserved legacy URL or UUID URN: #{id}")
+end
+entries.each do |entry|
+  link = entry.at_xpath('a:link', ns)['href']
+  check(link.start_with?('https://davidgarvey.blog/'), "Wrong feed article link: #{link}")
+end
+# Every published post needs an explicit, persisted ID; compare the built feed
+# with front matter by current URL, and ensure the entry ID is its stored value.
+posts = Dir.glob('_posts/*.{md,markdown}').filter_map do |path|
+  raw = File.read(path)
+  front_matter = raw.match(/\A---\s*\n(.*?)\n---\s*\n/m)&.[](1)
+  next unless front_matter
+  data = YAML.safe_load(front_matter, permitted_classes: [Date, Time], aliases: true) || {}
+  check(data['feed_id'].is_a?(String) && !data['feed_id'].empty?, "Missing feed_id: #{path}")
+  url = data['permalink']
+  unless url
+    date = data['date'].to_date
+    slug = File.basename(path).sub(/\A\d{4}-\d{2}-\d{2}-/, '').sub(/\.(md|markdown)\z/, '')
+    url = "/#{date.strftime('%Y/%m/%d')}/#{slug}/"
+  end
+  ["https://davidgarvey.blog#{url}", data['feed_id']]
+end
+expected = posts.to_h
+check(expected.length == posts.length, 'Duplicate post permalink in source')
+check(expected.values.uniq.length == expected.values.length, 'Duplicate Atom article ID in source')
+entries.each do |entry|
+  href = entry.at_xpath('a:link', ns)['href']
+  check(expected[href] == entry.at_xpath('a:id', ns).text, "Feed ID missing or differs from front matter: #{href}")
+end
 sitemap = Nokogiri::XML(File.read('_site/sitemap.xml')) { |c| c.strict }
 sitemap.remove_namespaces!
 check(sitemap.css('loc').all? { |n| n.text.start_with?('https://davidgarvey.blog/') }, 'Wrong sitemap domain')
