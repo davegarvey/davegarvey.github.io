@@ -23,6 +23,7 @@ Start it with front matter:
 layout: post
 title: A clear, descriptive title
 date: 2026-09-23 09:00:00 +0200
+feed_id: urn:uuid:123e4567-e89b-12d3-a456-426614174000
 description: A short summary for search and social previews.
 tags:
   - notes
@@ -37,6 +38,8 @@ Continue the post here. Markdown headings, lists, links, and code blocks are sup
 ```
 
 The date at the start of the filename determines the post's date and URL. Tags are optional and appear as plain text under the post title; use a small, consistent set of lowercase tags. Posts dated in the future stay unpublished until their date.
+
+Every published post needs a permanent `feed_id`. Generate a new UUID with `uuidgen` and store it as `urn:uuid:<uuid>` in the post's front matter. Keep that value when editing, retitling or moving the post; the feed link will follow its current page URL while the ID stays fixed.
 
 Put a post's images in a folder named after its slug, such as `assets/images/short-title/`, and reference them with `{{ '/assets/images/short-title/chart.svg' | relative_url }}`. Share cards are the exception; see below.
 

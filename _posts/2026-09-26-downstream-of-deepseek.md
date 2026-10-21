@@ -2,6 +2,7 @@
 layout: post
 title: Downstream of DeepSeek
 date: 2026-09-26 22:28:53 +0200
+feed_id: https://davegarvey.github.io/2026/09/26/downstream-of-deepseek
 description: OpenAI cut its prices as DeepSeek's low-cost models took off, then DeepSeek raised its own. Some notes from the receiving end.
 image:
   path: /assets/images/cards/downstream-of-deepseek-e3cb2ad3.png

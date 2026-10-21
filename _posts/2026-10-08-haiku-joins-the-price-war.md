@@ -2,6 +2,7 @@
 layout: post
 title: Haiku joins the price war
 date: 2026-10-08 11:57:22 +0200
+feed_id: https://davegarvey.github.io/2026/10/08/haiku-joins-the-price-war
 image:
   path: /assets/images/cards/haiku-joins-the-price-war-95a4f4f1.png
   width: 1200

@@ -2,6 +2,7 @@
 layout: post
 title: Letting go of the gearstick
 date: 2026-10-19 01:11:30 +0200
+feed_id: https://davegarvey.github.io/2026/10/19/letting-go-of-the-gearstick
 description: Choosing a model for every prompt is like changing gear by hand. I built a plugin to test whether a new kind of model, Jev, could be the automatic gearbox. It did well, but I'm not ready to give up control yet.
 image:
   path: /assets/images/cards/letting-go-of-the-gearstick-bf939ad7.png

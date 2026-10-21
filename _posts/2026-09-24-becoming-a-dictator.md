@@ -2,6 +2,7 @@
 layout: post
 title: Becoming a dictator
 date: 2026-09-24 23:00:00 +0200
+feed_id: https://davegarvey.github.io/2026/09/24/becoming-a-dictator
 description: I have recently started dictating to LLMs rather than typing. Some early impressions.
 image:
   path: /assets/images/cards/becoming-a-dictator-6629ddef.png
