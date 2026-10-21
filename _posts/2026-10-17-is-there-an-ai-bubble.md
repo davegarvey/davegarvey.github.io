@@ -34,7 +34,7 @@ What resonated with me:
 
 - **The costs move downstream.** Azhar points out that AI pushes extra work onto other people. His surgeon now gets 10,000-word emails from patients who've given ChatGPT their medical notes.
 
-  *My take:* I see it in software. Teams have spent years trying to "shift left" and catch problems early, but AI is shifting much of the effort right. GitHub has had [far more outages](https://leaddev.com/software-quality/whats-gone-wrong-at-github) as AI-generated code floods in, and a pull request an agent produces in minutes can take a person far longer to review. You can even do it to yourself. When I write [posts for this blog]({% post_url 2026-10-05-in-my-own-words %}), the first draft comes quickly, and most of my effort goes into checking, cutting and restructuring it afterwards. The time you save generating, you often spend reviewing.
+  *My take:* I see it in software. Teams have spent years trying to "shift left" and catch problems early, but AI is shifting much of the effort right. GitHub has had [far more outages](https://leaddev.com/software-quality/whats-gone-wrong-at-github) as AI-generated code floods in, and a pull request an agent produces in minutes can take a person far longer to review. The time you save generating, you often spend reviewing.
 
 - **Regulation is coming, probably after something goes wrong.** Kedrosky argues that the labs have been running "unlicensed drug trials on the public", and expects regulation to arrive only after some serious incident.
 
