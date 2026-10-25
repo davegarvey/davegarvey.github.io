@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 270" role="img" aria-labelledby="t d">
+  <title id="t">How washers stop the trainer squeezing the frame</title>
+  <desc id="d">Two rear views of a bike's back end on a trainer. Without washers, the dropouts are pulled in, the derailleur hanger tilts inwards and the derailleur sits off its sprocket. With washers behind the adapter's collar, the frame sits at its natural width and the derailleur lines up with the sprocket.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
+    .small { font-size: 12px; }
+    .ink { fill: #1f211e; }
+    .muted { fill: #62655e; }
+    .trainer { fill: #e2e1db; stroke: #9da199; }
+    .part { fill: #c9c8c0; stroke: #62655e; }
+    .cog { fill: #62655e; }
+    .bike { fill: #2f6aa8; }
+    .stay { stroke: #2f6aa8; }
+    .mech { fill: #f8f7f4; stroke: #1f211e; }
+    .washer { fill: #d0692e; }
+    .washer-t { fill: #b0561f; }
+    .chain { stroke: #1f211e; }
+    .cage { stroke: #c9c8c0; }
+    .lead { stroke: #62655e; }
+    .arrow { stroke: #b0561f; }
+    .arrow-head { fill: #b0561f; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #e9e8e2; }
+      .muted { fill: #9da199; }
+      .trainer { fill: #2e312d; stroke: #62655e; }
+      .part { fill: #4a4d47; stroke: #9da199; }
+      .cog { fill: #9da199; }
+      .bike { fill: #4a8ad6; }
+      .stay { stroke: #4a8ad6; }
+      .mech { fill: #181a18; stroke: #e9e8e2; }
+      .washer { fill: #dc6e35; }
+      .washer-t { fill: #dc6e35; }
+      .chain { stroke: #e9e8e2; }
+      .cage { stroke: #4a4d47; }
+      .lead { stroke: #9da199; }
+      .arrow { stroke: #dc6e35; }
+      .arrow-head { fill: #dc6e35; }
+    }
+  </style>
+
+  <defs>
+    <!-- Trainer, cassette and drive-side spin cap: identical in both panels -->
+    <g id="trainer">
+      <!-- The adapter's collar sits in a recess in the trainer's non-drive side -->
+      <path class="trainer" d="M99,85 H191 Q195,85 195,89 V151 Q195,155 191,155 H99 Q95,155 95,151 V138 H107 V102 H95 V89 Q95,85 99,85 Z"/>
+      <text class="muted small" x="145" y="124" text-anchor="middle">Trainer</text>
+      <g class="cog">
+        <rect x="198" y="85" width="2.5" height="70"/>
+        <rect x="202" y="89" width="2.5" height="62"/>
+        <rect x="206" y="93" width="2.5" height="54"/>
+        <rect x="210" y="97" width="2.5" height="46"/>
+        <rect x="214" y="100" width="2.5" height="40"/>
+        <rect x="218" y="103" width="2.5" height="34"/>
+        <rect x="222" y="106" width="2.5" height="28"/>
+      </g>
+      <rect class="part" x="226" y="112" width="6" height="16"/>
+    </g>
+    <!-- Drive-side dropout (same size as the non-drive side) with the derailleur hanging below, drawn upright -->
+    <g id="drive-side">
+      <polyline class="cage" points="237,140 237,180 215.25,218" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect class="bike" x="232" y="95" width="10" height="50" rx="3"/>
+      <circle class="mech" cx="215.25" cy="218" r="8" stroke-width="2"/>
+    </g>
+    <!-- Non-drive-side dropout -->
+    <rect id="nds-dropout" class="bike" x="0" y="95" width="10" height="50" rx="3"/>
+    <!-- Non-drive-side adapter: stub and collar -->
+    <g id="adapter">
+      <rect class="part" x="0" y="113" width="20" height="14"/>
+      <rect class="part" x="20" y="106" width="6" height="28"/>
+    </g>
+    <marker id="head" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path class="arrow-head" d="M0,0 L8,4 L0,8 z"/>
+    </marker>
+  </defs>
+
+  <!-- Without washers -->
+  <g>
+    <text class="ink" x="150" y="20" text-anchor="middle" font-weight="600">Without washers</text>
+    <use href="#trainer"/>
+    <use href="#adapter" x="81"/>
+    <g transform="rotate(-6 76 120)"><use href="#nds-dropout" x="71"/></g>
+    <line class="chain" x1="215.25" y1="140" x2="205.1" y2="207.2" stroke-width="2"/>
+    <text class="ink small" x="203" y="178" text-anchor="end">Chain</text>
+    <g transform="rotate(6 237 120)"><use href="#drive-side"/></g>
+    <g class="stay" stroke-width="7" stroke-linecap="round">
+      <line x1="118" y1="40" x2="73.4" y2="98"/>
+      <line x1="172" y1="40" x2="239.6" y2="98"/>
+    </g>
+    <g class="arrow" stroke-width="2" marker-end="url(#head)">
+      <line x1="22" y1="120" x2="46" y2="120"/>
+      <line x1="278" y1="120" x2="256" y2="120"/>
+    </g>
+    <text class="ink small" x="150" y="262" text-anchor="middle">Frame squeezed, derailleur off its sprocket</text>
+  </g>
+
+  <!-- With washers -->
+  <g transform="translate(300 0)">
+    <text class="ink" x="150" y="20" text-anchor="middle" font-weight="600">With washers</text>
+    <use href="#trainer"/>
+    <g class="washer">
+      <rect x="101.5" y="104" width="1.5" height="32"/>
+      <rect x="103.5" y="104" width="1.5" height="32"/>
+      <rect x="105.5" y="104" width="1.5" height="32"/>
+    </g>
+    <use href="#adapter" x="75"/>
+    <use href="#nds-dropout" x="65"/>
+    <line class="chain" x1="215.25" y1="140" x2="215.25" y2="210" stroke-width="2"/>
+    <use href="#drive-side"/>
+    <g class="stay" stroke-width="7" stroke-linecap="round">
+      <line x1="118" y1="40" x2="70" y2="98"/>
+      <line x1="172" y1="40" x2="237" y2="98"/>
+    </g>
+    <line class="lead" x1="104" y1="139" x2="104" y2="168" stroke-width="1"/>
+    <text class="washer-t small" x="104" y="182" text-anchor="middle">Washers</text>
+    <text class="ink small" x="150" y="262" text-anchor="middle">Natural width, derailleur in line</text>
+  </g>
+</svg>
