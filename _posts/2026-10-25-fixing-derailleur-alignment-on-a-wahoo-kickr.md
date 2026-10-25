@@ -27,7 +27,7 @@ On the road the gears were perfect. On the Kickr they were noisy, worse in some 
 
 ## The cause
 
-When mounting the bike, I noticed the axle took about a quarter turn more to tighten on the Kickr than in the wheel. So the Kickr is slightly narrower, and tightening the axle pulls the dropouts in. The drive-side dropout is held against the trainer at the axle, so as it's pulled in, it bends slightly and tilts the derailleur hanger inwards. The derailleur ends up a fraction out of line with the cassette, which is enough to upset 12-speed indexing.
+When mounting the bike, I noticed the axle took about a quarter turn more to tighten on the Kickr than in the wheel. So the Kickr is slightly narrower, and tightening the axle pulls the dropouts in. The drive-side dropout is held against the trainer at the axle, so as it's pulled in, it bends slightly and tilts the derailleur hanger inwards. The derailleur ends up a fraction out of line with the cassette, which is enough to upset the indexing.
 
 <figure>
   <p class="figure-title"><strong>Washers stop the trainer squeezing the frame</strong></p>
