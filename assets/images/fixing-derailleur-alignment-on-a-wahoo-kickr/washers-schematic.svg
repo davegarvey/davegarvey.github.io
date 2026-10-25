@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 270" role="img" aria-labelledby="t d">
-  <title id="t">How washers stop the trainer squeezing the frame</title>
-  <desc id="d">Two rear views of a bike's back end on a trainer. Without washers, the dropouts are pulled in, the derailleur hanger tilts inwards and the derailleur sits off its sprocket. With washers behind the adapter's collar, the frame sits at its natural width and the derailleur lines up with the sprocket.</desc>
+  <title id="t">Washers make the trainer as wide as the wheel's hub</title>
+  <desc id="d">Two rear views of a bike's back end on a trainer. Without washers, the dropouts are pulled in, the derailleur hanger tilts inwards and the derailleur sits off its sprocket. With washers behind the adapter's collar, the trainer matches the width of the wheel's hub and the derailleur lines up with the sprocket.</desc>
   <style>
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
     .small { font-size: 12px; }
@@ -112,6 +112,6 @@
     </g>
     <line class="lead" x1="104" y1="139" x2="104" y2="168" stroke-width="1"/>
     <text class="washer-t small" x="104" y="182" text-anchor="middle">Washers</text>
-    <text class="ink small" x="150" y="262" text-anchor="middle">Natural width, derailleur in line</text>
+    <text class="ink small" x="150" y="262" text-anchor="middle">Matches the wheel, derailleur in line</text>
   </g>
 </svg>

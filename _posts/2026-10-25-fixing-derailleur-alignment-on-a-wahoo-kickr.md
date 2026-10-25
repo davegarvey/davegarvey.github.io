@@ -30,8 +30,8 @@ On the road the gears were perfect. On the Kickr they were noisy, worse in some 
 When mounting the bike, I noticed the axle took about a quarter turn more to tighten on the Kickr than in the wheel. So the Kickr is slightly narrower, and tightening the axle pulls the dropouts in. The drive-side dropout is held against the trainer at the axle, so as it's pulled in, it bends slightly and tilts the derailleur hanger inwards. The derailleur ends up a fraction out of line with the cassette, which is enough to upset the indexing.
 
 <figure>
-  <p class="figure-title"><strong>Washers stop the trainer squeezing the frame</strong></p>
-  <img src="{{ '/assets/images/fixing-derailleur-alignment-on-a-wahoo-kickr/washers-schematic.svg' | relative_url }}" alt="Two rear views of the back of a bike on a trainer. Without washers, the dropouts are pulled in, the derailleur hanger tilts inwards and the derailleur sits to one side of its sprocket. With washers behind the non-drive-side adapter's collar, the frame sits at its natural width and the derailleur lines up with the sprocket.">
+  <p class="figure-title"><strong>Washers make the trainer as wide as the wheel's hub</strong></p>
+  <img src="{{ '/assets/images/fixing-derailleur-alignment-on-a-wahoo-kickr/washers-schematic.svg' | relative_url }}" alt="Two rear views of the back of a bike on a trainer. Without washers, the dropouts are pulled in, the derailleur hanger tilts inwards and the derailleur sits to one side of its sprocket. With washers behind the non-drive-side adapter's collar, the trainer matches the width of the wheel's hub and the derailleur lines up with the sprocket.">
   <figcaption>Rear view, not to scale, with the tilt exaggerated. The washers sit in the recess that holds the adapter, between its collar and the trainer.</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ To check yours, compare how far the axle turns before it's tight, in the wheel a
 
 ## The fix
 
-The Kickr's non-drive-side adapter (Adapter D in Wahoo's manual) slides into the trainer, and a collar stops it going in too far. Washers on the inner side of the collar make it sit slightly further out, which widens the trainer to match your wheel's hub. The axle then tightens at the same point as it does in the wheel, and the frame isn't squeezed.
+The Kickr's non-drive-side adapter (Adapter D in Wahoo's manual) slides into the trainer, and a collar stops it going in too far. Washers on the inner side of the collar make it sit slightly further out, which widens the trainer to match your wheel's hub. The axle then tightens at the same point as it does in the wheel, and the frame is held just as it is on the road.
 
 1. Pull the non-drive-side adapter out.
 2. Slide a washer over it, against the inner side of the collar: the side with the arrow, which points into the trainer.
