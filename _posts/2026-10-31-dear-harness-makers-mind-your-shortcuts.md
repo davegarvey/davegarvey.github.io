@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Dear harness makers
+title: "Dear harness makers: mind your shortcuts"
 date: 2026-10-31 10:47:05 +0100
 feed_id: urn:uuid:7bf05621-b389-4ab7-945e-58c7c5b37f82
 description: A short open letter to the makers of AI coding harnesses. If you take a keyboard shortcut for the whole operating system, say so, and let the user choose.
 image:
-  path: /assets/images/cards/dear-harness-makers-509d60aa.png
+  path: /assets/images/cards/dear-harness-makers-mind-your-shortcuts-509d60aa.png
   width: 1200
   height: 630
   alt: "Two keys, Command and D, above two app windows. A faint dashed line runs to the left window, which is silent; a solid orange arrow runs to the right window, which shows an orange sound wave."
