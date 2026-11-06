@@ -186,17 +186,16 @@ small, beside or under the post's title, so:
 - **Make one clear idea readable at thumbnail size.** LinkedIn shows the card about 250 px
   wide. One simple subject, high contrast, nothing small that matters. A little wit is
   welcome.
-- **Choose the style for the idea.** Most cards share a simple aesthetic: a dark
-  background, a few clean lines in off-white, and one or two accent colours, with the
-  accent on the element that matters. These can be drawn as SVG. A realistic image suits
-  a post with a concrete, physical subject. Nothing is off limits if it conveys the
-  post's point; avoid imagery that is merely decorative or stands in for "AI" in general.
+- **Keep to the house style.** Every card uses the same simple aesthetic, drawn as SVG:
+  a dark background, a few clean lines in off-white, and one or two accent colours, with
+  the accent on the element that matters. Keeping to it makes the cards consistent and
+  keeps each one readable as a thumbnail; realistic images don't suit the job. Within
+  that style, any subject is fine if it conveys the post's point; avoid imagery that is
+  merely decorative or stands in for "AI" in general.
 - **Make one version.** Open Graph has no light or dark variant, so each card has its own
   solid background and must read well on both light and dark feeds.
-- **Format:** 1200×630, PNG or JPEG, under 5 MB, fingerprinted like the others. Draw flat
-  cards as SVG in `assets/images/cards/` and render them with `scripts/render-cards`. A
-  raster card (for example from an image generator) needs converting and sizing, a
-  fingerprinted name and the post's `image` block setting by hand.
+- **Format:** 1200×630 PNG, under 5 MB, fingerprinted like the others. Draw cards as SVG
+  in `assets/images/cards/` and render them with `scripts/render-cards`.
 - **Write alt text** that describes the picture.
 
 ## Assets for sharing
@@ -206,8 +205,9 @@ separate image for him to attach to the LinkedIn post. It's optional: offer one 
 finishing a post, but a post can go without. Its job differs from the share card's: it has
 to stop someone scrolling and carry the post's message on its own.
 
-- **Decide what the image should be, then choose the approach.** It can be more stylised
-  than the share card, with a headline and a picture that conveys the argument. A chart
+- **Decide what the image should be, then choose the approach.** Unlike the share card,
+  this image has no house style: there's far more space, and its job is to catch the eye.
+  It has a headline and a picture that conveys the argument. A chart
   or diagram is best drawn as SVG (see below), but only if it carries the main point on
   its own; a chart that supports a secondary point stays in the post. Otherwise a
   realistic or illustrated scene usually works better in the feed, where it has to stop
