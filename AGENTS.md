@@ -28,13 +28,16 @@ anything lands in `_posts`:
 2. **Ask questions back.** Before drafting, raise a handful of questions on the
    substance — gaps, counterarguments, places where a concrete example would help,
    angles that would make the post more interesting. This is a real back-and-forth, not
-   a formality.
+   a formality. Before drafting, agree the post's argument in two or three sentences.
+   Ideas that don't serve it go into `ideas.md`, where they may become later posts.
 3. **Draft.** Once there's enough material, write a full draft in the style below.
    Before handing it over, read it once looking only for passages that would bore a
    reader: tangents, comparisons that undercut themselves, confessions that don't
    change the advice, obvious statements and points made twice. Cut them.
 4. **Revise together.** Dave reads the draft and gives feedback; expect several rounds
-   of revision on both substance and phrasing.
+   of revision on both substance and phrasing. Treat his suggestions as proposals: give a
+   view on each, keep proposed wording in the conversation rather than in files, and
+   change the post only once he says so.
 5. **Finish.** Once he's happy, move the file into `_posts` following the naming and
    front matter conventions in [README.md](README.md). Set the filename date and the
    `date` in front matter to the actual moment of publishing — not when drafting
@@ -63,7 +66,10 @@ his, and keep it sounding like him talking. Concretely:
   voice, without sensational claims, inflated promises or clickbait. Titles can vary in
   how much context they give; the article can supply what the title leaves open.
 - **Plain word over the pompous one.** "start" not "commence", "use" not "utilise".
-  Prefer the familiar word to the far-fetched one.
+  Prefer the familiar word to the far-fetched one. This is a rule against filler, not
+  against grown-up vocabulary: write in Dave's natural voice for an informed adult. He
+  dictates his feedback, so words he uses in it (such as "evident" or "user experience")
+  are part of his vocabulary and shouldn't be watered down.
 - **Cut needless words and hedges.** Strip filler qualifiers ("very", "quite",
   "somewhat", "arguably") unless they're doing real work.
 - **Active voice by default.** Use the passive only when the actor is genuinely
@@ -83,6 +89,8 @@ his, and keep it sounding like him talking. Concretely:
   than running long blocks of prose, but not so many that a short post reads like a report.
 - **Prefer concrete specifics over generalisation.** Facts and examples beat vague
   claims.
+- **Don't exaggerate.** Avoid overstatement and baseless claims. A claim a reader might
+  doubt needs a source; a self-evident one doesn't.
 - **Numbers:** spell out one to nine, use figures from 10 up.
 
 This is guidance, not a checklist to tick off — don't contort a sentence to satisfy a
@@ -178,15 +186,16 @@ small, beside or under the post's title, so:
 - **Make one clear idea readable at thumbnail size.** LinkedIn shows the card about 250 px
   wide. One simple subject, high contrast, nothing small that matters. A little wit is
   welcome.
-- **Choose the style for the idea.** Flat shapes in the site's palette suit most posts and
-  can be drawn as SVG. A realistic image suits a post with a concrete, physical subject;
-  avoid generic AI imagery (robots, glowing circuits) that looks like every other AI post.
+- **Keep to the house style.** Every card uses the same simple aesthetic, drawn as SVG:
+  a dark background, a few clean lines in off-white, and one or two accent colours, with
+  the accent on the element that matters. Keeping to it makes the cards consistent and
+  keeps each one readable as a thumbnail; realistic images don't suit the job. Within
+  that style, any subject is fine if it conveys the post's point; avoid imagery that is
+  merely decorative or stands in for "AI" in general.
 - **Make one version.** Open Graph has no light or dark variant, so each card has its own
   solid background and must read well on both light and dark feeds.
-- **Format:** 1200×630, PNG or JPEG, under 5 MB, fingerprinted like the others. Draw flat
-  cards as SVG in `assets/images/cards/` and render them with `scripts/render-cards`. A
-  raster card (for example from an image generator) needs converting and sizing, a
-  fingerprinted name and the post's `image` block setting by hand.
+- **Format:** 1200×630 PNG, under 5 MB, fingerprinted like the others. Draw cards as SVG
+  in `assets/images/cards/` and render them with `scripts/render-cards`.
 - **Write alt text** that describes the picture.
 
 ## Assets for sharing
@@ -196,9 +205,13 @@ separate image for him to attach to the LinkedIn post. It's optional: offer one 
 finishing a post, but a post can go without. Its job differs from the share card's: it has
 to stop someone scrolling and carry the post's message on its own.
 
-- **Make it engaging.** It can be more stylised than the share card, with a headline and
-  a picture that conveys the argument. A chart is one option, but only if it carries the
-  main point on its own; a chart that supports a secondary point stays in the post.
+- **Decide what the image should be, then choose the approach.** Unlike the share card,
+  this image has no house style: there's far more space, and its job is to catch the eye.
+  It has a headline and a picture that conveys the argument. A chart
+  or diagram is best drawn as SVG (see below), but only if it carries the main point on
+  its own; a chart that supports a secondary point stays in the post. Otherwise a
+  realistic or illustrated scene usually works better in the feed, where it has to stop
+  someone scrolling.
 - **Keep it faithful to the post.** The headline mustn't overstate the argument, and
   labels must use the post's own terms. Include the site's address (`davidgarvey.blog`),
   because the image travels without the link.
@@ -211,8 +224,9 @@ to stop someone scrolling and carry the post's message on its own.
   `assets/images/haiku-joins-the-price-war/linkedin.svg` is an example.
 - **Making the image.** Draw flat images as `linkedin.svg` and render `linkedin.png` from
   it with `rsvg-convert`. For realistic images, write a prompt for Dave's image tool, then
-  check the result closely, especially any text, which generators often get wrong, and
-  save it as `linkedin.png`, converted to PNG and sized to 1080×1350.
+  check the result closely: the exact size (generators often return other dimensions),
+  the spelling of any text, and sentence case in the headline. Save it as `linkedin.png`,
+  converted to PNG and sized to 1080×1350.
 - **Write alt text** for the platform's image editor, giving the headline and describing
   the picture.
 - **Keep the files with the post.** Put them in the post's image folder:
