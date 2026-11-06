@@ -6,6 +6,11 @@ article's readership and the trust behind Dave's voice as more important than re
 
 ## Write the post
 
+The post must sound like Dave, and never like a polished, generic AI-written LinkedIn
+post. Offer a draft as a starting point; he usually rewrites it in his own words. When he
+does, review his version against this guide, fix errors and missing links, and keep any
+further changes light.
+
 - Give the article's central point or a useful observation in Dave's own voice. The post
   should make sense on its own and offer a real idea, example or conclusion before asking
   anyone to visit the blog.
