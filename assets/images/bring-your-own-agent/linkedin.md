@@ -1,0 +1,1 @@
+Bring your own agent. A man sits at a table outside a sunny café with his laptop, smiling as a small white robot walks towards him carrying a cup of coffee on a tray. The robot has come out of a side door marked with an orange robot sign, next to the café's main entrance. davidgarvey.blog
