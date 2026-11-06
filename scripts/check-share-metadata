@@ -105,14 +105,19 @@ end
 
 # Optional images for attaching to LinkedIn posts. They are excluded from the
 # build, so check them in the source tree.
-LINKEDIN_SIZE = [1080, 1350]
+LINKEDIN_SIZE = [1200, 1200]
+LEGACY_LINKEDIN_SIZES = {
+  "assets/images/bring-your-own-agent/linkedin.png" => [1080, 1350],
+  "assets/images/letting-go-of-the-gearstick/linkedin.png" => [1080, 1350],
+}
 Dir.glob(File.join(__dir__, "..", "assets", "images", "*", "linkedin.png")).sort.each do |path|
   name = path.sub(%r{\A.*/assets/}, "assets/")
   bytes = File.binread(path)
   width, height = dimensions(bytes)
   problems = []
   problems << "not a PNG" if width.nil? || !bytes.start_with?("\x89PNG".b)
-  problems << "is #{width}x#{height}, not #{LINKEDIN_SIZE.join('x')}" if width && [width, height] != LINKEDIN_SIZE
+  expected_size = LEGACY_LINKEDIN_SIZES[name] || LINKEDIN_SIZE
+  problems << "is #{width}x#{height}, not #{expected_size.join('x')}" if width && [width, height] != expected_size
   problems << "is #{bytes.bytesize / 1024} KB, over the 5 MB limit" if bytes.bytesize > MAX_BYTES
   problems << "has no linkedin.md beside it with the alt text" unless File.file?(File.join(File.dirname(path), "linkedin.md"))
 
