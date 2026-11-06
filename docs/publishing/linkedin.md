@@ -6,20 +6,25 @@ article's readership and the trust behind Dave's voice as more important than re
 
 ## Write the post
 
-The post must sound like Dave, and never like a polished, generic AI-written LinkedIn
-post. Offer a draft as a starting point; he usually rewrites it in his own words. When he
-does, review his version against this guide, fix errors and missing links, and keep any
-further changes light.
+The post should start a conversation around the article's most interesting idea, rather
+than retell the article. Offer a draft as a starting point; Dave usually rewrites it in
+his own words. When he does, review his version against this guide, fix errors and
+missing links, and keep any further changes light.
 
-- Give the article's central point or a useful observation in Dave's own voice. The post
-  should make sense on its own and offer a real idea, example or conclusion before asking
-  anyone to visit the blog.
-- Be specific about what the article says and what a reader will find there. Keep the
-  claims faithful to the finished article; don't inflate the stakes or promise more than
-  it delivers.
-- Use restrained British English and the blog's clear, measured style. Avoid generic
-  hooks, formulaic teasers, manufactured controversy, engagement bait, and calls to
-  comment or react for reach.
+- Before writing, find the article's sharpest question, tension, surprising implication
+  or assumption a reader might challenge. Use that to shape the opening. A direct
+  question often works, but don't make every post a question or force a hook the article
+  hasn't earned.
+- Keep the opening concise and specific enough to make the reader pause. Follow it with
+  at most one or two short sentences of context when needed. Leave the explanation and
+  evidence to the article; create curiosity without giving its whole argument away.
+- Use a natural, thoughtful voice in restrained British English. Avoid an abstract-like
+  introduction, a list of what the article covers, generic AI phrasing, marketing
+  language, manufactured controversy, engagement bait, and calls to comment or react
+  for reach. Don't inflate the stakes or promise more than the article delivers.
+- Make the post and its claims understandable on their own, while giving a reader a
+  reason to follow the direct article URL. The post need not state the article's full
+  conclusion first.
 - Put the direct article URL in the post text. Don't write “link in comments” or make the
   reader hunt for it. A direct link is clear about where it goes and lets readers choose
   whether to follow it.

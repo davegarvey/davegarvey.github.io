@@ -215,8 +215,8 @@ to stop someone scrolling and carry the post's message on its own.
 - **Keep it faithful to the post.** The headline mustn't overstate the argument, and
   labels must use the post's own terms. Include the site's address (`davidgarvey.blog`),
   because the image travels without the link.
-- **Size for the platform.** LinkedIn shows portrait images large in the feed, so use
-  1080×1350. Use larger type and thicker lines than anything on the blog.
+- **Size for the platform.** Use a square 1200×1200 image. Use larger type and thicker
+  lines than anything on the blog.
 - **For a chart**, make a separate version: on the site, the title, caption and source are
   HTML around the chart, so the bare image has none of them. Draw the title (in the
   site's serif), a one-line explanation, axis titles, the source and the site's address
@@ -226,7 +226,8 @@ to stop someone scrolling and carry the post's message on its own.
   it with `rsvg-convert`. For realistic images, write a prompt for Dave's image tool, then
   check the result closely: the exact size (generators often return other dimensions),
   the spelling of any text, and sentence case in the headline. Save it as `linkedin.png`,
-  converted to PNG and sized to 1080×1350.
+  converted to PNG and sized to 1200×1200. Existing LinkedIn images can keep their
+  original dimensions.
 - **Write alt text** for the platform's image editor, giving the headline and describing
   the picture.
 - **Keep the files with the post.** Put them in the post's image folder:
