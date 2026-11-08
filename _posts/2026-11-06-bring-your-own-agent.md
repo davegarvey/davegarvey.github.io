@@ -32,7 +32,7 @@ So people will want their favourite agent to work with the services they use; we
 
 Most software companies are working out how to add AI to their products, and many opt for the ChatGPT-style experience. I took that route with [Zumia](https://zumia.app), a tool that tailors your CV to a job. I wanted control over the model, prompt, interface and workflow, so that I could create the best user experience. The catch is that when someone arrives, Zumia's agent knows nothing about them.
 
-Another tool I built is [Lidora](https://lidora.app), an RSS reader. Instead of adding an agent to it, I gave it an MCP server, so that people can bring their own. Their agent arrives already knowing them, and so is well placed to manage their feeds and recommend new ones.
+Another tool I built is [Lidora](https://lidora.app), an RSS reader. Instead of adding an agent to it, I gave it an MCP server, so that people can bring their own. Their agent arrives already knowing them, and so is well placed to manage their feeds and recommend new ones. Taking this approach means Lidora doesn’t have to pay to run an LLM for its users; that cost falls on them through the agent they choose.
 
 That's what I mean by headless. The service supplies the data and the actions. The user's own agent brings the chat interface and the judgement. The downside is that you give up control of the model, prompt, interface and workflow. If Zumia were headless, an agent could skip a step in its workflow and rewrite a CV without first asking about the gaps in it. Lidora, by contrast, has no such workflow, so there's little that can go wrong.
 
